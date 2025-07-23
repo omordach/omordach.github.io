@@ -1,7 +1,7 @@
 {
   "basics": {
     "name": "Oleh Mordach",
-    "label": "Technical Project Manager | Product Owner",
+    "label": "Technical Program Manager",
     "email": "omordach@gmail.com",
     "phone": "+48 727-452-024",
     "location": {
@@ -11,141 +11,9 @@
     "profiles": [
       {
         "network": "LinkedIn",
-        "username": "oleh-mordach",
         "url": "https://linkedin.com/in/oleh-mordach"
       }
     ],
-    "summary": "Technical Project Manager and Product Owner with 8+ years of experience delivering SaaS products in Agile environments. Skilled in stakeholder management, risk mitigation, and process optimization."
-  },
-  "work": [
-    {
-      "position": "Technical Project Manager & Product Owner",
-      "company": "GetCode",
-      "location": "Warsaw, Poland",
-      "startDate": "2022-11-01",
-      "endDate": "Present",
-      "highlights": [
-        "Reduced release cycles by 25% through iterative roadmaps",
-        "Grew product adoption by 40% with data-informed features",
-        "Expanded into new market segments"
-      ]
-    },
-    {
-      "position": "Technical Project Manager",
-      "company": "GetCode",
-      "location": "Lviv, Ukraine",
-      "startDate": "2018-10-01",
-      "endDate": "2022-03-01",
-      "highlights": [
-        "Improved delivery efficiency by 50%",
-        "Lowered project delays by 35% via proactive risk management",
-        "Decreased deployment downtime by 60% with process optimization"
-      ]
-    },
-    {
-      "position": "QA Automation Engineer",
-      "company": "GetCode",
-      "location": "Lviv, Ukraine",
-      "startDate": "2017-03-01",
-      "endDate": "2018-10-01",
-      "highlights": [
-        "Developed automation testing framework",
-        "Reduced regression testing time by 60%"
-      ]
-    },
-    {
-      "position": "QA Engineer",
-      "company": "GetCode",
-      "location": "Lviv, Ukraine",
-      "startDate": "2015-12-01",
-      "endDate": "2017-03-01",
-      "highlights": [
-        "Established QA processes from the ground up",
-        "Raised client satisfaction through thorough testing standards"
-      ]
-    }
-  ],
-  "education": [
-    {
-      "institution": "Ivan Franko National University of Lviv",
-      "area": "Political Science",
-      "studyType": "Master's",
-      "startDate": "2006-01-01",
-      "endDate": "2012-01-01"
-    }
-  ],
-  "skills": [
-    {
-      "name": "Project Management & QA",
-      "keywords": [
-        "Agile Project Planning & Execution",
-        "Budgeting & Resource Coordination",
-        "Data-Driven Product Development",
-        "QA & Automation Frameworks",
-        "Risk & Change Management",
-        "Stakeholder Communication"
-      ]
-    }
-  ],
-  "certifications": [
-    {
-      "title": "PMP",
-      "issuer": "PMI"
-    },
-    {
-      "title": "PSPO I",
-      "issuer": "Scrum.org"
-    },
-    {
-      "title": "PSM I",
-      "issuer": "Scrum.org"
-    },
-    {
-      "title": "ICAgile ICP",
-      "issuer": "ICAgile"
-    },
-    {
-      "title": "GCP-CDL",
-      "issuer": "Google Cloud"
-    }
-  ],
-  "courses": [
-    {
-      "title": "Delivery Manager",
-      "issuer": "Laba",
-      "date": "2024-04",
-      "summary": "Contract & cost control, P&L, team leadership"
-    },
-    {
-      "title": "Project Management",
-      "issuer": "LvBS",
-      "date": "2021-05",
-      "summary": "WBS, stakeholder management, risk analysis"
-    }
-  ],
-  "languages": [
-    {
-      "language": "English",
-      "fluency": "Fluent"
-    },
-    {
-      "language": "Ukrainian",
-      "fluency": "Native"
-    },
-    {
-      "language": "Polish",
-      "fluency": "Intermediate"
-    }
-  ],
-  "tools": [
-    "Jira",
-    "Confluence",
-    "Git",
-    "SQL",
-    "Postman",
-    "Figma",
-    "Trello",
-    "Google Workspace",
-    "MS Office"
-  ]
+    "summary": "Technical Program Manager"
+  }
 }
