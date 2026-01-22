@@ -17,8 +17,8 @@ const AboutSection = () => {
         <div className="grid md:grid-cols-2 gap-8 md:gap-16">
           <div className="space-y-6">
             <p className="text-body">
-              I'm a Senior Product and Program Manager with deep experience in IT, 
-              specializing in complex systems, large-scale programs, and cross-functional leadership.
+              I'm a Senior Project Manager and Product Delivery Lead with deep experience in IT, 
+              specializing in building high-performing teams and delivering predictable outcomes at scale.
             </p>
             <p className="text-body">
               My approach combines strategic thinking with hands-on execution—understanding 

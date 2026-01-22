@@ -10,15 +10,15 @@ const HeroSection = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="max-w-3xl"
       >
-        <p className="text-label mb-6">Senior Product & Program Manager</p>
+        <p className="text-label mb-6">Senior Project Manager | Product Delivery Lead</p>
         
         <h1 className="heading-display mb-8">
           Oleh Mordach
         </h1>
         
         <p className="text-body text-xl md:text-2xl max-w-2xl mb-12 leading-relaxed">
-          Delivering complex IT programs at scale. Building systems that work, 
-          leading cross-functional teams, and turning ambiguity into measurable outcomes.
+          Building high-performing teams and predictable delivery. 
+          Turning complexity into clarity and ambiguity into measurable outcomes.
         </p>
 
         <div className="flex flex-wrap gap-4">
