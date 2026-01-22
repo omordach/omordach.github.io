@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 interface ExperienceItem {
   role: string;
   company: string;
+  location: string;
   period: string;
   description: string;
   highlights: string[];
@@ -10,36 +11,52 @@ interface ExperienceItem {
 
 const experiences: ExperienceItem[] = [
   {
-    role: "Senior Program Manager",
-    company: "Enterprise Technology",
-    period: "2021 — Present",
-    description: "Leading cross-functional programs across multiple product lines, coordinating 50+ engineers and stakeholders.",
+    role: "Senior Project Manager / Product Delivery Lead",
+    company: "Get-Code",
+    location: "Warsaw, Poland (Remote)",
+    period: "Nov 2022 – Present",
+    description: "Serves as the Senior Project Manager / Product Delivery Lead for a modular ERP/CRM SaaS platform, overseeing architecture, infrastructure, and delivery for 100+ enterprise clients across North America.",
     highlights: [
-      "Delivered $12M program on time, achieving 40% improvement in release velocity",
-      "Established governance framework adopted organization-wide",
-      "Led digital transformation initiative impacting 200+ internal users",
-    ],
-  },
-  {
-    role: "Product Manager",
-    company: "SaaS Platform",
-    period: "2018 — 2021",
-    description: "Owned product strategy and roadmap for B2B platform serving 500+ enterprise customers.",
-    highlights: [
-      "Grew product revenue by 85% through strategic feature prioritization",
-      "Reduced customer churn by 30% via data-driven product improvements",
-      "Built and mentored product team from 2 to 8 members",
+      "Lead the end-to-end lifecycle and roadmap planning for a high-scale platform, ensuring alignment with business objectives and client requirements",
+      "Designed and managed infrastructure for multi-client customization, achieving 10+ releases per day through optimized CI/CD pipelines",
+      "Reduced release regression rates by 30% by implementing enhanced test automation strategies and staged rollout process",
+      "Fostered alignment among distributed engineering teams, balancing scope, time, and cost to deliver measurable value",
+      "Orchestrated the full release lifecycle from roadmap planning to automated production rollout",
     ],
   },
   {
     role: "Technical Project Manager",
-    company: "IT Consulting",
-    period: "2015 — 2018",
-    description: "Managed delivery of complex technical projects for Fortune 500 clients.",
+    company: "GetCode",
+    location: "Lviv, Ukraine (Remote)",
+    period: "Oct 2018 – Mar 2022",
+    description: "Focused on removing delivery bottlenecks, optimizing engineering workflows, and ensuring predictable program execution.",
     highlights: [
-      "Successfully delivered 15+ projects ranging from $500K to $5M",
-      "Achieved 98% client satisfaction across all engagements",
-      "Pioneered Agile adoption within the organization",
+      "Drove 50% improvement in project delivery efficiency by restructuring technical workflows and scaling Agile practices",
+      "Reduced unexpected project delays and budget overruns by 35% through advanced risk management strategy",
+      "Reduced deployment downtime by 60% through technical process optimization and improved site reliability standards",
+      "Created transparent reporting structures using KPIs and metrics for clear visibility into project health",
+    ],
+  },
+  {
+    role: "Quality Assurance Automation Engineer",
+    company: "GetCode",
+    location: "Lviv, Ukraine (Remote)",
+    period: "Mar 2017 – Oct 2018",
+    description: "Developed and scaled automation frameworks serving as a foundation for CI/CD initiatives.",
+    highlights: [
+      "Developed and scaled a comprehensive automation framework for future CI/CD initiatives",
+      "Reduced regression testing time by 60%, significantly accelerating the feedback loop for engineering teams",
+    ],
+  },
+  {
+    role: "Quality Assurance Engineer",
+    company: "GetCode",
+    location: "Lviv, Ukraine (Remote)",
+    period: "Dec 2015 – Mar 2017",
+    description: "Established quality assurance processes from scratch, building robust standards that enhanced overall client satisfaction.",
+    highlights: [
+      "Developed Quality Assurance processes from scratch with robust standards",
+      "Enhanced overall client satisfaction through systematic quality improvements",
     ],
   },
 ];
@@ -73,9 +90,9 @@ const ExperienceSection = () => {
                   <h3 className="text-xl font-medium text-foreground font-heading">
                     {exp.role}
                   </h3>
-                  <p className="text-muted-foreground">{exp.company}</p>
+                  <p className="text-muted-foreground">{exp.company} <span className="text-muted-foreground/60">• {exp.location}</span></p>
                 </div>
-                <p className="text-sm text-muted-foreground font-mono">{exp.period}</p>
+                <p className="text-sm text-muted-foreground font-mono whitespace-nowrap">{exp.period}</p>
               </div>
               
               <p className="text-body mb-4">{exp.description}</p>
