@@ -9,10 +9,13 @@ interface ExperienceItem {
   highlights: string[];
 }
 
+const COMPANY_GET_CODE = "Get-Code";
+const COMPANY_GETCODE = "GetCode";
+
 const experiences: ExperienceItem[] = [
   {
     role: "Senior Project Manager / Product Delivery Lead",
-    company: "Get-Code",
+    company: COMPANY_GET_CODE,
     location: "Warsaw, Poland (Remote)",
     period: "Nov 2022 – Present",
     description: "Serves as the Senior Project Manager / Product Delivery Lead for a modular ERP/CRM SaaS platform, overseeing architecture, infrastructure, and delivery for 100+ enterprise clients across North America.",
@@ -26,7 +29,7 @@ const experiences: ExperienceItem[] = [
   },
   {
     role: "Technical Project Manager",
-    company: "GetCode",
+    company: COMPANY_GETCODE,
     location: "Lviv, Ukraine (Remote)",
     period: "Oct 2018 – Mar 2022",
     description: "Focused on removing delivery bottlenecks, optimizing engineering workflows, and ensuring predictable program execution.",
@@ -39,7 +42,7 @@ const experiences: ExperienceItem[] = [
   },
   {
     role: "Quality Assurance Automation Engineer",
-    company: "GetCode",
+    company: COMPANY_GETCODE,
     location: "Lviv, Ukraine (Remote)",
     period: "Mar 2017 – Oct 2018",
     description: "Developed and scaled automation frameworks serving as a foundation for CI/CD initiatives.",
@@ -50,7 +53,7 @@ const experiences: ExperienceItem[] = [
   },
   {
     role: "Quality Assurance Engineer",
-    company: "GetCode",
+    company: COMPANY_GETCODE,
     location: "Lviv, Ukraine (Remote)",
     period: "Dec 2015 – Mar 2017",
     description: "Established quality assurance processes from scratch, building robust standards that enhanced overall client satisfaction.",
