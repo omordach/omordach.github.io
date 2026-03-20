@@ -2,7 +2,8 @@ import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import ExperienceSection from "@/components/ExperienceSection";
-import ImpactSection from "@/components/ImpactSection";
+import { lazy, Suspense } from "react";
+const ImpactSection = lazy(() => import("@/components/ImpactSection"));
 import SkillsSection from "@/components/SkillsSection";
 import CertificationsSection from "@/components/CertificationsSection";
 import ContactSection from "@/components/ContactSection";
@@ -16,7 +17,9 @@ const Index = () => {
         <HeroSection />
         <AboutSection />
         <ExperienceSection />
-        <ImpactSection />
+        <Suspense fallback={<div className="section-padding section-container flex items-center justify-center min-h-[500px]"><div className="w-8 h-8 border-4 border-accent border-t-transparent rounded-full animate-spin" /></div>}>
+          <ImpactSection />
+        </Suspense>
         <SkillsSection />
         <CertificationsSection />
         <ContactSection />
