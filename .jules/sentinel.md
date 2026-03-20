@@ -1,6 +1,4 @@
-# Sentinel's Journal
-
-## 2024-03-19 - [Adding Essential Security Headers to Static Vite App]
-**Vulnerability:** Missing security headers like Content-Security-Policy (CSP) and X-Content-Type-Options in a statically built React application.
-**Learning:** For serverless or purely static SPAs served from CDNs, traditional backend configurations for HTTP security headers aren't always directly accessible or straightforward to set up without additional infrastructure as code. However, adding them as `<meta>` tags inside `index.html` provides a necessary defense-in-depth layer against XSS, MIME-type sniffing, and other injection attacks directly at the browser level, regardless of the hosting provider.
-**Prevention:** Implement a secure baseline of `meta http-equiv` tags in `index.html` for all static projects as part of the initial boilerplate, specifically enforcing a strict CSP to reduce the attack surface.
+## 2023-10-27 - React dangerouslySetInnerHTML XSS in Style Tags
+**Vulnerability:** The `<style>` tag in the Shadcn UI `ChartStyle` component used `dangerouslySetInnerHTML` to render a raw CSS string built from chart configurations. If the application allowed user-supplied configurations for the chart colors, an attacker could supply a malicious color like `</style><script>alert(1)</script>` resulting in Cross-Site Scripting (XSS).
+**Learning:** Developers often assume that injecting strings directly into `<style>` tags using `dangerouslySetInnerHTML` is the only way to render dynamic CSS in React components without a CSS-in-JS library. This bypasses React's built-in escaping mechanisms.
+**Prevention:** Avoid `dangerouslySetInnerHTML` whenever possible. In React, standard children interpolation (`<style>{dynamicCSS}</style>`) natively escapes special characters like `<` and `>` during server-side rendering and text content assignment, neutralizing the XSS risk without breaking the style context.
