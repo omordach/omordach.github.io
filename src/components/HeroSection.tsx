@@ -44,7 +44,7 @@ const HeroSection = () => {
         transition={{ delay: 1.2, duration: 0.6 }}
         className="absolute bottom-12 left-6 md:left-8 lg:left-12"
       >
-        <a href="#about" className="text-muted-foreground hover:text-foreground transition-colors">
+        <a href="#about" aria-label="Scroll to About section" className="text-muted-foreground hover:text-foreground transition-colors">
           <ArrowDown className="w-5 h-5 animate-bounce" />
         </a>
       </motion.div>
