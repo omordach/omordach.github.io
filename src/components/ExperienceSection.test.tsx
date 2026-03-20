@@ -5,7 +5,7 @@ import ExperienceSection from "./ExperienceSection";
 // Mock framer-motion to avoid animation-related issues and IntersectionObserver requirements in tests
 vi.mock("framer-motion", () => ({
   motion: {
-    div: ({ children, className, id, ...props }: any) => {
+    div: ({ children, className, id, ...props }: { children?: React.ReactNode; className?: string; id?: string; [key: string]: unknown }) => {
       // Filter out framer-motion specific props to avoid React warnings on DOM elements
       const validProps = { className, id };
       return <div {...validProps}>{children}</div>;
