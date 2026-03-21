@@ -67,12 +67,6 @@ const HeroSection = () => {
             Professional Summary
             <ArrowDown className="w-4 h-4" />
           </a>
-          <a 
-            href="/tpm-journey"
-            className="inline-flex items-center gap-2 px-6 py-3 border border-border text-foreground font-medium text-sm tracking-wide transition-colors hover:bg-secondary rounded-sm"
-          >
-            My TPM Journey
-          </a>
         </div>
       </motion.div>
 

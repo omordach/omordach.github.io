@@ -19,8 +19,6 @@ const Navigation = () => {
     { label: "Experience", href: getHref("#experience") },
     { label: "Skills", href: getHref("#skills") },
     { label: "Certifications", href: getHref("#certifications") },
-    { label: "Blog", href: "/blog" },
-    { label: "TPM Journey", href: "/tpm-journey" },
     { label: "Contact", href: getHref("#contact") },
   ];
 
