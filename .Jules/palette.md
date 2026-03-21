@@ -1,3 +1,3 @@
-## 2026-03-05 - [Generative Engine Optimization (GEO) Content Structure]
-**Learning:** AI systems, particularly tools like Google AI Overviews and Perplexity, heavily weight well-structured semantic HTML with clear definition-lead openers, JSON-LD context schema, and explicit 'Quick Facts' style summary grids. Furthermore, explicit permission paths in robots.txt for AI bots are essential.
-**Action:** When auditing or implementing AI-readability features for personal or marketing sites, apply the "Entity Definition -> Concrete Specifics (tools/numbers) -> Structured Metadata (JSON-LD + Tables)" pattern to maximize citable AI retrieval outcomes.
+## 2025-03-21 - Improved Hero Section Readability
+**Learning:** Large, dense text blocks spanning the full screen width can overwhelm users and reduce readability. Breaking information into logical columns (e.g., Background vs. Expertise) and visually distinct sections improves scan-ability and visual hierarchy.
+**Action:** When encountering wide, wall-of-text sections, split the content using responsive grid layouts (like `grid-cols-1 md:grid-cols-2`) and subtle container styles (like `bg-card/30 border-border`) to present the information in more digestible, structured chunks.
