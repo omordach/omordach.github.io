@@ -75,8 +75,10 @@ const Navigation = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 text-foreground rounded-sm hover:bg-secondary transition-colors"
-              aria-label="Toggle menu"
+              className="md:hidden p-2 text-foreground rounded-sm hover:bg-secondary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-menu"
+              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -88,6 +90,7 @@ const Navigation = () => {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
+            id="mobile-menu"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
