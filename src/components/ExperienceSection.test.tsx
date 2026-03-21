@@ -10,6 +10,10 @@ vi.mock("framer-motion", () => ({
       const validProps = { className, id };
       return <div {...validProps}>{children}</div>;
     },
+    span: ({ children, className, id, ...props }: { children?: React.ReactNode; className?: string; id?: string; [key: string]: unknown }) => {
+      const validProps = { className, id };
+      return <span {...validProps}>{children}</span>;
+    }
   },
 }));
 
@@ -18,28 +22,26 @@ describe("ExperienceSection", () => {
     render(<ExperienceSection />);
 
     expect(screen.getByText("Experience")).toBeInTheDocument();
-    expect(screen.getByText("Career Highlights")).toBeInTheDocument();
+    expect(screen.getByText("Professional History")).toBeInTheDocument();
   });
 
   it("renders experience items correctly", () => {
     render(<ExperienceSection />);
 
     // Roles
-    expect(screen.getByText("Senior Project Manager / Product Delivery Lead")).toBeInTheDocument();
+    expect(screen.getByText("Delivery Lead & Senior Project Manager")).toBeInTheDocument();
     expect(screen.getByText("Technical Project Manager")).toBeInTheDocument();
     expect(screen.getByText("Quality Assurance Automation Engineer")).toBeInTheDocument();
     expect(screen.getByText("Quality Assurance Engineer")).toBeInTheDocument();
 
     // Companies - Note: the company names and locations are combined in the component: "{exp.company} • {exp.location}"
-    expect(screen.getByText(/Get-Code/)).toBeInTheDocument();
-    // Use getAllByText for GetCode because it appears multiple times
     expect(screen.getAllByText(/GetCode/).length).toBeGreaterThan(0);
   });
 
   it("renders description and highlights", () => {
     render(<ExperienceSection />);
 
-    expect(screen.getByText(/Serves as the Senior Project Manager/)).toBeInTheDocument();
-    expect(screen.getByText(/Lead the end-to-end lifecycle and roadmap planning/)).toBeInTheDocument();
+    expect(screen.getByText(/GetCode is a Warsaw-based software company delivering/)).toBeInTheDocument();
+    expect(screen.getByText(/Designed and implemented a CI\/CD release strategy using Gitea/)).toBeInTheDocument();
   });
 });

@@ -5,6 +5,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import BlogIndex from "./pages/blog/Index";
+import TpmJourneyIndex from "./pages/tpm-journey/Index";
 
 const queryClient = new QueryClient();
 
@@ -16,6 +18,8 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/blog" element={<BlogIndex />} />
+          <Route path="/tpm-journey" element={<TpmJourneyIndex />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

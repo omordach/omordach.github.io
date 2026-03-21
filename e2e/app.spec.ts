@@ -1,28 +1,22 @@
 import { test, expect } from '@playwright/test';
 
 test('homepage has correct title and visible main sections', async ({ page }) => {
+  // Navigate to index
   await page.goto('/');
 
-  // Verify the page title (usually Vite + React or similar, let's just make sure it loads something)
-  await expect(page).toHaveTitle(/Oleh Mordach/i);
+  // Verify page title
+  await expect(page).toHaveTitle(/Oleh Mordach/);
 
-  // Check that the Hero section displays the main heading
-  const mainHeading = page.locator('h1', { hasText: 'Oleh Mordach' });
-  await expect(mainHeading).toBeVisible();
-
-  // Check that the Navigation is visible (first one usually in header)
-  const nav = page.locator('nav').first();
-  await expect(nav).toBeVisible();
+  // Check that Hero section rendered
+  const heading = page.locator('h1', { hasText: 'Oleh Mordach' });
+  await expect(heading).toBeVisible();
 
   // Check the presence of a few sections by their headings
-  await expect(page.locator('h2', { hasText: 'Background' })).toBeVisible();
-  await expect(page.locator('h2', { hasText: 'Career Highlights' })).toBeVisible();
+  await expect(page.locator('h2', { hasText: 'Professional Summary' })).toBeVisible();
+  await expect(page.locator('h2', { hasText: 'Professional History' })).toBeVisible();
 
-  // Click the 'Get in Touch' button and verify it navigates/scrolls to Contact section
-  const contactButton = page.locator('a', { hasText: 'Get in Touch' });
-  await contactButton.click();
-
-  // The contact section heading should be visible in viewport eventually
-  const contactHeading = page.locator('h2', { hasText: "Let's Connect" });
-  await expect(contactHeading).toBeVisible();
+  // Click the 'Professional Summary' button and verify it navigates/scrolls to About section
+  const aboutButton = page.locator('a', { hasText: 'Professional Summary' });
+  await aboutButton.click();
+  await expect(page.url()).toContain('#about');
 });

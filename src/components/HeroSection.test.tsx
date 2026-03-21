@@ -19,20 +19,20 @@ describe("HeroSection", () => {
 
   it("renders the main title", () => {
     render(<HeroSection />);
-    const mainTitle = screen.getByRole("heading", { name: /Oleh Mordach/i });
+    const mainTitle = screen.getByRole("heading", { name: "Oleh Mordach" });
     expect(mainTitle).toBeInTheDocument();
   });
 
-  it("renders the 'Get in Touch' button with correct href", () => {
+  it("renders the 'My TPM Journey' button with correct href", () => {
     render(<HeroSection />);
-    const contactButton = screen.getByRole("link", { name: /Get in Touch/i });
+    const contactButton = screen.getByRole("link", { name: /My TPM Journey/i });
     expect(contactButton).toBeInTheDocument();
-    expect(contactButton).toHaveAttribute("href", "#contact");
+    expect(contactButton).toHaveAttribute("href", "/tpm-journey");
   });
 
-  it("renders the 'Learn More' button with correct href", () => {
+  it("renders the 'Professional Summary' button with correct href", () => {
     render(<HeroSection />);
-    const learnMoreButton = screen.getByRole("link", { name: /Learn More/i });
+    const learnMoreButton = screen.getByRole("link", { name: /Professional Summary/i });
     expect(learnMoreButton).toBeInTheDocument();
     expect(learnMoreButton).toHaveAttribute("href", "#about");
   });

@@ -19,14 +19,14 @@ describe("AboutSection", () => {
 
   it("renders the About section heading", () => {
     render(<AboutSection />);
-    const heading = screen.getByRole("heading", { name: /Background/i });
+    const heading = screen.getByRole("heading", { name: /Professional Summary/i });
     expect(heading).toBeInTheDocument();
   });
 
   it("renders the section text blocks", () => {
     render(<AboutSection />);
-    const text1 = screen.getByText(/I'm a Senior Project Manager and Product Delivery Lead/i);
-    const text2 = screen.getByText(/I thrive in environments where clarity is scarce/i);
+    const text1 = screen.getByText(/Oleh Mordach is a Technical Program Manager and Senior Delivery Lead/i);
+    const text2 = screen.getByText(/At GetCode, Oleh manages delivery of a modular SaaS ERP/i);
     expect(text1).toBeInTheDocument();
     expect(text2).toBeInTheDocument();
   });
