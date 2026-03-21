@@ -55,7 +55,7 @@ const HeroSection = () => {
             <span>Ukrainian · Polish · English</span>
 
             <span className="font-medium text-foreground">LinkedIn:</span>
-            <a href="https://www.linkedin.com/in/oleh-mordach/" className="text-accent hover:underline break-all">linkedin.com/in/oleh-mordach</a>
+            <a href="https://www.linkedin.com/in/oleh-mordach/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline break-all">linkedin.com/in/oleh-mordach</a>
           </div>
         </div>
 

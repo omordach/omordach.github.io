@@ -98,7 +98,7 @@ const TpmJourneyIndex = () => {
                 Are you a TPM, an aspiring TPM, or an engineering leader looking to optimize delivery? I am actively networking within the TPM community and always open to discussing system design, release automation, or program governance.
               </p>
               <div className="mt-6">
-                 <a href="https://www.linkedin.com/in/oleh-mordach/" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-medium text-sm tracking-wide transition-opacity hover:opacity-90 rounded-sm">
+                 <a href="https://www.linkedin.com/in/oleh-mordach/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-medium text-sm tracking-wide transition-opacity hover:opacity-90 rounded-sm">
                   Connect on LinkedIn
                 </a>
               </div>
