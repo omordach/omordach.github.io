@@ -13,7 +13,7 @@ const certifications: Certification[] = [
   { name: "PSM II", fullName: "Professional Scrum Master II", issuer: "Scrum.org", url: "https://www.credly.com/badges/a8127707-970c-4f62-be59-67ffa96493f9" },
   { name: "PSPO II", fullName: "Professional Scrum Product Owner II", issuer: "Scrum.org", url: "https://www.credly.com/badges/2ab40a08-fb58-4ebf-86b7-2a8f2733a101" },
   { name: "ICP-ATF", fullName: "Agile Team Facilitation", issuer: "ICAgile", url: "https://www.credly.com/badges/f85f154d-a965-4187-a7c7-ffbe01331117" },
-  { name: "A-CSPO", fullName: "Advanced Certified Scrum Product Owner", issuer: "Scrum Alliance" },
+  { name: "A-CSPO", fullName: "Advanced Certified Scrum Product Owner", issuer: "Scrum Alliance", url: "https://www.scrumalliance.org" },
   { name: "GCP-CDL", fullName: "Google Cloud Digital Leader", issuer: "Google", url: "https://www.credly.com/badges/304b4c9c-ef28-4cf5-8371-3700924d00a8" },
 ];
 

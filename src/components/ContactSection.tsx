@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Github } from "lucide-react";
+import { Mail, Linkedin, Github, Download } from "lucide-react";
 
 const ContactSection = () => {
   return (
@@ -20,26 +20,32 @@ const ContactSection = () => {
           about product, program management, and building great things.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-6">
+        <div className="flex flex-wrap gap-4 sm:gap-6">
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 px-6 py-4 bg-primary text-primary-foreground hover:opacity-90 rounded-sm transition-all group"
+          >
+            <Download className="w-5 h-5" />
+            <span className="font-medium tracking-wide">Download Resume</span>
+          </a>
+
           <a
             href="mailto:omordach+cv@gmail.com"
-            className="inline-flex items-center gap-3 text-foreground hover:text-muted-foreground transition-colors group"
+            className="inline-flex items-center gap-3 px-6 py-4 border border-border bg-card/50 hover:bg-secondary rounded-sm transition-all group"
           >
-            <span className="w-10 h-10 flex items-center justify-center border border-border rounded-sm group-hover:border-muted-foreground/50 transition-colors">
-              <Mail className="w-4 h-4" />
-            </span>
-            <span className="font-medium">omordach+cv@gmail.com</span>
+            <Mail className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
+            <span className="font-medium">Email</span>
           </a>
 
           <a
             href="https://www.linkedin.com/in/oleh-mordach/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 text-foreground hover:text-muted-foreground transition-colors group"
+            className="inline-flex items-center gap-3 px-6 py-4 border border-border bg-card/50 hover:bg-secondary rounded-sm transition-all group"
           >
-            <span className="w-10 h-10 flex items-center justify-center border border-border rounded-sm group-hover:border-muted-foreground/50 transition-colors">
-              <Linkedin className="w-4 h-4" />
-            </span>
+            <Linkedin className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
             <span className="font-medium">LinkedIn</span>
           </a>
 
@@ -47,11 +53,9 @@ const ContactSection = () => {
             href="https://github.com/omordach"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 text-foreground hover:text-muted-foreground transition-colors group"
+            className="inline-flex items-center gap-3 px-6 py-4 border border-border bg-card/50 hover:bg-secondary rounded-sm transition-all group"
           >
-            <span className="w-10 h-10 flex items-center justify-center border border-border rounded-sm group-hover:border-muted-foreground/50 transition-colors">
-              <Github className="w-4 h-4" />
-            </span>
+            <Github className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
             <span className="font-medium">GitHub</span>
           </a>
         </div>

@@ -8,17 +8,27 @@ const Footer = () => {
         <p className="text-sm text-muted-foreground font-mono">
           © {currentYear} Oleh Mordach. All rights reserved.
         </p>
-        <nav className="flex flex-wrap justify-center gap-6">
-          <a href="/#about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-            About
-          </a>
-          <a href="/#experience" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-            Experience
-          </a>
-          <a href="/#contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-            Contact
-          </a>
-        </nav>
+        <div className="flex flex-wrap items-center justify-center gap-6">
+          <nav className="flex flex-wrap justify-center gap-6">
+            <a href="/#about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              About
+            </a>
+            <a href="/#experience" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Experience
+            </a>
+            <a href="/#contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Contact
+            </a>
+          </nav>
+          <div className="hidden md:flex items-center gap-4 border-l border-border pl-6">
+            <a href="https://www.linkedin.com/in/oleh-mordach/" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              LinkedIn
+            </a>
+            <a href="https://github.com/omordach" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              GitHub
+            </a>
+          </div>
+        </div>
       </div>
     </footer>
   );

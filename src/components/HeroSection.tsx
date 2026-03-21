@@ -13,9 +13,14 @@ const HeroSection = () => {
         <p className="text-label mb-2">Technical Program Manager & Senior Delivery Lead</p>
         <p className="text-xs text-muted-foreground mb-8">Last updated: March 2026</p>
         
-        <h1 className="heading-display mb-8">
-          Oleh Mordach
-        </h1>
+        <div className="mb-8">
+          <h1 className="heading-display mb-2">
+            Oleh Mordach
+          </h1>
+          <h2 className="text-2xl md:text-3xl text-muted-foreground font-heading">
+            Technical Program Manager
+          </h2>
+        </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 w-full">
           <div className="p-6 border border-border bg-card/30 rounded-sm">
@@ -74,11 +79,20 @@ const HeroSection = () => {
 
         <div className="flex flex-wrap gap-4">
           <a 
-            href="#about" 
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-medium text-sm tracking-wide transition-opacity hover:opacity-90 rounded-sm"
           >
-            Professional Summary
-            <ArrowDown className="w-4 h-4" />
+            Download Resume
+          </a>
+          <a 
+            href="https://www.linkedin.com/in/oleh-mordach/" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 border border-border bg-transparent text-foreground font-medium text-sm tracking-wide transition-colors hover:bg-secondary rounded-sm"
+          >
+            Connect on LinkedIn
           </a>
         </div>
       </motion.div>

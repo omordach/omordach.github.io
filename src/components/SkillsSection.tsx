@@ -24,23 +24,23 @@ const SkillsSection = () => {
         <p className="text-label mb-4">Skills & Expertise</p>
         <h2 className="heading-section">Technical & Program Management Competencies</h2>
         
-        <div className="overflow-x-auto mb-10 border border-border rounded-sm shadow-sm bg-card/50">
-          <table className="w-full text-left text-body border-collapse">
-            <thead className="bg-secondary/50 font-semibold text-foreground border-b border-border">
-              <tr>
-                <th className="py-4 px-6 min-w-[280px]">Domain</th>
-                <th className="py-4 px-6 min-w-[320px]">Skills & Tools</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-border">
-              {skillCategories.map((category, idx) => (
-                <tr key={idx} className="hover:bg-muted/30 transition-colors">
-                  <td className="py-4 px-6 font-medium text-foreground align-top">{category.domain}</td>
-                  <td className="py-4 px-6 leading-relaxed align-top">{category.skills}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="mb-10 border border-border rounded-sm shadow-sm bg-card/50">
+          <div className="hidden md:grid grid-cols-12 bg-secondary/50 font-semibold text-foreground border-b border-border">
+            <div className="col-span-4 py-4 px-6">Domain</div>
+            <div className="col-span-8 py-4 px-6">Skills & Tools</div>
+          </div>
+          <div className="divide-y divide-border">
+            {skillCategories.map((category, idx) => (
+              <div key={idx} className="grid grid-cols-1 md:grid-cols-12 hover:bg-muted/30 transition-colors">
+                <div className="col-span-1 md:col-span-4 py-4 px-6 font-medium text-foreground align-top bg-muted/10 md:bg-transparent">
+                  {category.domain}
+                </div>
+                <div className="col-span-1 md:col-span-8 py-3 md:py-4 px-6 leading-relaxed align-top">
+                  {category.skills}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         <p className="text-body max-w-4xl leading-relaxed">

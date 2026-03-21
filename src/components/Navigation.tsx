@@ -58,16 +58,25 @@ const Navigation = () => {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-7">
               {navLinks.map((link) => {
-                const isActive = location.pathname === link.href;
+                const isActive = isHome ? (location.hash === link.href || (location.hash === '' && link.href === '#about')) : location.pathname === link.href;
                 return (
                 <a
                   key={link.href}
                   href={link.href}
+                  aria-current={isActive ? "page" : undefined}
                   className={`text-sm tracking-wide transition-colors ${isActive ? 'text-accent font-medium' : 'text-muted-foreground hover:text-foreground'}`}
                 >
                   {link.label}
                 </a>
               )})}
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ml-2 px-6 py-2 text-sm font-medium bg-primary text-primary-foreground rounded-sm hover:opacity-90 transition-opacity"
+              >
+                Resume
+              </a>
             </div>
 
             {/* Mobile Menu Button */}
@@ -96,16 +105,28 @@ const Navigation = () => {
             className="fixed inset-0 z-40 bg-background/95 backdrop-blur-md pt-24 md:hidden border-b border-border shadow-lg h-fit pb-8"
           >
             <nav className="section-container flex flex-col gap-6">
-              {navLinks.map((link) => (
+              {navLinks.map((link) => {
+                const isActive = isHome ? (location.hash === link.href || (location.hash === '' && link.href === '#about')) : location.pathname === link.href;
+                return (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-xl font-heading text-foreground hover:text-accent transition-colors border-b border-border/50 pb-2"
+                  aria-current={isActive ? "page" : undefined}
+                  className={`text-xl font-heading transition-colors border-b border-border/50 pb-2 ${isActive ? 'text-accent' : 'text-foreground hover:text-accent'}`}
                 >
                   {link.label}
                 </a>
-              ))}
+              )})}
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-xl font-heading text-foreground hover:text-accent transition-colors border-b border-border/50 pb-2 mt-2"
+              >
+                Download Resume
+              </a>
             </nav>
           </motion.div>
         )}
