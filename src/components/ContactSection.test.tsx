@@ -29,8 +29,8 @@ describe("ContactSection", () => {
   it("renders contact links with correct attributes", () => {
     render(<ContactSection />);
 
-    // Email link
-    const emailLink = screen.getByRole("link", { name: /omordach\+cv@gmail\.com/i });
+    // Email link - updated to query by the text 'Email'
+    const emailLink = screen.getByRole("link", { name: /Email/i });
     expect(emailLink).toHaveAttribute("href", "mailto:omordach+cv@gmail.com");
     expect(emailLink).not.toHaveAttribute("target");
     expect(emailLink).not.toHaveAttribute("rel");

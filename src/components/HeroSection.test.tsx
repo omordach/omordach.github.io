@@ -23,10 +23,21 @@ describe("HeroSection", () => {
     expect(mainTitle).toBeInTheDocument();
   });
 
-  it("renders the 'Professional Summary' button with correct href", () => {
+  it("renders the Download Resume and Connect on LinkedIn buttons", () => {
     render(<HeroSection />);
-    const learnMoreButton = screen.getByRole("link", { name: /Professional Summary/i });
-    expect(learnMoreButton).toBeInTheDocument();
-    expect(learnMoreButton).toHaveAttribute("href", "#about");
+    const downloadResume = screen.getByRole("link", { name: /Download Resume/i });
+    const connectLinkedIn = screen.getByRole("link", { name: /Connect on LinkedIn/i });
+
+    expect(downloadResume).toBeInTheDocument();
+    expect(downloadResume).toHaveAttribute("href", "/resume.pdf");
+
+    expect(connectLinkedIn).toBeInTheDocument();
+    expect(connectLinkedIn).toHaveAttribute("href", "https://www.linkedin.com/in/oleh-mordach/");
+  });
+
+  it("renders the new tagline", () => {
+    render(<HeroSection />);
+    const tagline = screen.getByText(/Turning engineering complexity into measurable delivery outcomes/i);
+    expect(tagline).toBeInTheDocument();
   });
 });

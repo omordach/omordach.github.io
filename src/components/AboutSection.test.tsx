@@ -23,11 +23,29 @@ describe("AboutSection", () => {
     expect(heading).toBeInTheDocument();
   });
 
-  it("renders the section text blocks", () => {
+  it("renders the Background and Expertise cards", () => {
     render(<AboutSection />);
-    const text1 = screen.getByText(/Oleh Mordach is a Technical Program Manager and Senior Delivery Lead/i);
-    const text2 = screen.getByText(/At GetCode, Oleh manages delivery of a modular SaaS ERP/i);
-    expect(text1).toBeInTheDocument();
-    expect(text2).toBeInTheDocument();
+    const backgroundHeading = screen.getByRole("heading", { name: /Background/i });
+    const expertiseHeading = screen.getByRole("heading", { name: /Expertise/i });
+    expect(backgroundHeading).toBeInTheDocument();
+    expect(expertiseHeading).toBeInTheDocument();
+  });
+
+  it("renders the Quick Facts table", () => {
+    render(<AboutSection />);
+    const quickFactsHeading = screen.getByRole("heading", { name: /Quick Facts — Oleh Mordach/i });
+    expect(quickFactsHeading).toBeInTheDocument();
+
+    // There are multiple "Target: TPM" strings now, use getAllByText
+    const roleText = screen.getAllByText(/Delivery Lead & Senior PM → Target: TPM/i);
+    expect(roleText.length).toBeGreaterThan(0);
+  });
+
+  it("renders the Currently/Target status strip", () => {
+    render(<AboutSection />);
+    const currentlyText = screen.getByText(/Currently: Delivery Lead at/i);
+    const targetText = screen.getAllByText(/Target:/i);
+    expect(currentlyText).toBeInTheDocument();
+    expect(targetText.length).toBeGreaterThan(0);
   });
 });
