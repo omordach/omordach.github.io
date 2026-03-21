@@ -1,3 +1,3 @@
-## 2025-03-21 - Improved Hero Section Readability
-**Learning:** Large, dense text blocks spanning the full screen width can overwhelm users and reduce readability. Breaking information into logical columns (e.g., Background vs. Expertise) and visually distinct sections improves scan-ability and visual hierarchy.
-**Action:** When encountering wide, wall-of-text sections, split the content using responsive grid layouts (like `grid-cols-1 md:grid-cols-2`) and subtle container styles (like `bg-card/30 border-border`) to present the information in more digestible, structured chunks.
+## 2024-03-21 - Hero Section Redesign for Reduced Cognitive Load
+**Learning:** Hero sections containing too many disparate pieces of information (titles, multiple detailed cards, status bars, and dense data tables) can overwhelm users and increase cognitive load, preventing them from understanding the primary value proposition quickly. Users typically scan above the fold rather than read deeply.
+**Action:** Consolidate dense information (like background, expertise, and facts) into a dedicated "About" section below the fold, reserving the Hero section strictly for a clear, concise tagline, primary CTAs, and a subtle scroll indicator to encourage engagement without visual clutter.
