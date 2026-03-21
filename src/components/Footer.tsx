@@ -15,12 +15,6 @@ const Footer = () => {
           <a href="/#experience" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
             Experience
           </a>
-          <a href="/blog" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-            Blog
-          </a>
-          <a href="/tpm-journey" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-            TPM Journey
-          </a>
           <a href="/#contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
             Contact
           </a>

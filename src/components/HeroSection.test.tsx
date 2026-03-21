@@ -23,13 +23,6 @@ describe("HeroSection", () => {
     expect(mainTitle).toBeInTheDocument();
   });
 
-  it("renders the 'My TPM Journey' button with correct href", () => {
-    render(<HeroSection />);
-    const contactButton = screen.getByRole("link", { name: /My TPM Journey/i });
-    expect(contactButton).toBeInTheDocument();
-    expect(contactButton).toHaveAttribute("href", "/tpm-journey");
-  });
-
   it("renders the 'Professional Summary' button with correct href", () => {
     render(<HeroSection />);
     const learnMoreButton = screen.getByRole("link", { name: /Professional Summary/i });
