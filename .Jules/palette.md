@@ -1,0 +1,3 @@
+## 2026-03-05 - [Generative Engine Optimization (GEO) Content Structure]
+**Learning:** AI systems, particularly tools like Google AI Overviews and Perplexity, heavily weight well-structured semantic HTML with clear definition-lead openers, JSON-LD context schema, and explicit 'Quick Facts' style summary grids. Furthermore, explicit permission paths in robots.txt for AI bots are essential.
+**Action:** When auditing or implementing AI-readability features for personal or marketing sites, apply the "Entity Definition -> Concrete Specifics (tools/numbers) -> Structured Metadata (JSON-LD + Tables)" pattern to maximize citable AI retrieval outcomes.

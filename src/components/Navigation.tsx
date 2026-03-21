@@ -1,19 +1,28 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-
-const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
-  { label: "Impact", href: "#impact" },
-  { label: "Skills", href: "#skills" },
-  { label: "Certifications", href: "#certifications" },
-  { label: "Contact", href: "#contact" },
-];
+import { useLocation } from "react-router-dom";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+
+  // Use hash links if on the home page, otherwise use absolute paths to the home page anchors
+  const getHref = (hash: string) => {
+    return isHome ? hash : `/${hash}`;
+  };
+
+  const navLinks = [
+    { label: "About", href: getHref("#about") },
+    { label: "Experience", href: getHref("#experience") },
+    { label: "Skills", href: getHref("#skills") },
+    { label: "Certifications", href: getHref("#certifications") },
+    { label: "Blog", href: "/blog" },
+    { label: "TPM Journey", href: "/tpm-journey" },
+    { label: "Contact", href: getHref("#contact") },
+  ];
 
   useEffect(() => {
     let ticking = false;
@@ -39,32 +48,34 @@ const Navigation = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? "bg-background/95 backdrop-blur-sm border-b border-border" : ""
+          isScrolled ? "bg-background/95 backdrop-blur-sm border-b border-border shadow-sm py-2" : "py-4"
         }`}
       >
-        <div className="section-container">
-          <nav className="flex items-center justify-between h-16 md:h-20">
-            <a href="#" className="text-foreground font-heading text-lg font-medium">
-              OM
+        <div className="section-container max-w-[1400px]">
+          <nav className="flex items-center justify-between">
+            <a href="/" className="text-foreground font-heading text-xl tracking-tight font-semibold hover:text-accent transition-colors">
+              Oleh<span className="text-muted-foreground font-normal">.Mordach</span>
             </a>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-8">
-              {navLinks.map((link) => (
+            <div className="hidden md:flex items-center gap-7">
+              {navLinks.map((link) => {
+                const isActive = location.pathname === link.href;
+                return (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className={`text-sm tracking-wide transition-colors ${isActive ? 'text-accent font-medium' : 'text-muted-foreground hover:text-foreground'}`}
                 >
                   {link.label}
                 </a>
-              ))}
+              )})}
             </div>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 text-foreground"
+              className="md:hidden p-2 text-foreground rounded-sm hover:bg-secondary transition-colors"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -81,15 +92,15 @@ const Navigation = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-background pt-20 md:hidden"
+            className="fixed inset-0 z-40 bg-background/95 backdrop-blur-md pt-24 md:hidden border-b border-border shadow-lg h-fit pb-8"
           >
-            <nav className="section-container flex flex-col gap-6 pt-8">
+            <nav className="section-container flex flex-col gap-6">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-2xl font-heading text-foreground hover:text-muted-foreground transition-colors"
+                  className="text-xl font-heading text-foreground hover:text-accent transition-colors border-b border-border/50 pb-2"
                 >
                   {link.label}
                 </a>

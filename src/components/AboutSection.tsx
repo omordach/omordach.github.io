@@ -12,29 +12,24 @@ const AboutSection = () => {
         transition={{ duration: 0.6 }}
       >
         <p className="text-label mb-4">About</p>
-        <h2 className="heading-section">Background</h2>
+        <h2 className="heading-section">Professional Summary</h2>
         
         <div className="grid md:grid-cols-2 gap-8 md:gap-16">
           <div className="space-y-6">
-            <p className="text-body">
-              I'm a Senior Project Manager and Product Delivery Lead with deep experience in IT, 
-              specializing in building high-performing teams and delivering predictable outcomes at scale.
+            <p className="text-body leading-relaxed">
+              Oleh Mordach is a Technical Program Manager and Senior Delivery Lead, which is a professional responsible for orchestrating complex technical programs from inception to production deployment. He operates at the intersection of software engineering and program governance, translating technical complexity into delivery outcomes for enterprise clients.
             </p>
-            <p className="text-body">
-              My approach combines strategic thinking with hands-on execution—understanding 
-              both the big picture and the technical details that make delivery possible.
+            <p className="text-body leading-relaxed">
+              With a background that spans QA Engineering, QA Automation, and Technical Project Management, Oleh has progressively moved into senior delivery and program leadership roles. His career progression — from hands-on test automation to leading multi-team release cadences — gives him rare dual fluency in both engineering execution and stakeholder management.
             </p>
           </div>
           
           <div className="space-y-6">
-            <p className="text-body">
-              I thrive in environments where clarity is scarce and stakes are high. 
-              Whether it's aligning stakeholders, scaling processes, or navigating 
-              organizational complexity, I focus on outcomes that matter.
+            <p className="text-body leading-relaxed">
+              At GetCode, Oleh manages delivery of a modular SaaS ERP/CRM platform used by 100+ corporate clients across multiple industries. Key achievements include implementing a CI/CD pipeline strategy that enabled multiple production releases per week, designing an AI-assisted test generation architecture using LLM APIs (Claude), and leading Playwright-based test infrastructure adoption across distributed teams.
             </p>
-            <p className="text-body">
-              Systems thinking is at the core of how I work—seeing interdependencies, 
-              anticipating second-order effects, and building for sustainability.
+            <p className="text-body leading-relaxed">
+              Oleh holds PMP, PSM II, PSPO II, A-CSPO, and Google Cloud Digital Leader certifications. In 2026, he is pursuing the E5 Program & Portfolio Mastery certification to deepen portfolio management competencies aligned with enterprise TPM requirements.
             </p>
           </div>
         </div>
