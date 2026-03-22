@@ -1,4 +1,4 @@
-## 2023-10-27 - React dangerouslySetInnerHTML XSS in Style Tags
-**Vulnerability:** The `<style>` tag in the Shadcn UI `ChartStyle` component used `dangerouslySetInnerHTML` to render a raw CSS string built from chart configurations. If the application allowed user-supplied configurations for the chart colors, an attacker could supply a malicious color like `</style><script>alert(1)</script>` resulting in Cross-Site Scripting (XSS).
-**Learning:** Developers often assume that injecting strings directly into `<style>` tags using `dangerouslySetInnerHTML` is the only way to render dynamic CSS in React components without a CSS-in-JS library. This bypasses React's built-in escaping mechanisms.
-**Prevention:** Avoid `dangerouslySetInnerHTML` whenever possible. In React, standard children interpolation (`<style>{dynamicCSS}</style>`) natively escapes special characters like `<` and `>` during server-side rendering and text content assignment, neutralizing the XSS risk without breaking the style context.
+## 2024-05-24 - Fix insecure Math.random() usage
+**Vulnerability:** Use of insecure Math.random() for UI visual randomness in src/components/ui/sidebar.tsx
+**Learning:** While only used for cosmetic width generation, Math.random() is predictable and often flagged by security scanners. It's an unnecessary security risk when secure alternatives are available.
+**Prevention:** Always use window.crypto.getRandomValues() when random numbers are required, even for seemingly innocuous cosmetic variations. Provide a fallback if crypto is completely unavailable (e.g. testing environments).
