@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -51,23 +51,24 @@ const Navigation = () => {
       >
         <div className="section-container max-w-[1400px]">
           <nav className="flex items-center justify-between">
-            <a href="/" className="text-foreground font-heading text-xl tracking-tight font-semibold hover:text-accent transition-colors">
+            {/* Bolt: Optimized routing by replacing <a> tags with React Router <Link> components to enable SPA client-side navigation and prevent full page reloads. */}
+            <Link to="/" className="text-foreground font-heading text-xl tracking-tight font-semibold hover:text-accent transition-colors">
               Oleh<span className="text-muted-foreground font-normal">.Mordach</span>
-            </a>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-7">
               {navLinks.map((link) => {
                 const isActive = isHome ? (location.hash === link.href || (location.hash === '' && link.href === '#about')) : location.pathname === link.href;
                 return (
-                <a
+                <Link
                   key={link.href}
-                  href={link.href}
+                  to={link.href}
                   aria-current={isActive ? "page" : undefined}
                   className={`text-sm tracking-wide transition-colors ${isActive ? 'text-accent font-medium' : 'text-muted-foreground hover:text-foreground'}`}
                 >
                   {link.label}
-                </a>
+                </Link>
               )})}
               <a
                 href="/resume.pdf"
@@ -108,15 +109,15 @@ const Navigation = () => {
               {navLinks.map((link) => {
                 const isActive = isHome ? (location.hash === link.href || (location.hash === '' && link.href === '#about')) : location.pathname === link.href;
                 return (
-                <a
+                <Link
                   key={link.href}
-                  href={link.href}
+                  to={link.href}
                   onClick={() => setMobileMenuOpen(false)}
                   aria-current={isActive ? "page" : undefined}
                   className={`text-xl font-heading transition-colors border-b border-border/50 pb-2 ${isActive ? 'text-accent' : 'text-foreground hover:text-accent'}`}
                 >
                   {link.label}
-                </a>
+                </Link>
               )})}
               <a
                 href="/resume.pdf"
