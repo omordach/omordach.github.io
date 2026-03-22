@@ -1,3 +1,7 @@
 ## 2024-03-21 - Hero Section Redesign for Reduced Cognitive Load
 **Learning:** Hero sections containing too many disparate pieces of information (titles, multiple detailed cards, status bars, and dense data tables) can overwhelm users and increase cognitive load, preventing them from understanding the primary value proposition quickly. Users typically scan above the fold rather than read deeply.
 **Action:** Consolidate dense information (like background, expertise, and facts) into a dedicated "About" section below the fold, reserving the Hero section strictly for a clear, concise tagline, primary CTAs, and a subtle scroll indicator to encourage engagement without visual clutter.
+
+## 2024-03-22 - Add Global Focus Visible Styles for Links
+**Learning:** While shadcn/ui provides `focus-visible` styles on its custom components, native HTML elements like `<a>` and `<button>` often lack distinct keyboard focus indicators by default unless explicitly styled in global CSS. This breaks keyboard navigation flow when mixing custom components with native elements.
+**Action:** Add global `focus-visible` styles to base HTML interactive elements in `@layer base` of `index.css` using standard Tailwind ring utilities (`focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2`) to ensure a consistent, accessible keyboard navigation experience across the entire application without needing to manually add classes to every native element.
