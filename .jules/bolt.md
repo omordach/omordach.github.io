@@ -4,3 +4,6 @@
 ## 2026-03-21 - React Router Lazy Loading Strategy
 **Learning:** By dynamically importing main application routes (`/`, `/blog`, `/tpm-journey`, and `NotFound`) via `React.lazy` and wrapping them with `Suspense` in Vite + React stacks, the initial bundle footprint is significantly reduced. Users only download code essential to the page they currently view.
 **Action:** Always implement code splitting using `React.lazy` for primary application routes in the main `App.tsx` router configuration to ensure minimal initial load times.
+## 2025-05-20 - React Router Link vs Standard Anchor Tags for Internal Routing
+**Learning:** Using standard `<a>` tags for internal navigation within a React Router-based Single Page Application (SPA) causes full page reloads. This forces the browser to re-download HTML, re-parse JavaScript, and completely reset the React DOM state, eliminating the performance benefits of client-side routing. This can be especially harmful in apps with large initial bundles.
+**Action:** Always use React Router's `<Link>` or `<NavLink>` components for internal routing to ensure instantaneous, client-side transitions. To maintain hash anchor functionality (e.g., `#about`), implement a lightweight `ScrollToHash` side effect using `useLocation()` to manually scroll the DOM element into view when the route changes.
