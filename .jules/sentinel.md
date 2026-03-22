@@ -1,4 +1,4 @@
-## 2023-10-27 - React dangerouslySetInnerHTML XSS in Style Tags
-**Vulnerability:** The `<style>` tag in the Shadcn UI `ChartStyle` component used `dangerouslySetInnerHTML` to render a raw CSS string built from chart configurations. If the application allowed user-supplied configurations for the chart colors, an attacker could supply a malicious color like `</style><script>alert(1)</script>` resulting in Cross-Site Scripting (XSS).
-**Learning:** Developers often assume that injecting strings directly into `<style>` tags using `dangerouslySetInnerHTML` is the only way to render dynamic CSS in React components without a CSS-in-JS library. This bypasses React's built-in escaping mechanisms.
-**Prevention:** Avoid `dangerouslySetInnerHTML` whenever possible. In React, standard children interpolation (`<style>{dynamicCSS}</style>`) natively escapes special characters like `<` and `>` during server-side rendering and text content assignment, neutralizing the XSS risk without breaking the style context.
+## 2026-03-22 - Insecure cookie setting with HttpOnly flag from JavaScript
+**Vulnerability:** In `src/components/ui/sidebar.tsx`, the `HttpOnly` flag was being set via `document.cookie` in a client-side context.
+**Learning:** The `HttpOnly` flag is reserved for server-side `Set-Cookie` headers and is ignored by browsers when set via `document.cookie`. Any cookie set via JavaScript is, by definition, accessible to the script that set it, making `HttpOnly` inappropriate for client-side cookies.
+**Prevention:** Remove the `HttpOnly` flag from all client-side cookie assignments. Use `Secure` and `SameSite` flags to enhance security for client-side cookies instead.
