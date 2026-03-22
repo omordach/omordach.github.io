@@ -1,8 +1,6 @@
 import { renderHook, act } from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import { useIsMobile } from "./use-mobile";
-
-const MOBILE_BREAKPOINT = 768;
+import { useIsMobile, MOBILE_BREAKPOINT } from "./use-mobile";
 
 describe("useIsMobile", () => {
   let originalInnerWidth: number;
