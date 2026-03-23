@@ -1,8 +1,14 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
+import { useSEO } from "@/hooks/use-seo";
 
 const TpmJourneyIndex = () => {
+  useSEO(
+    "TPM Journey | Oleh Mordach",
+    "Documenting the transition from Senior Project Manager and Delivery Lead to Technical Program Manager (TPM). Insights on architecture, CI/CD, and program governance."
+  );
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Navigation />

@@ -1,8 +1,14 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
+import { useSEO } from "@/hooks/use-seo";
 
 const BlogIndex = () => {
+  useSEO(
+    "Blog | Oleh Mordach — TPM & Senior Delivery Lead",
+    "Read technical articles about CI/CD, Agile delivery, Playwright testing, AWS auto-scaling, and Technical Program Management by Oleh Mordach."
+  );
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Navigation />
