@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useSEO } from "@/hooks/use-seo";
 
 const NotFound = () => {
+  useSEO("404 Not Found | Oleh Mordach", "The page you are looking for does not exist.");
+
   return (
     <div className="flex min-h-screen items-center justify-center bg-muted">
       <div className="text-center">
