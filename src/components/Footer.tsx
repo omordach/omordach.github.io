@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import LiveStats from "./LiveStats";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -7,9 +8,12 @@ const Footer = () => {
     <footer className="section-container py-12">
       <div className="divider mb-8" />
       <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-        <p className="text-sm text-muted-foreground font-mono">
-          © {currentYear} Oleh Mordach. All rights reserved.
-        </p>
+        <div className="flex flex-col gap-1">
+          <LiveStats />
+          <p className="text-sm text-muted-foreground font-mono">
+            © {currentYear} Oleh Mordach. All rights reserved.
+          </p>
+        </div>
         <div className="flex flex-wrap items-center justify-center gap-6">
           <nav className="flex flex-wrap justify-center gap-6">
             <Link to="/#about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
