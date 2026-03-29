@@ -4,5 +4,5 @@
   ],
   "token": "${TINYBIRD_TOKEN}",
   "baseUrl": "https://api.tinybird.co",
-  "devMode": "branch"
+  "devMode": "local"
 }
