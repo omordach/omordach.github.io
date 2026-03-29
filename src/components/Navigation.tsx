@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useLocation, Link } from "react-router-dom";
@@ -9,18 +9,21 @@ const Navigation = () => {
   const location = useLocation();
   const isHome = location.pathname === "/";
 
-  // Use hash links if on the home page, otherwise use absolute paths to the home page anchors
-  const getHref = (hash: string) => {
-    return isHome ? hash : `/${hash}`;
-  };
+  // Bolt: Memoize navLinks to prevent redundant allocations on scroll re-renders
+  const navLinks = useMemo(() => {
+    // Use hash links if on the home page, otherwise use absolute paths to the home page anchors
+    const getHref = (hash: string) => {
+      return isHome ? hash : `/${hash}`;
+    };
 
-  const navLinks = [
-    { label: "About", href: getHref("#about") },
-    { label: "Experience", href: getHref("#experience") },
-    { label: "Skills", href: getHref("#skills") },
-    { label: "Certifications", href: getHref("#certifications") },
-    { label: "Contact", href: getHref("#contact") },
-  ];
+    return [
+      { label: "About", href: getHref("#about") },
+      { label: "Experience", href: getHref("#experience") },
+      { label: "Skills", href: getHref("#skills") },
+      { label: "Certifications", href: getHref("#certifications") },
+      { label: "Contact", href: getHref("#contact") },
+    ];
+  }, [isHome]);
 
   useEffect(() => {
     let ticking = false;

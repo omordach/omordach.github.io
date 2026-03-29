@@ -1,3 +1,4 @@
+import { useTinybirdTracking } from '../hooks/useTinybirdTracking';
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
@@ -8,8 +9,15 @@ import SkillsSection from "@/components/SkillsSection";
 import CertificationsSection from "@/components/CertificationsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import { useSEO } from "@/hooks/use-seo";
 
 const Index = () => {
+  useTinybirdTracking();
+  useSEO(
+    "Oleh Mordach — Technical Program Manager & Senior Delivery Lead | Warsaw",
+    "Oleh Mordach is a PMP-certified Technical Program Manager and Senior Delivery Lead in Warsaw, Poland. Expert in CI/CD automation, Agile SaaS delivery, and distributed team leadership for enterprise B2B platforms. Transitioning to TPM at tier-1 tech."
+  );
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
