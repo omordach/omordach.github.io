@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { renderHook, act } from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { useToast, toast, reducer } from "./use-toast";
+import type { State, Action, ToasterToast } from "./use-toast";
 
 describe("useToast", () => {
   beforeEach(() => {
@@ -46,7 +46,7 @@ describe("useToast", () => {
     const { result } = renderHook(() => useToast());
 
     let toastId = "";
-    let updateFn: any;
+    let updateFn: (props: ToasterToast) => void;
 
     act(() => {
       const toastData = toast({
@@ -160,32 +160,32 @@ describe("useToast", () => {
   });
 
   it("reducer coverage: ADD_TOAST, UPDATE_TOAST, DISMISS_TOAST, REMOVE_TOAST", () => {
-    let state: any = { toasts: [] };
-    const testToast = { id: "1", title: "Test", action: undefined };
+    let state: State = { toasts: [] };
+    const testToast: ToasterToast = { id: "1", title: "Test", action: undefined };
 
     // ADD_TOAST
-    state = reducer(state, { type: "ADD_TOAST", toast: testToast } as any);
+    state = reducer(state, { type: "ADD_TOAST", toast: testToast } as Action);
     expect(state.toasts).toHaveLength(1);
 
     // UPDATE_TOAST
-    state = reducer(state, { type: "UPDATE_TOAST", toast: { id: "1", title: "Updated" } } as any);
+    state = reducer(state, { type: "UPDATE_TOAST", toast: { id: "1", title: "Updated" } } as Action);
     expect(state.toasts[0].title).toBe("Updated");
 
     // DISMISS_TOAST single
-    state = reducer(state, { type: "DISMISS_TOAST", toastId: "1" } as any);
+    state = reducer(state, { type: "DISMISS_TOAST", toastId: "1" } as Action);
     expect(state.toasts[0].open).toBe(false);
 
     // DISMISS_TOAST all
-    state = reducer(state, { type: "DISMISS_TOAST" } as any);
+    state = reducer(state, { type: "DISMISS_TOAST" } as Action);
     expect(state.toasts[0].open).toBe(false);
 
     // REMOVE_TOAST single
-    state = reducer(state, { type: "REMOVE_TOAST", toastId: "1" } as any);
+    state = reducer(state, { type: "REMOVE_TOAST", toastId: "1" } as Action);
     expect(state.toasts).toHaveLength(0);
 
     // REMOVE_TOAST all
-    state = reducer(state, { type: "ADD_TOAST", toast: testToast } as any);
-    state = reducer(state, { type: "REMOVE_TOAST" } as any);
+    state = reducer(state, { type: "ADD_TOAST", toast: testToast } as Action);
+    state = reducer(state, { type: "REMOVE_TOAST" } as Action);
     expect(state.toasts).toHaveLength(0);
   });
 });
