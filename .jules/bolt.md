@@ -10,3 +10,6 @@
 ## 2024-03-22 - Avoid blind linting fixes when performing micro-optimizations
 **Learning:** Attempting to fix pre-existing linting warnings (like replacing `any` with `unknown` in tests) while performing unrelated performance optimizations can easily introduce breaking type errors and CI pipeline failures, significantly complicating a simple PR.
 **Action:** Strictly scope PR changes to the requested performance task. Do not touch or modify test files or address unrelated warnings unless explicitly part of the goal.
+## 2025-05-24 - Memoize Expensive CSS String Generation in Components
+**Learning:** Components that generate large CSS strings dynamically (e.g., inside a <style> tag) based on complex props or configurations can trigger expensive recalculations on every render, even when the underlying data hasn't changed. This is particularly impactful for chart components with many data keys.
+**Action:** Always wrap dynamic CSS generation logic in React.useMemo, ensuring all dependencies (IDs, configuration objects) are correctly specified and that the hooks are declared at the top level to adhere to the "Rules of Hooks".
