@@ -6,3 +6,7 @@
 **Vulnerability:** The application was attempting to set the `HttpOnly` flag on a cookie (`sidebar:state`) using client-side JavaScript (`document.cookie`).
 **Learning:** The `HttpOnly` attribute is designed specifically to prevent client-side scripts from accessing cookies (mitigating XSS risks). Therefore, it can only be set via the `Set-Cookie` HTTP response header from a server. Setting it via `document.cookie` in the browser simply fails or is ignored, providing a false sense of security.
 **Prevention:** Do not attempt to use `HttpOnly` in client-side `document.cookie` assignments. If a cookie must be `HttpOnly`, ensure it is generated and set by the backend server. If a cookie must be set and accessed by the client, accept that it cannot have the `HttpOnly` protection.
+## 2026-04-12 - Exposed Analytics API Token in Component
+**Vulnerability:** Tinybird API token and pipe URLs were exposed in the client-side bundle via `import.meta.env.VITE_TINYBIRD_*`.
+**Learning:** Prefixing environment variables with `VITE_` automatically bundles them into the frontend, making them accessible to anyone inspecting the site. Even read-only tokens should be protected to prevent abuse or data scraping.
+**Prevention:** Use a backend proxy to handle requests to third-party APIs that require authentication. Keep sensitive tokens in non-prefixed environment variables that are only accessible to the server-side environment.
