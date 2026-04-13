@@ -9,6 +9,9 @@ on:
       - "tinybird.json"
       - "**/*.ts"
 
+permissions:
+  contents: read
+
 env:
   TINYBIRD_TOKEN: ${{ secrets.TINYBIRD_TOKEN }}
 
