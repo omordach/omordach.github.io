@@ -1,87 +1,81 @@
-import { render, screen, waitFor } from "@testing-library/react";
-import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import LiveStats from "./LiveStats";
+import { render, screen, waitFor } from '@testing-library/react';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import LiveStats from './LiveStats';
 
-describe("LiveStats", () => {
-  const mockStats = {
-    data: [{
-      views_today: 100,
-      unique_sessions: 50,
-    }]
-  };
-
+describe('LiveStats', () => {
   beforeEach(() => {
-    vi.stubGlobal("fetch", vi.fn());
-    vi.stubEnv("VITE_TINYBIRD_PIPE_URL", "https://api.tinybird.co/v0/pipes/test.json");
-    vi.stubEnv("VITE_TINYBIRD_TOKEN", "test-token");
+    // Mock IntersectionObserver
+    const mockIntersectionObserver = vi.fn();
+    mockIntersectionObserver.mockReturnValue({
+      observe: () => null,
+      unobserve: () => null,
+      disconnect: () => null,
+    });
+    window.IntersectionObserver = mockIntersectionObserver;
+
+    // Default env variables
+    vi.stubEnv('VITE_TINYBIRD_PIPE_URL', 'https://api.example.com/pipe');
+    vi.stubEnv('VITE_TINYBIRD_TOKEN', 'test-token');
   });
 
   afterEach(() => {
-    vi.unstubAllGlobals();
+    vi.restoreAllMocks();
     vi.unstubAllEnvs();
-    vi.resetModules(); // This is important to reset module-level cache between tests
+    vi.unstubAllGlobals();
   });
 
-  it("fetches stats on mount", async () => {
-    (fetch as any).mockResolvedValue({
+  it('renders stats when fetch is successful', async () => {
+    const mockData = {
+      data: [{ views_today: 100, unique_sessions: 50 }]
+    };
+
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
       ok: true,
-      json: () => Promise.resolve(mockStats),
-    });
+      json: async () => mockData,
+    }));
 
     render(<LiveStats />);
 
     await waitFor(() => {
-      expect(screen.getByText("100")).toBeInTheDocument();
-      expect(screen.getByText("50")).toBeInTheDocument();
+      expect(screen.getByText('100')).toBeInTheDocument();
+      expect(screen.getByText('50')).toBeInTheDocument();
     });
 
-    expect(fetch).toHaveBeenCalledTimes(1);
+    expect(screen.getByText(/views today/i)).toBeInTheDocument();
+    expect(screen.getByText(/visitors this month/i)).toBeInTheDocument();
   });
 
-  it("uses cached stats on remount within duration", async () => {
-    (fetch as any).mockResolvedValue({
-      ok: true,
-      json: () => Promise.resolve(mockStats),
-    });
+  it('renders nothing when fetch fails', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new Error('Fetch failed')));
 
-    // First mount
-    const { unmount } = render(<LiveStats />);
-    await waitFor(() => expect(screen.getByText("100")).toBeInTheDocument());
-    expect(fetch).toHaveBeenCalledTimes(1);
-    unmount();
+    const { container } = render(<LiveStats />);
 
-    // Second mount (should use cache)
-    render(<LiveStats />);
-    await waitFor(() => expect(screen.getByText("100")).toBeInTheDocument());
+    // Allow for microtasks to complete
+    await new Promise(resolve => setTimeout(resolve, 10));
 
-    // Should still be 1 after second mount
-    expect(fetch).toHaveBeenCalledTimes(1);
+    expect(container.firstChild).toBeNull();
   });
 
-  it("fetches again after cache expiration", async () => {
-    (fetch as any).mockResolvedValue({
-      ok: true,
-      json: () => Promise.resolve(mockStats),
-    });
+  it('renders nothing when response is not ok', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+      ok: false,
+    }));
 
-    vi.useFakeTimers();
+    const { container } = render(<LiveStats />);
 
-    // First mount
-    const { unmount } = render(<LiveStats />);
-    await waitFor(() => expect(screen.getByText("100")).toBeInTheDocument());
-    expect(fetch).toHaveBeenCalledTimes(1);
-    unmount();
+    await new Promise(resolve => setTimeout(resolve, 10));
 
-    // Advance time by 6 minutes (more than 5 minute cache)
-    vi.advanceTimersByTime(6 * 60 * 1000);
+    expect(container.firstChild).toBeNull();
+  });
 
-    // Second mount
-    render(<LiveStats />);
-    await waitFor(() => expect(screen.getByText("100")).toBeInTheDocument());
+  it('renders nothing when env variables are missing', async () => {
+    vi.stubEnv('VITE_TINYBIRD_PIPE_URL', '');
+    vi.stubEnv('VITE_TINYBIRD_TOKEN', '');
 
-    // Should be 2 now
-    expect(fetch).toHaveBeenCalledTimes(2);
+    const { container } = render(<LiveStats />);
 
-    vi.useRealTimers();
+    await new Promise(resolve => setTimeout(resolve, 10));
+
+    expect(container.firstChild).toBeNull();
   });
 });

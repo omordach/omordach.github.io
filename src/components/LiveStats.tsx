@@ -22,15 +22,8 @@ const LiveStats = () => {
     }
 
     const fetchStats = async () => {
-      const url = import.meta.env.VITE_TINYBIRD_PIPE_URL;
-      const token = import.meta.env.VITE_TINYBIRD_TOKEN;
-
-      if (!url || !token) {
-        return;
-      }
-
       try {
-        const response = await fetch(`${url}?token=${token}`);
+        const response = await fetch('/api/stats');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
