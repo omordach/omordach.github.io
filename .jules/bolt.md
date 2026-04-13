@@ -10,3 +10,6 @@
 ## 2024-03-22 - Avoid blind linting fixes when performing micro-optimizations
 **Learning:** Attempting to fix pre-existing linting warnings (like replacing `any` with `unknown` in tests) while performing unrelated performance optimizations can easily introduce breaking type errors and CI pipeline failures, significantly complicating a simple PR.
 **Action:** Strictly scope PR changes to the requested performance task. Do not touch or modify test files or address unrelated warnings unless explicitly part of the goal.
+## 2026-04-05 - Module-Level Caching for API Calls
+**Learning:** In a React application, frequently re-mounting components (due to route changes or parent re-renders) can trigger redundant API calls if not properly managed. Using module-level variables for caching data and timestamps outside the component lifecycle allows persistence across re-mounts without the complexity of a global state manager for simple metrics.
+**Action:** Implement module-level caching with expiration logic for read-only API data that changes infrequently to reduce network overhead and improve perceived performance on subsequent page visits.

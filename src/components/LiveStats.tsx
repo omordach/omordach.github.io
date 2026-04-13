@@ -6,10 +6,21 @@ interface StatsData {
   unique_sessions: number;
 }
 
+// Module-level cache to prevent redundant requests within a short timeframe
+let statsCache: StatsData | null = null;
+let lastFetchTime = 0;
+const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes in milliseconds
+
 const LiveStats = () => {
-  const [stats, setStats] = useState<StatsData | null>(null);
+  const [stats, setStats] = useState<StatsData | null>(statsCache);
 
   useEffect(() => {
+    // If we have a valid cache, don't fetch again
+    const now = Date.now();
+    if (statsCache && (now - lastFetchTime < CACHE_DURATION)) {
+      return;
+    }
+
     const fetchStats = async () => {
       const url = import.meta.env.VITE_TINYBIRD_PIPE_URL;
       const token = import.meta.env.VITE_TINYBIRD_TOKEN;
@@ -33,10 +44,16 @@ const LiveStats = () => {
         }
 
         if (data && typeof data.views_today === 'number' && typeof data.unique_sessions === 'number') {
-          setStats({
+          const newStats = {
             views_today: data.views_today,
             unique_sessions: data.unique_sessions,
-          });
+          };
+
+          // Update cache
+          statsCache = newStats;
+          lastFetchTime = Date.now();
+
+          setStats(newStats);
         }
       } catch (error) {
         // Silently fail, do not render component
