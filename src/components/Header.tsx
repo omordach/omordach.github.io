@@ -1,8 +1,10 @@
-import { useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import { useLang } from '../context/LanguageContext'
 import type { Language } from '../i18n'
+
+const LANGS: Language[] = ['en', 'uk']
 
 export default function Header() {
   const { t, lang, setLang } = useLang()
@@ -11,7 +13,7 @@ export default function Header() {
   const navigate = useNavigate()
   const isHome = location.pathname === '/'
 
-  function scrollTo(id: string) {
+  const scrollTo = useCallback((id: string) => {
     setMenuOpen(false)
     if (!isHome) {
       navigate('/')
@@ -20,15 +22,15 @@ export default function Header() {
     } else {
       document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
     }
-  }
+  }, [isHome, navigate])
 
-  const navItems = [
+  const navItems = useMemo(() => [
     { label: t.nav.experience, id: 'experience' },
     { label: t.nav.services,   id: 'services'   },
     { label: t.nav.contact,    id: 'contact'     },
-  ]
+  ], [t.nav])
 
-  const langs: Language[] = ['en', 'uk']
+
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
@@ -56,7 +58,7 @@ export default function Header() {
 
             {/* Language switcher */}
             <div className="flex items-center gap-1 border border-slate-200 rounded-md overflow-hidden ml-2">
-              {langs.map((l) => (
+              {LANGS.map((l) => (
                 <button
                   key={l}
                   onClick={() => setLang(l)}
@@ -75,7 +77,7 @@ export default function Header() {
           {/* Mobile: lang switcher + burger */}
           <div className="flex md:hidden items-center gap-3">
             <div className="flex items-center gap-0.5 border border-slate-200 rounded-md overflow-hidden">
-              {langs.map((l) => (
+              {LANGS.map((l) => (
                 <button
                   key={l}
                   onClick={() => setLang(l)}
