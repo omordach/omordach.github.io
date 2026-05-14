@@ -12,7 +12,7 @@ export const uk = {
       'Понад 10 років досвіду в IT — поєдную технічну складність із бізнес-стратегією. Підтверджений досвід масштабування B2B SaaS-продуктів та керівництва крос-функціональними командами в динамічних Agile-середовищах.',
     ctaPrimary: 'Переглянути Послуги',
     ctaSecondary: "Зв'язатись",
-    badges: ['PMP®', 'PSM II', 'PSPO II', 'Google Cloud DL', 'ICP-ATF'],
+    badges: ['PMP®', 'PSM II', 'PSPO II', 'AWS AIF-C01', 'Google Cloud DL', 'ICP-ATF'],
   },
   achievements: {
     title: 'Ключові Досягнення',

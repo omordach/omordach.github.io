@@ -12,7 +12,7 @@ export const en = {
       'Over 10 years of IT experience bridging technical complexity and business strategy. Proven track record scaling B2B SaaS products and leading cross-functional teams in fast-paced Agile environments.',
     ctaPrimary: 'Explore Services',
     ctaSecondary: 'Get in Touch',
-    badges: ['PMP®', 'PSM II', 'PSPO II', 'Google Cloud DL', 'ICP-ATF'],
+    badges: ['PMP®', 'PSM II', 'PSPO II', 'AWS AIF-C01', 'Google Cloud DL', 'ICP-ATF'],
   },
   achievements: {
     title: 'Key Achievements',
