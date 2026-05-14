@@ -1,140 +1,111 @@
-# Oleh Mordach — Portfolio
+# Oleh Mordach — TPM Professional Website
 
-Professional portfolio website for Oleh Mordach, Senior Product & Program Manager.
+Professional single-page portfolio website for Oleh Mordach, Senior IT Manager & Technical Program Manager.
 
 **Live site**: [mordach.com](https://mordach.com)
 
-## Technology Stack
+## Overview
 
-- **React 18** with TypeScript
-- **Vite** for fast builds
-- **Tailwind CSS** for styling
-- **Framer Motion** for animations
+The site establishes authority, showcases measurable career achievements, presents consulting and training services, and provides a clear path for visitors to make contact. It supports bilingual content (English / Ukrainian) with no page reload.
+
+## Tech Stack
+
+- React 18 + TypeScript
+- Vite 7
+- Tailwind CSS
+- Framer Motion
+- shadcn/ui (Radix UI primitives)
+- React Hook Form + Zod
+- Recharts
+- Tinybird (analytics & live stats)
+- Vitest + Playwright (unit & e2e tests)
 
 ## Local Development
 
 ```bash
-# Install dependencies
 npm install
-
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
+npm run dev        # start dev server
+npm run build      # production build → dist/
+npm run preview    # preview production build
+npm run test       # run unit tests (vitest)
 ```
-
-## Deploying to GitHub Pages
-
-### Option 1: Manual Deployment
-
-1. Build the project:
-   ```bash
-   npm run build
-   ```
-
-2. The `dist/` folder contains all static files ready for deployment.
-
-3. Push the contents of `dist/` to your GitHub Pages repository, or configure GitHub Pages to serve from the `dist/` folder.
-
-### Option 2: GitHub Actions (Recommended)
-
-Create `.github/workflows/deploy.yml`:
-
-```yaml
-name: Deploy to GitHub Pages
-
-on:
-  push:
-    branches: [main]
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-      
-      - name: Install dependencies
-        run: npm ci
-      
-      - name: Build
-        run: npm run build
-      
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-```
-
-Then in your repository settings:
-1. Go to **Settings** → **Pages**
-2. Set **Source** to "Deploy from a branch"
-3. Select the `gh-pages` branch and `/ (root)` folder
 
 ## Project Structure
 
 ```
 src/
 ├── components/
-│   ├── Navigation.tsx         # Fixed header with mobile menu
-│   ├── HeroSection.tsx        # Full-height hero with name & value prop
-│   ├── AboutSection.tsx       # Background & philosophy
-│   ├── ExperienceSection.tsx  # Career highlights
-│   ├── SkillsSection.tsx      # Core competencies
-│   ├── CertificationsSection.tsx  # Professional credentials
-│   ├── ContactSection.tsx     # Contact links
-│   └── Footer.tsx
+│   ├── Navigation.tsx
+│   ├── HeroSection.tsx
+│   ├── AboutSection.tsx
+│   ├── ExperienceSection.tsx
+│   ├── SkillsSection.tsx
+│   ├── CertificationsSection.tsx
+│   ├── ImpactSection.tsx
+│   ├── LiveStats.tsx
+│   ├── ContactSection.tsx
+│   ├── Footer.tsx
+│   └── ui/                  # shadcn/ui components
+├── hooks/
+│   ├── use-mobile.tsx
+│   ├── use-seo.ts
+│   └── useTinybirdTracking.ts
+├── lib/
+│   ├── tinybird.ts
+│   └── utils.ts
 ├── pages/
-│   └── Index.tsx              # Main portfolio page
-├── index.css                  # Design system & global styles
-└── main.tsx                   # App entry point
+│   ├── Index.tsx
+│   ├── NotFound.tsx
+│   ├── blog/
+│   └── tpm-journey/
+├── index.css
+└── main.tsx
 ```
 
-## Customization
+## Features
 
-### Updating Content
+- Sticky navigation with smooth scroll
+- Bilingual support — EN / UK, persisted in `localStorage`
+- Key achievements with animated metrics
+- Services grid (Mentorship, Scrum Master, Product Owner, PM, TPM/TPO, Consultation, Interview Prep)
+- Contact form with inline validation + WhatsApp / Signal links
+- Live visitor stats via Tinybird
+- Fully responsive (320px → 1920px)
 
-All content is in the respective component files under `src/components/`. Edit the data arrays and text directly.
+## Analytics (Tinybird)
 
-### Changing Colors
+Page view tracking and live stats are powered by Tinybird. Configure your token in `.env.local`:
 
-The design system is defined in `src/index.css` using CSS custom properties. All colors use HSL values:
+```
+VITE_TINYBIRD_TOKEN=your_token_here
+```
+
+```bash
+npm run tinybird:dev      # local dev
+npm run tinybird:deploy   # deploy pipes & datasources
+```
+
+## Deployment
+
+The site deploys to GitHub Pages via GitHub Actions on every push to `main`. The workflow builds the project and publishes the `dist/` folder to the `gh-pages` branch.
+
+To set up manually:
+1. Go to **Settings → Pages**
+2. Set source to the `gh-pages` branch, `/ (root)` folder
+
+## Design System
+
+Colors are defined as CSS custom properties in `src/index.css`:
 
 ```css
 :root {
-  --background: 0 0% 7%;    /* Dark charcoal */
-  --foreground: 0 0% 98%;   /* Almost white */
-  --accent: 210 14% 40%;    /* Slate blue accent */
-  /* ... */
+  --background: 0 0% 7%;     /* dark charcoal */
+  --foreground: 0 0% 98%;    /* near white */
+  --accent: 210 14% 40%;     /* slate blue */
 }
 ```
 
-### Fonts
-
-The site uses:
-- **Playfair Display** for headings (elegant serif)
-- **Inter** for body text (clean sans-serif)
-
-Fonts are loaded via Google Fonts in `src/index.css`.
-
-## SEO
-
-The site includes:
-- Semantic HTML structure
-- Optimized meta tags
-- Open Graph & Twitter Card tags
-- Canonical URL
-- Fast load times with minimal dependencies
+Fonts: **Playfair Display** (headings) + **Inter** (body) via Google Fonts.
 
 ## License
 

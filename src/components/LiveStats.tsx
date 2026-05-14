@@ -6,21 +6,10 @@ interface StatsData {
   unique_sessions: number;
 }
 
-// Module-level cache to prevent redundant requests within a short timeframe
-let statsCache: StatsData | null = null;
-let lastFetchTime = 0;
-const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes in milliseconds
-
 const LiveStats = () => {
-  const [stats, setStats] = useState<StatsData | null>(statsCache);
+  const [stats, setStats] = useState<StatsData | null>(null);
 
   useEffect(() => {
-    // If we have a valid cache, don't fetch again
-    const now = Date.now();
-    if (statsCache && (now - lastFetchTime < CACHE_DURATION)) {
-      return;
-    }
-
     const fetchStats = async () => {
       try {
         const response = await fetch('/api/stats');
