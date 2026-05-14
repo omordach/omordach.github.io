@@ -34,7 +34,6 @@ omordach.github.io/
 │   │   └── index.ts           # Widen<T> type + dictionaries export
 │   ├── context/
 │   │   ├── LanguageContext.tsx # LanguageProvider + useLang hook
-│   │   └── useLanguage.ts     # Re-export for cleaner imports
 │   ├── components/
 │   │   ├── Header.tsx         # Sticky nav + language switcher + mobile menu
 │   │   ├── Hero.tsx           # Dark hero band with CTAs
