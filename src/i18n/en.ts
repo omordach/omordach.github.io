@@ -122,21 +122,21 @@ export const en = {
       },
       {
         slug: 'scrum-master',
-        title: 'Scrum Master Course',
+        title: 'Scrum Master Training',
         icon: 'RefreshCw',
         description:
           'Structured training covering Scrum theory, facilitation techniques, and practical preparation for PSM I / PSM II certification.',
       },
       {
         slug: 'product-owner',
-        title: 'Product Owner Course',
+        title: 'Product Owner Training',
         icon: 'LayoutList',
         description:
           'Deep dive into product vision, backlog management, stakeholder alignment, and PSPO I / PSPO II certification prep.',
       },
       {
         slug: 'project-management',
-        title: 'Project Management Course',
+        title: 'Project Management Training',
         icon: 'FolderKanban',
         description:
           'End-to-end SDLC, risk management, resource planning, and hybrid Agile/Waterfall approaches. Aligned with PMP exam content.',
@@ -196,7 +196,7 @@ export const en = {
       scrumMaster: {
         subtitle: 'From theory to confident facilitation — PSM I/II ready.',
         description:
-          'A practical, structured course that goes beyond the Scrum Guide to equip you with real facilitation skills, coaching techniques, and the depth of understanding required for PSM II-level mastery.',
+          'A practical, structured training that goes beyond the Scrum Guide to equip you with real facilitation skills, coaching techniques, and the depth of understanding required for PSM II-level mastery.',
         whatYouGet: [
           'Core Scrum theory, values, and accountabilities',
           'Sprint facilitation and event mastery (planning, retro, review, daily)',
@@ -210,12 +210,12 @@ export const en = {
           'PMs preparing for PSM I or PSM II certification',
           'Agile coaches building foundational credentials',
         ],
-        format: '8 structured modules · live sessions or self-paced with async Q&A · individual or small group',
+        format: 'On-demand training followed by a first intro call. Duration, structure and schedule will be discussed individually.',
       },
       productOwner: {
         subtitle: 'Own the product — not just the backlog.',
         description:
-          'This course shifts the focus from task tracking to genuine product ownership: vision, value maximisation, and stakeholder alignment at scale. Covers the full PSPO I and PSPO II curriculum with practical exercises drawn from real SaaS delivery.',
+          'This training shifts the focus from task tracking to genuine product ownership: vision, value maximisation, and stakeholder alignment at scale. Covers the full PSPO I and PSPO II curriculum drawn from real SaaS delivery.',
         whatYouGet: [
           'Product vision, goal-setting, and outcome vs output thinking',
           'Backlog creation, refinement, and prioritisation frameworks (WSJF, RICE, MoSCoW)',
@@ -229,12 +229,12 @@ export const en = {
           'Product Managers wanting a structured Agile framework grounding',
           'Founders and startup leads managing their own roadmaps',
         ],
-        format: '8 structured modules · live or self-paced · individual or small group',
+        format: 'On-demand training followed by a first intro call. Duration, structure and schedule will be discussed individually.',
       },
       projectManagement: {
         subtitle: 'Deliver complex projects predictably — at any scale.',
         description:
-          'A comprehensive course covering the full project lifecycle, risk, resource, and stakeholder management. Draws on real enterprise delivery examples and is mapped to PMI\'s PMP exam content for those pursuing certification.',
+          'A comprehensive training covering the full project lifecycle, risk, resource, and stakeholder management. Draws on real enterprise delivery examples and is mapped to PMI\'s PMP exam content for those pursuing certification.',
         whatYouGet: [
           'Project initiation, planning, execution, monitoring, and closure',
           'Risk identification, mitigation strategies, and issue escalation',
@@ -249,7 +249,7 @@ export const en = {
           'Tech leads and engineers managing delivery alongside coding',
           'Operations managers moving into tech project delivery',
         ],
-        format: '10 structured modules · live sessions + templates library · individual or small group',
+        format: 'On-demand training followed by a first intro call. Duration, structure and schedule will be discussed individually.',
       },
       technicalSkills: {
         subtitle: 'Speak the language of your engineers — fluently.',
@@ -269,7 +269,7 @@ export const en = {
           'Scrum Masters and POs working with complex engineering teams',
           'Career switchers entering technical project roles',
         ],
-        format: '6 focused modules · live sessions · practical exercises using real tools',
+        format: 'On-demand training followed by a first intro call. Duration, structure and schedule will be discussed individually.',
       },
       consultation: {
         subtitle: 'A focused session on your specific challenge.',
