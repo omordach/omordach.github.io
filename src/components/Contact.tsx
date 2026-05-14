@@ -63,7 +63,10 @@ export default function Contact() {
           {/* Form */}
           <div className="lg:col-span-2">
             {state === 'success' ? (
-              <div className="flex flex-col items-start gap-3 p-8 bg-green-50 border border-green-200 rounded-xl">
+              <div
+                className="flex flex-col items-start gap-3 p-8 bg-green-50 border border-green-200 rounded-xl"
+                aria-live="polite"
+              >
                 <CheckCircle className="text-green-600" size={28} />
                 <h3 className="text-base font-semibold text-slate-900">{t.contact.successTitle}</h3>
                 <p className="text-sm text-slate-600">{t.contact.successMessage}</p>
@@ -78,12 +81,14 @@ export default function Contact() {
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                    <label htmlFor="contact-name" className="block text-xs font-semibold text-slate-700 mb-1.5">
                       {t.contact.name}
                     </label>
                     <input
                       required
+                      id="contact-name"
                       type="text"
+                      aria-required="true"
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
                       placeholder={t.contact.namePlaceholder}
@@ -91,12 +96,14 @@ export default function Contact() {
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                    <label htmlFor="contact-email" className="block text-xs font-semibold text-slate-700 mb-1.5">
                       {t.contact.email}
                     </label>
                     <input
                       required
+                      id="contact-email"
                       type="email"
+                      aria-required="true"
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
                       placeholder={t.contact.emailPlaceholder}
@@ -106,10 +113,11 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                  <label htmlFor="contact-service" className="block text-xs font-semibold text-slate-700 mb-1.5">
                     {t.contact.service}
                   </label>
                   <select
+                    id="contact-service"
                     value={form.service}
                     onChange={(e) => setForm({ ...form, service: e.target.value })}
                     className="w-full border border-slate-200 rounded-lg px-3.5 py-2.5 text-sm text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
@@ -124,11 +132,13 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                  <label htmlFor="contact-message" className="block text-xs font-semibold text-slate-700 mb-1.5">
                     {t.contact.message}
                   </label>
                   <textarea
                     required
+                    id="contact-message"
+                    aria-required="true"
                     rows={5}
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
@@ -138,7 +148,7 @@ export default function Contact() {
                 </div>
 
                 {state === 'error' && (
-                  <p className="text-xs text-red-600">{t.contact.errorMessage}</p>
+                  <p role="alert" className="text-xs text-red-600">{t.contact.errorMessage}</p>
                 )}
 
                 <button
