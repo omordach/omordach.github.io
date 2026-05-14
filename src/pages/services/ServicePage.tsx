@@ -1,9 +1,9 @@
 import { useParams } from 'react-router-dom'
 import { useScrollTo } from '../../hooks/useScrollTo'
 import {
-  Users, RefreshCw, LayoutList, FolderKanban, Terminal, MessageSquare, BriefcaseIcon,
-  CheckCircle2, ChevronRight, ArrowLeft, type LucideIcon,
+  MessageSquare, CheckCircle2, ChevronRight, ArrowLeft,
 } from 'lucide-react'
+import { ICON_MAP } from '../../constants/icons'
 import { useLang } from '../../context/LanguageContext'
 
 type DetailKey =
@@ -18,11 +18,6 @@ const SLUG_TO_KEY: Record<string, DetailKey> = {
   'technical-skills':   'technicalSkills',
   'consultation':       'consultation',
   'interview-prep':     'interviewPrep',
-}
-
-const ICON_MAP: Record<string, LucideIcon> = {
-  Users, RefreshCw, LayoutList, FolderKanban, Terminal, MessageSquare,
-  BriefcaseBusiness: BriefcaseIcon,
 }
 
 export default function ServicePage() {
