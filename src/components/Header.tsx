@@ -1,5 +1,6 @@
 import { useCallback, useMemo, useState } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { useScrollTo } from '../hooks/useScrollTo'
 import { Menu, X } from 'lucide-react'
 import { useLang } from '../context/LanguageContext'
 import type { Language } from '../i18n'
@@ -9,20 +10,11 @@ const LANGS: Language[] = ['en', 'uk']
 export default function Header() {
   const { t, lang, setLang } = useLang()
   const [menuOpen, setMenuOpen] = useState(false)
-  const location = useLocation()
-  const navigate = useNavigate()
-  const isHome = location.pathname === '/'
-
+  const handleScrollTo = useScrollTo()
   const scrollTo = useCallback((id: string) => {
     setMenuOpen(false)
-    if (!isHome) {
-      navigate('/')
-      // allow Home to render before scrolling
-      setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }), 80)
-    } else {
-      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-    }
-  }, [isHome, navigate])
+    handleScrollTo(id)
+  }, [handleScrollTo])
 
   const navItems = useMemo(() => [
     { label: t.nav.experience, id: 'experience' },

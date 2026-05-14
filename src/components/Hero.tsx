@@ -1,12 +1,11 @@
 import { ArrowRight, MessageCircle } from 'lucide-react'
 import { useLang } from '../context/LanguageContext'
+import { useScrollTo } from '../hooks/useScrollTo'
 
 export default function Hero() {
   const { t } = useLang()
 
-  function scrollTo(id: string) {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-  }
+  const scrollTo = useScrollTo()
 
   return (
     <section className="relative bg-slate-900 overflow-hidden">
