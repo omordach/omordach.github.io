@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen, fireEvent, renderHook } from '@testing-library/react'
 import { vi, describe, it, expect } from 'vitest'
 import { LanguageProvider, useLang } from '../context/LanguageContext'
 
@@ -57,7 +57,7 @@ describe('LanguageContext', () => {
     // Suppress console.error for this test as React will log the error boundary failure
     const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {})
 
-    expect(() => render(<TestConsumer />)).toThrow('useLang must be used inside LanguageProvider')
+    expect(() => renderHook(() => useLang())).toThrow('useLang must be used inside LanguageProvider')
 
     consoleError.mockRestore()
   })
