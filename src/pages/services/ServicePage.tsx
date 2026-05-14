@@ -1,4 +1,5 @@
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
+import { useScrollTo } from '../../hooks/useScrollTo'
 import {
   Users, RefreshCw, LayoutList, FolderKanban, Terminal, MessageSquare, BriefcaseIcon,
   CheckCircle2, ChevronRight, ArrowLeft, type LucideIcon,
@@ -27,15 +28,10 @@ const ICON_MAP: Record<string, LucideIcon> = {
 export default function ServicePage() {
   const { slug = '' } = useParams<{ slug: string }>()
   const { t } = useLang()
-  const navigate = useNavigate()
+  const goToSection = useScrollTo()
 
   const detailKey = SLUG_TO_KEY[slug]
   const serviceItem = t.services.items.find((s) => s.slug === slug)
-
-  function goToSection(id: string) {
-    navigate('/')
-    setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }), 80)
-  }
 
   if (!detailKey || !serviceItem) {
     return (
