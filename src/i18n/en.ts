@@ -113,57 +113,57 @@ export const en = {
     title: 'Services',
     subtitle: 'Structured programs and personalized sessions for IT professionals at every stage.',
     cta: 'Learn More',
-    items: [
-      {
+    items: {
+      mentorship: {
         slug: 'mentorship',
         title: 'Mentorship',
         icon: 'Users',
         description:
           'Personalized 1-on-1 guidance for IT professionals navigating career growth, role transitions, or complex delivery challenges.',
       },
-      {
+      'scrum-master': {
         slug: 'scrum-master',
         title: 'Scrum Master Training',
         icon: 'RefreshCw',
         description:
           'Structured training covering Scrum theory, facilitation techniques, and practical preparation for PSM I / PSM II certification.',
       },
-      {
+      'product-owner': {
         slug: 'product-owner',
         title: 'Product Owner Training',
         icon: 'LayoutList',
         description:
           'Deep dive into product vision, backlog management, stakeholder alignment, and PSPO I / PSPO II certification prep.',
       },
-      {
+      'project-management': {
         slug: 'project-management',
         title: 'Project Management Training',
         icon: 'FolderKanban',
         description:
           'End-to-end SDLC, risk management, resource planning, and hybrid Agile/Waterfall approaches. Aligned with PMP exam content.',
       },
-      {
+      'technical-skills': {
         slug: 'technical-skills',
         title: 'Technical Skills for IT Managers',
         icon: 'Terminal',
         description:
           'Bridges the management/technology gap: CI/CD pipelines, cloud infrastructure basics, SaaS architecture for TPM and TPO roles.',
       },
-      {
+      consultation: {
         slug: 'consultation',
         title: 'Consultation',
         icon: 'MessageSquare',
         description:
           'Focused advisory sessions addressing delivery bottlenecks, process scaling challenges, or team structure issues.',
       },
-      {
+      'interview-prep': {
         slug: 'interview-prep',
         title: 'Interview Preparation',
         icon: 'BriefcaseBusiness',
         description:
           'Targeted coaching for PM / TPM / TPO roles: mock interviews, resume review, competency frameworks, and negotiation strategy.',
       },
-    ],
+    },
   },
   serviceDetail: {
     backToServices: '← Back to Services',

@@ -124,7 +124,7 @@ export default function Contact() {
                     className="w-full border border-slate-200 rounded-lg px-3.5 py-2.5 text-sm text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
                   >
                     <option value="">{t.contact.servicePlaceholder}</option>
-                    {t.services.items.map((s) => (
+                    {Object.values(t.services.items).map((s) => (
                       <option key={s.slug} value={s.slug}>
                         {s.title}
                       </option>

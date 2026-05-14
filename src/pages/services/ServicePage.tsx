@@ -30,7 +30,7 @@ export default function ServicePage() {
   const navigate = useNavigate()
 
   const detailKey = SLUG_TO_KEY[slug]
-  const serviceItem = t.services.items.find((s) => s.slug === slug)
+  const serviceItem = (t.services.items as Record<string, any>)[slug]
 
   function goToSection(id: string) {
     navigate('/')

@@ -113,57 +113,57 @@ export const uk = {
     title: 'Послуги',
     subtitle: 'Структуровані програми та персоналізовані сесії для IT-спеціалістів на будь-якому етапі.',
     cta: 'Дізнатись Більше',
-    items: [
-      {
+    items: {
+      mentorship: {
         slug: 'mentorship',
         title: 'Менторство',
         icon: 'Users',
         description:
           "Персоналізований 1-на-1 супровід для IT-спеціалістів, які розвивають кар'єру, змінюють роль або долають виклики доставки.",
       },
-      {
+      'scrum-master': {
         slug: 'scrum-master',
         title: 'Тренінг Scrum Master',
         icon: 'RefreshCw',
         description:
           'Структурований тренінг із теорії Scrum, технік фасилітації та практичної підготовки до PSM I / PSM II.',
       },
-      {
+      'product-owner': {
         slug: 'product-owner',
         title: 'Тренінг Product Owner',
         icon: 'LayoutList',
         description:
           'Глибоке занурення у продуктове бачення, управління беклогом, узгодження стейкхолдерів та підготовку до PSPO I / PSPO II.',
       },
-      {
+      'project-management': {
         slug: 'project-management',
         title: 'Тренінг з Управління Проєктами',
         icon: 'FolderKanban',
         description:
           'Повний SDLC, управління ризиками, планування ресурсів та гібридні підходи Agile/Waterfall. Відповідає програмі PMP.',
       },
-      {
+      'technical-skills': {
         slug: 'technical-skills',
         title: 'Технічні Навички для IT-Менеджерів',
         icon: 'Terminal',
         description:
           'Заповнює прогалину між менеджментом і технологіями: CI/CD, хмарна інфраструктура, SaaS-архітектура для TPM та TPO.',
       },
-      {
+      consultation: {
         slug: 'consultation',
         title: 'Консультація',
         icon: 'MessageSquare',
         description:
           'Цілеспрямовані консультаційні сесії для вирішення вузьких місць у доставці, проблем масштабування або структури команди.',
       },
-      {
+      'interview-prep': {
         slug: 'interview-prep',
         title: 'Підготовка до Співбесіди',
         icon: 'BriefcaseBusiness',
         description:
           "Цільовий коучинг для ролей PM / TPM / TPO: мок-співбесіди, огляд резюме, компетентнісні фреймворки та стратегія переговорів.",
       },
-    ],
+    },
   },
   serviceDetail: {
     backToServices: '← Назад до Послуг',
