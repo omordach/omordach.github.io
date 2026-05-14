@@ -13,8 +13,9 @@ export default function Contact() {
     e.preventDefault()
     setState('sending')
     try {
-      // Replace YOUR_FORM_ID with your Formspree form ID (https://formspree.io)
-      const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      // Use environment variable for Formspree ID to prevent exposing sensitive IDs in source code
+      const formId = import.meta.env.VITE_FORMSPREE_ID || 'YOUR_FORM_ID';
+      const res = await fetch(`https://formspree.io/f/${formId}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(form),
