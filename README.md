@@ -135,15 +135,13 @@ npx playwright test
 ### Contact form
 
 The contact form submits to [Formspree](https://formspree.io).  
-Before going live, replace the placeholder in [src/components/Contact.tsx](src/components/Contact.tsx):
+Before going live, set your Formspree form ID in a `.env` file (see `.env.example`):
 
-```ts
-// Change this line:
-const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', { ... })
-// To your real form ID from formspree.io/dashboard
+```bash
+VITE_FORMSPREE_ID=your_form_id_here
 ```
 
-No other environment variables are required — everything else is hardcoded or handled at build time.
+The app will use this environment variable to route form submissions. No other environment variables are required.
 
 ---
 
