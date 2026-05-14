@@ -17,7 +17,7 @@ export default function Contact() {
       const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ name: form.name.trim(), email: form.email.trim(), service: form.service, message: form.message.trim() }),
       })
       if (res.ok) {
         setState('success')
@@ -84,8 +84,9 @@ export default function Contact() {
                     <input
                       required
                       type="text"
+                      maxLength={100}
                       value={form.name}
-                      onChange={(e) => setForm({ ...form, name: e.target.value })}
+                      onChange={(e) => setForm({ ...form, name: e.target.value.slice(0, 100) })}
                       placeholder={t.contact.namePlaceholder}
                       className="w-full border border-slate-200 rounded-lg px-3.5 py-2.5 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
                     />
@@ -97,8 +98,9 @@ export default function Contact() {
                     <input
                       required
                       type="email"
+                      maxLength={100}
                       value={form.email}
-                      onChange={(e) => setForm({ ...form, email: e.target.value })}
+                      onChange={(e) => setForm({ ...form, email: e.target.value.slice(0, 100) })}
                       placeholder={t.contact.emailPlaceholder}
                       className="w-full border border-slate-200 rounded-lg px-3.5 py-2.5 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
                     />
@@ -128,10 +130,11 @@ export default function Contact() {
                     {t.contact.message}
                   </label>
                   <textarea
+                    maxLength={1000}
                     required
                     rows={5}
                     value={form.message}
-                    onChange={(e) => setForm({ ...form, message: e.target.value })}
+                    onChange={(e) => setForm({ ...form, message: e.target.value.slice(0, 1000) })}
                     placeholder={t.contact.messagePlaceholder}
                     className="w-full border border-slate-200 rounded-lg px-3.5 py-2.5 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition resize-none"
                   />
