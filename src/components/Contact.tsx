@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from 'react'
+import { useCallback, useMemo, useState, type FormEvent } from 'react'
 import { Send, MessageCircle, Linkedin, CheckCircle } from 'lucide-react'
 import { useLang } from '../context/LanguageContext'
 
@@ -9,7 +9,7 @@ export default function Contact() {
   const [state, setState] = useState<FormState>('idle')
   const [form, setForm] = useState({ name: '', email: '', service: '', message: '' })
 
-  async function handleSubmit(e: FormEvent) {
+  const handleSubmit = useCallback(async (e: FormEvent) => {
     e.preventDefault()
     setState('sending')
     try {
@@ -28,9 +28,9 @@ export default function Contact() {
     } catch {
       setState('error')
     }
-  }
+  }, [form])
 
-  const messengerButtons = [
+  const messengerButtons = useMemo(() => [
     {
       label: t.contact.whatsapp,
       href: 'https://wa.me/48727452024',
@@ -49,7 +49,7 @@ export default function Contact() {
       icon: <Linkedin size={16} />,
       className: 'bg-slate-700 hover:bg-slate-600 text-white',
     },
-  ]
+  ], [t.contact])
 
   return (
     <section id="contact" className="bg-white py-16 sm:py-20">
