@@ -103,6 +103,7 @@ export const uk = {
         'Google Cloud Digital Leader — Google',
         'ICP-ATF — ICAgile',
         'Scrum Better with Kanban (SKB) — Kanban University',
+        'AWS Certified AI Practitioner (AIF-C01) — Amazon Web Services',
         'AI in Business Development — Google',
         'Data Landscape & Practical GenAI for PMs — PMI',
       ],
@@ -333,7 +334,7 @@ export const uk = {
   },
   footer: {
     tagline: 'Будую передбачувані системи в складних середовищах.',
-    certifications: 'PMP® · PSM II · PSPO II · Google Cloud Digital Leader · ICP-ATF',
+    certifications: 'PMP® · PSM II · PSPO II · AWS Certified AI Practitioner · Google Cloud Digital Leader · ICP-ATF',
     rights: '© 2025 Олег Мордач. Всі права захищені.',
     location: 'Варшава, Польща',
   },
