@@ -20,43 +20,43 @@ const ContactSection = () => {
           about product, program management, and building great things.
         </p>
 
-        <div className="flex flex-wrap gap-4 sm:gap-6">
+        <div className="flex flex-wrap gap-3 sm:gap-4">
           <a
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-6 py-4 bg-primary text-primary-foreground hover:opacity-90 rounded-sm transition-all group"
+            className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-primary text-primary-foreground rounded-md font-medium text-sm tracking-wide hover:bg-primary/90 transition-colors shadow-sm"
           >
-            <Download className="w-5 h-5" />
-            <span className="font-medium tracking-wide">Download Resume</span>
+            <Download className="w-4 h-4" />
+            Download Resume
           </a>
 
           <a
             href="mailto:omordach+cv@gmail.com"
-            className="inline-flex items-center gap-3 px-6 py-4 border border-border bg-card/50 hover:bg-secondary rounded-sm transition-all group"
+            className="inline-flex items-center gap-2.5 px-6 py-3.5 border border-border bg-card text-foreground rounded-md font-medium text-sm hover:bg-secondary hover:border-border/60 transition-colors group"
           >
-            <Mail className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
-            <span className="font-medium">Email</span>
+            <Mail className="w-4 h-4 text-muted-foreground group-hover:text-accent transition-colors" />
+            Email
           </a>
 
           <a
             href="https://www.linkedin.com/in/oleh-mordach/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-6 py-4 border border-border bg-card/50 hover:bg-secondary rounded-sm transition-all group"
+            className="inline-flex items-center gap-2.5 px-6 py-3.5 border border-border bg-card text-foreground rounded-md font-medium text-sm hover:bg-secondary hover:border-border/60 transition-colors group"
           >
-            <Linkedin className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
-            <span className="font-medium">LinkedIn</span>
+            <Linkedin className="w-4 h-4 text-muted-foreground group-hover:text-accent transition-colors" />
+            LinkedIn
           </a>
 
           <a
             href="https://github.com/omordach"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-6 py-4 border border-border bg-card/50 hover:bg-secondary rounded-sm transition-all group"
+            className="inline-flex items-center gap-2.5 px-6 py-3.5 border border-border bg-card text-foreground rounded-md font-medium text-sm hover:bg-secondary hover:border-border/60 transition-colors group"
           >
-            <Github className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
-            <span className="font-medium">GitHub</span>
+            <Github className="w-4 h-4 text-muted-foreground group-hover:text-accent transition-colors" />
+            GitHub
           </a>
         </div>
       </motion.div>

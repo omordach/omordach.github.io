@@ -55,7 +55,7 @@ const Navigation = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? "bg-background/95 backdrop-blur-sm border-b border-border shadow-sm py-2" : "py-4"
+          isScrolled ? "bg-white/95 backdrop-blur-sm border-b border-border shadow-sm py-2" : "py-4"
         }`}
       >
         <div className="section-container max-w-[1400px]">
@@ -74,7 +74,7 @@ const Navigation = () => {
                   key={link.href}
                   to={link.href}
                   aria-current={isActive ? "page" : undefined}
-                  className={`text-sm tracking-wide transition-colors ${isActive ? 'text-accent font-medium' : 'text-muted-foreground hover:text-foreground'}`}
+                  className={`text-sm tracking-wide transition-colors pb-0.5 ${isActive ? 'text-accent font-semibold underline underline-offset-4 decoration-accent/40 decoration-2' : 'text-muted-foreground hover:text-foreground'}`}
                 >
                   {link.label}
                 </Link>
@@ -83,7 +83,7 @@ const Navigation = () => {
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ml-2 px-6 py-2 text-sm font-medium bg-primary text-primary-foreground rounded-sm hover:opacity-90 transition-opacity"
+                className="ml-2 px-5 py-2 text-sm font-medium bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors shadow-sm"
               >
                 Resume
               </a>
@@ -112,7 +112,7 @@ const Navigation = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-background/95 backdrop-blur-md pt-24 md:hidden border-b border-border shadow-lg h-fit pb-8"
+            className="fixed inset-0 z-40 bg-white/97 backdrop-blur-md pt-24 md:hidden border-b border-border shadow-lg h-fit pb-8"
           >
             <nav className="section-container flex flex-col gap-6">
               {navLinks.map((link) => {

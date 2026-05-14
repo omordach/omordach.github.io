@@ -16,21 +16,21 @@ const Footer = () => {
         </div>
         <div className="flex flex-wrap items-center justify-center gap-6">
           <nav className="flex flex-wrap justify-center gap-6">
-            <Link to="/#about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <Link to="/#about" className="text-sm text-muted-foreground hover:text-accent transition-colors">
               About
             </Link>
-            <Link to="/#experience" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <Link to="/#experience" className="text-sm text-muted-foreground hover:text-accent transition-colors">
               Experience
             </Link>
-            <Link to="/#contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <Link to="/#contact" className="text-sm text-muted-foreground hover:text-accent transition-colors">
               Contact
             </Link>
           </nav>
           <div className="hidden md:flex items-center gap-4 border-l border-border pl-6">
-            <a href="https://www.linkedin.com/in/oleh-mordach/" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <a href="https://www.linkedin.com/in/oleh-mordach/" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-accent transition-colors">
               LinkedIn
             </a>
-            <a href="https://github.com/omordach" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <a href="https://github.com/omordach" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-accent transition-colors">
               GitHub
             </a>
           </div>

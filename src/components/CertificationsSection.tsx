@@ -21,7 +21,7 @@ const CertificationsSection = () => {
   return (
     <section id="certifications" className="section-padding section-container">
       <div className="divider mb-16" />
-      
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -30,19 +30,25 @@ const CertificationsSection = () => {
       >
         <p className="text-label mb-4">Certifications</p>
         <h2 className="heading-section">Professional Credentials</h2>
-        
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {certifications.map((cert, index) => {
             const cardContent = (
-              <div className={`p-5 border border-border rounded-sm bg-card/50 h-full ${cert.url ? 'hover:bg-card/80 hover:border-primary/50 transition-colors cursor-pointer' : ''}`}>
-                <div className="flex justify-between items-start mb-3">
-                  <span className="cert-badge inline-block">{cert.name}</span>
+              <div
+                className={`p-6 border border-border rounded-md bg-card shadow-sm h-full transition-all duration-200 ${
+                  cert.url
+                    ? "hover:shadow-md hover:border-accent/35 hover:bg-accent/3 group cursor-pointer"
+                    : ""
+                }`}
+              >
+                <div className="flex justify-between items-start mb-4">
+                  <span className="cert-badge">{cert.name}</span>
                   {cert.url && (
-                    <ExternalLink className="w-4 h-4 text-muted-foreground" />
+                    <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-accent transition-colors" />
                   )}
                 </div>
-                <h3 className="text-foreground font-medium mb-1">{cert.fullName}</h3>
-                <p className="text-sm text-muted-foreground">{cert.issuer}</p>
+                <h3 className="text-foreground font-semibold text-sm mb-1">{cert.fullName}</h3>
+                <p className="text-xs text-muted-foreground">{cert.issuer}</p>
               </div>
             );
 

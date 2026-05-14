@@ -6,53 +6,54 @@
 
 @layer base {
   :root {
-    --background: 0 0% 7%;
-    --foreground: 0 0% 98%;
+    --background: 0 0% 98%;
+    --foreground: 222 47% 11%;
 
-    --card: 0 0% 10%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
 
-    --popover: 0 0% 10%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 7%;
+    --primary: 174 84% 29%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 14%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
 
-    --muted: 0 0% 18%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
 
-    --accent: 210 14% 40%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 174 84% 29%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 0 0% 40%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 174 84% 29%;
 
-    --radius: 0.25rem;
+    --radius: 0.375rem;
 
     /* Custom tokens */
-    --heading-primary: 0 0% 100%;
-    --text-secondary: 0 0% 70%;
-    --divider: 0 0% 20%;
-    --highlight: 45 100% 60%;
-    
+    --heading-primary: 222 47% 11%;
+    --text-secondary: 215 25% 35%;
+    --divider: 214 32% 91%;
+    --highlight: 174 84% 29%;
+    --teal-subtle: 175 100% 95%;
+
     --font-heading: 'Playfair Display', Georgia, serif;
     --font-body: 'Inter', system-ui, sans-serif;
 
-    --sidebar-background: 0 0% 7%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 0 0% 98%;
-    --sidebar-primary-foreground: 0 0% 7%;
-    --sidebar-accent: 0 0% 14%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 0 0% 20%;
-    --sidebar-ring: 0 0% 40%;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 174 84% 29%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 40% 96%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 214 32% 91%;
+    --sidebar-ring: 174 84% 29%;
   }
 }
 
@@ -75,11 +76,8 @@
   }
 
   a {
-
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm;
   }
-
-
 }
 
 @layer components {
@@ -109,8 +107,8 @@
   }
 
   .text-label {
-    @apply text-xs uppercase tracking-[0.2em] font-medium;
-    color: hsl(var(--muted-foreground));
+    @apply text-xs uppercase tracking-[0.2em] font-semibold;
+    color: hsl(var(--accent));
   }
 
   .divider {
@@ -119,35 +117,40 @@
   }
 
   .card-experience {
-    @apply p-6 md:p-8 rounded-sm border border-border bg-card transition-colors duration-300;
+    @apply p-6 md:p-8 rounded-md bg-card transition-all duration-300 shadow-sm;
+    border: 1px solid hsl(var(--border));
+    border-left: 3px solid hsl(var(--accent) / 0.2);
   }
 
   .card-experience:hover {
-    @apply border-muted-foreground/30;
+    @apply shadow-md;
+    border-left-color: hsl(var(--accent) / 0.55);
   }
 
   .skill-tag {
-    @apply px-4 py-2 text-sm font-medium rounded-sm border border-border bg-secondary;
+    @apply px-3 py-1.5 text-sm font-medium rounded-full border border-border bg-secondary;
     color: hsl(var(--text-secondary));
     transition: all 0.2s ease;
   }
 
   .skill-tag:hover {
-    @apply border-muted-foreground/50;
-    color: hsl(var(--foreground));
+    background: hsl(var(--teal-subtle));
+    border-color: hsl(var(--accent) / 0.4);
+    color: hsl(var(--accent));
   }
 
   .cert-badge {
-    @apply px-3 py-1.5 text-xs font-semibold uppercase tracking-wider rounded-sm;
-    background: hsl(var(--accent));
-    color: hsl(var(--accent-foreground));
+    @apply px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full;
+    background: hsl(var(--accent) / 0.1);
+    color: hsl(var(--accent));
+    border: 1px solid hsl(var(--accent) / 0.25);
   }
 
   .link-subtle {
-    @apply text-muted-foreground hover:text-foreground transition-colors duration-200 underline underline-offset-4 decoration-muted-foreground/30 hover:decoration-foreground/50;
+    @apply text-muted-foreground hover:text-accent transition-colors duration-200 underline underline-offset-4 decoration-muted-foreground/30 hover:decoration-accent/50;
   }
 
   .link-primary {
-    @apply text-foreground hover:text-muted-foreground transition-colors duration-200;
+    @apply text-foreground hover:text-accent transition-colors duration-200;
   }
 }
