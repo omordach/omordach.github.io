@@ -31,10 +31,6 @@ const LiveStats = () => {
             unique_sessions: data.unique_sessions,
           };
 
-          // Update cache
-          statsCache = newStats;
-          lastFetchTime = Date.now();
-
           setStats(newStats);
         }
       } catch (error) {
