@@ -1,92 +1,653 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self';" />
-    
-    <!-- Primary Meta Tags -->
-    <title>Oleh Mordach — Technical Program Manager & Senior Delivery Lead | Warsaw</title>
-    <meta name="title" content="Oleh Mordach — Technical Program Manager & Senior Delivery Lead | Warsaw" />
-    <meta name="description" content="Oleh Mordach is a PMP-certified Technical Program Manager and Senior Delivery Lead in Warsaw, Poland. Expert in CI/CD automation, Agile SaaS delivery, and distributed team leadership for enterprise B2B platforms. Transitioning to TPM at tier-1 tech." />
-    <meta name="keywords" content="Technical Program Manager, Delivery Lead, Senior Project Manager, CI/CD automation, Agile, SaaS delivery, Playwright testing, Warsaw Poland, PMP certified, TPM" />
-    <meta name="author" content="Oleh Mordach" />
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="profile" />
-    <meta property="og:url" content="https://mordach.com/" />
-    <meta property:og="title" content="Oleh Mordach — Technical Program Manager | Warsaw" />
-    <meta property="og:description" content="PMP-certified Technical Program Manager and Delivery Lead. Expert in CI/CD, Agile SaaS delivery, and enterprise program governance. Based in Warsaw, Poland." />
-    <meta property="og:image" content="https://mordach.com/og-image.png" />
-    
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://mordach.com/" />
-    <meta name="twitter:title" content="Oleh Mordach — Technical Program Manager | Warsaw" />
-    <meta name="twitter:description" content="PMP-certified Technical Program Manager and Delivery Lead. Expert in CI/CD, Agile SaaS delivery, and enterprise program governance. Based in Warsaw, Poland." />
-    <meta name="twitter:image" content="https://mordach.com/og-image.png" />
-    
-    <!-- Canonical -->
-    <link rel="canonical" href="https://mordach.com/" />
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TPM Professional</title>
+  <!-- Tailwind CSS via Play CDN — no build step required -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
 
-    <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Oleh Mordach",
-      "jobTitle": "Delivery Lead & Senior Project Manager",
-      "description": "Oleh Mordach is a Warsaw-based Technical Program Manager and Senior Delivery Lead specializing in enterprise SaaS, CI/CD automation, and Agile delivery for B2B platforms.",
-      "url": "https://mordach.com",
-      "sameAs": [
-        "https://www.linkedin.com/in/oleh-mordach/",
-        "https://github.com/omordach"
-      ],
-      "knowsAbout": [
-        "Technical Program Management",
-        "CI/CD Automation",
-        "Agile Delivery",
-        "SaaS Product Management",
-        "Playwright Testing",
-        "AWS Cloud Architecture",
-        "Enterprise ERP/CRM Platforms"
-      ],
-      "hasCredential": [
-        {"@type": "EducationalOccupationalCredential", "name": "PMP — Project Management Professional"},
-        {"@type": "EducationalOccupationalCredential", "name": "PSM II — Professional Scrum Master"},
-        {"@type": "EducationalOccupationalCredential", "name": "PSPO II — Professional Scrum Product Owner"},
-        {"@type": "EducationalOccupationalCredential", "name": "Google Cloud Digital Leader"},
-        {"@type": "EducationalOccupationalCredential", "name": "A-CSPO — Advanced Certified Scrum Product Owner"}
-      ],
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Warsaw",
-        "addressCountry": "PL"
+<body class="font-sans">
+
+  <!-- ============================================================
+       NAVIGATION BAR
+       Sticky top header with logo, desktop nav links, and
+       hamburger menu for mobile viewports.
+  ============================================================ -->
+  <header class="sticky top-0 z-50 bg-slate-900 text-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo / Name -->
+        <div class="flex-shrink-0">
+          <span class="text-xl font-bold tracking-tight"><!-- PLACEHOLDER: Your Name --></span>
+        </div>
+        <!-- Desktop nav links (hidden on mobile) -->
+        <nav class="hidden md:flex items-center space-x-8">
+          <a href="#hero" data-i18n="nav_hero" class="text-gray-300 hover:text-white transition-colors">Home</a>
+          <a href="#achievements" data-i18n="nav_achievements" class="text-gray-300 hover:text-white transition-colors">Achievements</a>
+          <a href="#services" data-i18n="nav_services" class="text-gray-300 hover:text-white transition-colors">Services</a>
+          <a href="#contact" data-i18n="nav_contact" class="text-gray-300 hover:text-white transition-colors">Contact</a>
+          <!-- Language switcher (desktop) — will be wired in Task 3.3 -->
+          <div id="lang-switcher-desktop" class="flex items-center space-x-2 ml-4 border-l border-gray-600 pl-4">
+            <button onclick="setLanguage('en')" id="lang-en-desktop" class="text-sm text-gray-300 hover:text-white transition-colors">EN</button>
+            <span class="text-gray-600">|</span>
+            <button onclick="setLanguage('uk')" id="lang-uk-desktop" class="text-sm text-gray-300 hover:text-white transition-colors">UK</button>
+          </div>
+        </nav>
+        <!-- Hamburger button (visible on mobile only) -->
+        <button id="hamburger" class="md:hidden text-gray-300 hover:text-white focus:outline-none" aria-label="Toggle menu">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile menu (hidden by default) — will be wired in Task 3.2 -->
+    <div id="mobile-menu" class="hidden md:hidden bg-slate-800">
+      <div class="px-4 pt-2 pb-4 space-y-2">
+        <a href="#hero" data-i18n="nav_hero" class="block text-gray-300 hover:text-white py-2 transition-colors">Home</a>
+        <a href="#achievements" data-i18n="nav_achievements" class="block text-gray-300 hover:text-white py-2 transition-colors">Achievements</a>
+        <a href="#services" data-i18n="nav_services" class="block text-gray-300 hover:text-white py-2 transition-colors">Services</a>
+        <a href="#contact" data-i18n="nav_contact" class="block text-gray-300 hover:text-white py-2 transition-colors">Contact</a>
+        <!-- Language switcher (mobile) — will be wired in Task 3.3 -->
+        <div id="lang-switcher-mobile" class="flex items-center space-x-2 pt-2 border-t border-gray-600">
+          <button onclick="setLanguage('en')" id="lang-en-mobile" class="text-sm text-gray-300 hover:text-white transition-colors">EN</button>
+          <span class="text-gray-600">|</span>
+          <button onclick="setLanguage('uk')" id="lang-uk-mobile" class="text-sm text-gray-300 hover:text-white transition-colors">UK</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         HERO SECTION
+         Above-the-fold introduction: headline, value proposition,
+         and CTA buttons ("View Services" / "Get in Touch").
+    ============================================================ -->
+    <section id="hero" class="min-h-screen bg-slate-900 text-white flex items-center justify-center">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <!-- Headline -->
+        <h1 data-i18n="hero_headline" class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+          Senior IT Manager &amp; Technical Program Manager
+        </h1>
+        <!-- Value proposition -->
+        <p data-i18n="hero_value_prop" class="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-10">
+          Driving delivery excellence, engineering leadership, and process optimization across complex programs.
+        </p>
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#services" data-i18n="hero_cta_services"
+             class="inline-block bg-indigo-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-indigo-500 hover:shadow-lg transition-all duration-200">
+            View Services
+          </a>
+          <a href="#contact" data-i18n="hero_cta_contact"
+             class="inline-block border-2 border-white text-white font-semibold px-8 py-3 rounded-lg hover:bg-white hover:text-slate-900 transition-all duration-200">
+            Get in Touch
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ACHIEVEMENTS SECTION
+         3–4 Achievement Cards displaying measurable career outcomes
+         (metrics + descriptive labels) in a responsive grid.
+    ============================================================ -->
+    <section id="achievements" class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section heading -->
+        <h2 data-i18n="achievements_heading" class="text-3xl sm:text-4xl font-bold text-slate-900 text-center mb-12">
+          Key Achievements
+        </h2>
+        <!-- Achievement Cards grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <!-- Card 1 -->
+          <div class="bg-white rounded-xl p-8 text-center shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
+            <span data-i18n="achievement_1_metric" class="block text-5xl font-bold text-indigo-600 mb-3">40%</span>
+            <p data-i18n="achievement_1_label" class="text-gray-600 text-sm leading-relaxed">Reduction in delivery cycle time across 3 product teams</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="bg-white rounded-xl p-8 text-center shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
+            <span data-i18n="achievement_2_metric" class="block text-5xl font-bold text-indigo-600 mb-3">120+</span>
+            <p data-i18n="achievement_2_label" class="text-gray-600 text-sm leading-relaxed">Engineers led across distributed teams</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="bg-white rounded-xl p-8 text-center shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
+            <span data-i18n="achievement_3_metric" class="block text-5xl font-bold text-indigo-600 mb-3">5×</span>
+            <p data-i18n="achievement_3_label" class="text-gray-600 text-sm leading-relaxed">Faster incident resolution after process overhaul</p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="bg-white rounded-xl p-8 text-center shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
+            <span data-i18n="achievement_4_metric" class="block text-5xl font-bold text-indigo-600 mb-3">98%</span>
+            <p data-i18n="achievement_4_label" class="text-gray-600 text-sm leading-relaxed">On-time delivery rate over 2 years</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SERVICES SECTION
+         Grid of Service Cards covering all 7 offerings:
+         Mentorship, Scrum Master, Product Owner, Project Management,
+         Technical Skills for IT Managers, Consultation, Interview Prep.
+    ============================================================ -->
+    <section id="services" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section heading -->
+        <h2 data-i18n="services_heading" class="text-3xl sm:text-4xl font-bold text-slate-900 text-center mb-12">
+          Services
+        </h2>
+        <!-- Service Cards grid: 1 col mobile, 2 col tablet, 3 col desktop -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Mentorship -->
+          <div class="bg-gray-50 rounded-xl p-6 border border-gray-200 hover:border-indigo-400 hover:shadow-lg transition-all duration-200">
+            <div class="text-4xl mb-4" aria-hidden="true">🎯</div>
+            <h3 data-i18n="service_mentorship_title" class="text-xl font-semibold text-slate-900 mb-2">Mentorship</h3>
+            <p data-i18n="service_mentorship_desc" class="text-gray-600 text-sm leading-relaxed">1-on-1 guidance for engineers and managers navigating career growth.</p>
+          </div>
+
+          <!-- Scrum Master Course -->
+          <div class="bg-gray-50 rounded-xl p-6 border border-gray-200 hover:border-indigo-400 hover:shadow-lg transition-all duration-200">
+            <div class="text-4xl mb-4" aria-hidden="true">🔄</div>
+            <h3 data-i18n="service_scrum_title" class="text-xl font-semibold text-slate-900 mb-2">Scrum Master Course</h3>
+            <p data-i18n="service_scrum_desc" class="text-gray-600 text-sm leading-relaxed">Practical Scrum training to lead agile teams with confidence.</p>
+          </div>
+
+          <!-- Product Owner Course -->
+          <div class="bg-gray-50 rounded-xl p-6 border border-gray-200 hover:border-indigo-400 hover:shadow-lg transition-all duration-200">
+            <div class="text-4xl mb-4" aria-hidden="true">📋</div>
+            <h3 data-i18n="service_po_title" class="text-xl font-semibold text-slate-900 mb-2">Product Owner Course</h3>
+            <p data-i18n="service_po_desc" class="text-gray-600 text-sm leading-relaxed">Learn to define vision, manage backlogs, and deliver value.</p>
+          </div>
+
+          <!-- Project Management Course -->
+          <div class="bg-gray-50 rounded-xl p-6 border border-gray-200 hover:border-indigo-400 hover:shadow-lg transition-all duration-200">
+            <div class="text-4xl mb-4" aria-hidden="true">📊</div>
+            <h3 data-i18n="service_pm_title" class="text-xl font-semibold text-slate-900 mb-2">Project Management Course</h3>
+            <p data-i18n="service_pm_desc" class="text-gray-600 text-sm leading-relaxed">End-to-end project management fundamentals and advanced techniques.</p>
+          </div>
+
+          <!-- Technical Skills for IT Managers (TPM/TPO) -->
+          <div class="bg-gray-50 rounded-xl p-6 border border-gray-200 hover:border-indigo-400 hover:shadow-lg transition-all duration-200">
+            <div class="text-4xl mb-4" aria-hidden="true">⚙️</div>
+            <h3 data-i18n="service_tpm_title" class="text-xl font-semibold text-slate-900 mb-2">Technical Skills for IT Managers (TPM/TPO)</h3>
+            <p data-i18n="service_tpm_desc" class="text-gray-600 text-sm leading-relaxed">Bridge the gap between engineering and management with hands-on technical skills.</p>
+          </div>
+
+          <!-- Consultation -->
+          <div class="bg-gray-50 rounded-xl p-6 border border-gray-200 hover:border-indigo-400 hover:shadow-lg transition-all duration-200">
+            <div class="text-4xl mb-4" aria-hidden="true">💡</div>
+            <h3 data-i18n="service_consultation_title" class="text-xl font-semibold text-slate-900 mb-2">Consultation</h3>
+            <p data-i18n="service_consultation_desc" class="text-gray-600 text-sm leading-relaxed">Strategic advisory sessions for teams and organizations.</p>
+          </div>
+
+          <!-- Interview Preparation -->
+          <div class="bg-gray-50 rounded-xl p-6 border border-gray-200 hover:border-indigo-400 hover:shadow-lg transition-all duration-200">
+            <div class="text-4xl mb-4" aria-hidden="true">🎤</div>
+            <h3 data-i18n="service_interview_title" class="text-xl font-semibold text-slate-900 mb-2">Interview Preparation</h3>
+            <p data-i18n="service_interview_desc" class="text-gray-600 text-sm leading-relaxed">Mock interviews and coaching for senior engineering and management roles.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACT SECTION
+         Contact form (Name, Email, Service of Interest, Message)
+         with inline validation, plus WhatsApp and Signal buttons.
+    ============================================================ -->
+    <section id="contact" class="py-20 bg-gray-50">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section heading -->
+        <h2 data-i18n="contact_heading" class="text-3xl sm:text-4xl font-bold text-slate-900 text-center mb-12">
+          Get in Touch
+        </h2>
+
+        <!-- Contact Form -->
+        <form id="contact-form" novalidate class="bg-white rounded-xl shadow-sm p-8 space-y-6">
+
+          <!-- Name field -->
+          <div>
+            <label for="contact-name" data-i18n="contact_name_label" class="block text-sm font-medium text-slate-700 mb-1">Name</label>
+            <input type="text" id="contact-name" name="name" required
+                   data-i18n-placeholder="contact_name_placeholder"
+                   placeholder="Your name"
+                   class="w-full border border-gray-300 rounded-lg px-4 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition" />
+            <span id="contact-name-error" class="hidden mt-1 text-sm text-red-600"></span>
+          </div>
+
+          <!-- Email field -->
+          <div>
+            <label for="contact-email" data-i18n="contact_email_label" class="block text-sm font-medium text-slate-700 mb-1">Email</label>
+            <input type="email" id="contact-email" name="email" required
+                   data-i18n-placeholder="contact_email_placeholder"
+                   placeholder="your@email.com"
+                   class="w-full border border-gray-300 rounded-lg px-4 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition" />
+            <span id="contact-email-error" class="hidden mt-1 text-sm text-red-600"></span>
+          </div>
+
+          <!-- Service of Interest field -->
+          <div>
+            <label for="contact-service" data-i18n="contact_service_label" class="block text-sm font-medium text-slate-700 mb-1">Service of Interest</label>
+            <select id="contact-service" name="service" required
+                    class="w-full border border-gray-300 rounded-lg px-4 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition bg-white">
+              <option value="">—</option>
+              <option value="mentorship" data-i18n-option="service_mentorship_title">Mentorship</option>
+              <option value="scrum" data-i18n-option="service_scrum_title">Scrum Master Course</option>
+              <option value="po" data-i18n-option="service_po_title">Product Owner Course</option>
+              <option value="pm" data-i18n-option="service_pm_title">Project Management Course</option>
+              <option value="tpm" data-i18n-option="service_tpm_title">Technical Skills for IT Managers (TPM/TPO)</option>
+              <option value="consultation" data-i18n-option="service_consultation_title">Consultation</option>
+              <option value="interview" data-i18n-option="service_interview_title">Interview Preparation</option>
+            </select>
+            <span id="contact-service-error" class="hidden mt-1 text-sm text-red-600"></span>
+          </div>
+
+          <!-- Message field -->
+          <div>
+            <label for="contact-message" data-i18n="contact_message_label" class="block text-sm font-medium text-slate-700 mb-1">Message</label>
+            <textarea id="contact-message" name="message" required rows="5"
+                      data-i18n-placeholder="contact_message_placeholder"
+                      placeholder="Tell me how I can help..."
+                      class="w-full border border-gray-300 rounded-lg px-4 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition resize-none"></textarea>
+            <span id="contact-message-error" class="hidden mt-1 text-sm text-red-600"></span>
+          </div>
+
+          <!-- Submit button -->
+          <button type="submit" data-i18n="contact_submit"
+                  class="w-full bg-indigo-600 text-white font-semibold py-3 rounded-lg hover:bg-indigo-500 hover:shadow-lg transition-all duration-200">
+            Send Message
+          </button>
+
+        </form>
+
+        <!-- Confirmation message (hidden until form is submitted successfully) -->
+        <div id="contact-confirmation" class="hidden mt-6 bg-green-50 border border-green-200 rounded-xl p-6 text-center">
+          <p data-i18n="contact_confirmation" class="text-green-800 font-medium">
+            Thank you! Your message has been received. I'll be in touch shortly.
+          </p>
+        </div>
+
+        <!-- Direct contact buttons -->
+        <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+          <!-- WhatsApp button -->
+          <!-- PLACEHOLDER: Replace PLACEHOLDER_NUMBER with real WhatsApp number -->
+          <a href="https://wa.me/PLACEHOLDER_NUMBER" target="_blank" rel="noopener noreferrer"
+             data-i18n="contact_whatsapp"
+             class="flex items-center justify-center gap-2 bg-green-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-green-400 hover:shadow-lg transition-all duration-200">
+            Chat on WhatsApp
+          </a>
+          <!-- Signal button -->
+          <!-- PLACEHOLDER: Replace PLACEHOLDER_HANDLE with real Signal handle -->
+          <a href="https://signal.me/#p/PLACEHOLDER_HANDLE" target="_blank" rel="noopener noreferrer"
+             data-i18n="contact_signal"
+             class="flex items-center justify-center gap-2 bg-blue-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-400 hover:shadow-lg transition-all duration-200">
+            Message on Signal
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       ACCESSIBILITY NOTES (Requirement 7.2)
+       12.1 Images & Icons:
+         - No <img> elements are used; all visuals are CSS/emoji.
+         - Hamburger SVG: aria-hidden="true" (decorative icon).
+         - Service card emoji divs: aria-hidden="true" (decorative).
+       12.2 Form Labels:
+         - <label for="contact-name">   → <input id="contact-name">
+         - <label for="contact-email">  → <input id="contact-email">
+         - <label for="contact-service">→ <select id="contact-service">
+         - <label for="contact-message">→ <textarea id="contact-message">
+         All label/input associations are present and correct.
+       12.3 Color Contrast (WCAG AA — minimum 4.5:1 for normal text):
+         - text-white on bg-slate-900 (nav/hero/footer): ~21:1 — PASS
+         - text-slate-900 / text-gray-600 on bg-white/bg-gray-50: >7:1 — PASS
+         - text-indigo-600 (#4f46e5) on bg-white: ~5.9:1 — PASS
+  ============================================================ -->
+
+  <!-- ============================================================
+       FOOTER
+       Dark background matching the nav; centered copyright line.
+  ============================================================ -->
+  <footer class="bg-slate-900 text-gray-400 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <!-- PLACEHOLDER: Replace with real name and year -->
+      <p class="text-sm">&copy; 2024 <!-- PLACEHOLDER: Your Name -->. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       DATA LAYER — Translation_Dictionary
+       All translatable strings for EN and UK locales.
+       Requirements: 8.8, 8.9
+  ============================================================ -->
+  <script>
+    const Translation_Dictionary = {
+      en: {
+        // Navigation
+        nav_hero: "Home",
+        nav_achievements: "Achievements",
+        nav_services: "Services",
+        nav_contact: "Contact",
+
+        // Hero
+        hero_headline: "Senior IT Manager & Technical Program Manager",
+        hero_value_prop: "Driving delivery excellence, engineering leadership, and process optimization across complex programs.",
+        hero_cta_services: "View Services",
+        hero_cta_contact: "Get in Touch",
+
+        // Achievements
+        achievements_heading: "Key Achievements",
+        achievement_1_metric: "40%",
+        achievement_1_label: "Reduction in delivery cycle time across 3 product teams",
+        achievement_2_metric: "120+",
+        achievement_2_label: "Engineers led across distributed teams",
+        achievement_3_metric: "5×",
+        achievement_3_label: "Faster incident resolution after process overhaul",
+        achievement_4_metric: "98%",
+        achievement_4_label: "On-time delivery rate over 2 years",
+
+        // Services
+        services_heading: "Services",
+        service_mentorship_title: "Mentorship",
+        service_mentorship_desc: "1-on-1 guidance for engineers and managers navigating career growth.",
+        service_scrum_title: "Scrum Master Course",
+        service_scrum_desc: "Practical Scrum training to lead agile teams with confidence.",
+        service_po_title: "Product Owner Course",
+        service_po_desc: "Learn to define vision, manage backlogs, and deliver value.",
+        service_pm_title: "Project Management Course",
+        service_pm_desc: "End-to-end project management fundamentals and advanced techniques.",
+        service_tpm_title: "Technical Skills for IT Managers (TPM/TPO)",
+        service_tpm_desc: "Bridge the gap between engineering and management with hands-on technical skills.",
+        service_consultation_title: "Consultation",
+        service_consultation_desc: "Strategic advisory sessions for teams and organizations.",
+        service_interview_title: "Interview Preparation",
+        service_interview_desc: "Mock interviews and coaching for senior engineering and management roles.",
+
+        // Contact
+        contact_heading: "Get in Touch",
+        contact_name_label: "Name",
+        contact_name_placeholder: "Your name",
+        contact_email_label: "Email",
+        contact_email_placeholder: "your@email.com",
+        contact_service_label: "Service of Interest",
+        contact_message_label: "Message",
+        contact_message_placeholder: "Tell me how I can help...",
+        contact_submit: "Send Message",
+        contact_whatsapp: "Chat on WhatsApp",
+        contact_signal: "Message on Signal",
+        contact_confirmation: "Thank you! Your message has been received. I'll be in touch shortly.",
+
+        // Validation
+        validation_required: "This field is required.",
+        validation_email: "Please enter a valid email address.",
+      },
+      uk: {
+        // Navigation
+        nav_hero: "Головна",
+        nav_achievements: "Досягнення",
+        nav_services: "Послуги",
+        nav_contact: "Контакт",
+
+        // Hero
+        hero_headline: "Старший IT-менеджер та технічний програмний менеджер",
+        hero_value_prop: "Забезпечую досконалість доставки, технічне лідерство та оптимізацію процесів у складних програмах.",
+        hero_cta_services: "Переглянути послуги",
+        hero_cta_contact: "Зв'язатися",
+
+        // Achievements
+        achievements_heading: "Ключові досягнення",
+        achievement_1_metric: "40%",
+        achievement_1_label: "Скорочення циклу доставки в 3 продуктових командах",
+        achievement_2_metric: "120+",
+        achievement_2_label: "Інженерів під керівництвом у розподілених командах",
+        achievement_3_metric: "5×",
+        achievement_3_label: "Швидше вирішення інцидентів після оптимізації процесів",
+        achievement_4_metric: "98%",
+        achievement_4_label: "Вчасна доставка протягом 2 років",
+
+        // Services
+        services_heading: "Послуги",
+        service_mentorship_title: "Менторство",
+        service_mentorship_desc: "Індивідуальне керівництво для інженерів і менеджерів у розвитку кар'єри.",
+        service_scrum_title: "Курс Scrum Master",
+        service_scrum_desc: "Практичне навчання Scrum для впевненого керівництва agile-командами.",
+        service_po_title: "Курс Product Owner",
+        service_po_desc: "Навчіться визначати бачення, керувати беклогом і доставляти цінність.",
+        service_pm_title: "Курс з управління проєктами",
+        service_pm_desc: "Основи та поглиблені техніки управління проєктами від початку до кінця.",
+        service_tpm_title: "Технічні навички для IT-менеджерів (TPM/TPO)",
+        service_tpm_desc: "Подолайте розрив між інженерією та менеджментом за допомогою практичних технічних навичок.",
+        service_consultation_title: "Консультація",
+        service_consultation_desc: "Стратегічні консультаційні сесії для команд і організацій.",
+        service_interview_title: "Підготовка до співбесіди",
+        service_interview_desc: "Пробні співбесіди та коучинг для старших інженерних і управлінських ролей.",
+
+        // Contact
+        contact_heading: "Зв'язатися",
+        contact_name_label: "Ім'я",
+        contact_name_placeholder: "Ваше ім'я",
+        contact_email_label: "Електронна пошта",
+        contact_email_placeholder: "ваш@email.com",
+        contact_service_label: "Послуга, що цікавить",
+        contact_message_label: "Повідомлення",
+        contact_message_placeholder: "Розкажіть, як я можу допомогти...",
+        contact_submit: "Надіслати повідомлення",
+        contact_whatsapp: "Написати у WhatsApp",
+        contact_signal: "Написати у Signal",
+        contact_confirmation: "Дякую! Ваше повідомлення отримано. Я зв'яжуся з вами найближчим часом.",
+
+        // Validation
+        validation_required: "Це поле є обов'язковим.",
+        validation_email: "Будь ласка, введіть дійсну адресу електронної пошти.",
+      }
+    };
+  </script>
+
+  <!-- ============================================================
+       LANGUAGE STATE — Active_Language, setLanguage(), applyTranslations()
+       Handles language initialization, persistence, and DOM updates.
+       Requirements: 8.5, 8.6, 8.7, 8.9
+  ============================================================ -->
+  <script>
+    // ── Active_Language ──────────────────────────────────────────
+    // Read the persisted language from localStorage on page load;
+    // fall back to English if nothing has been saved yet.
+    // Satisfies Req 8.5 (default EN) and Req 8.7 (restore from storage).
+    let Active_Language = localStorage.getItem('lang') || 'en';
+
+    // ── applyTranslations(lang) ──────────────────────────────────
+    // Walks every element that carries a data-i18n or
+    // data-i18n-placeholder attribute and replaces its visible text
+    // (or placeholder hint) with the matching string from the
+    // Translation_Dictionary.  Falls back to the raw key string if
+    // a translation is missing so the UI never shows blank content.
+    // Satisfies Req 8.3 (re-render without reload) and Req 8.9 (vanilla JS only).
+    function applyTranslations(lang) {
+      // Update textContent for all labelled elements
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        el.textContent = Translation_Dictionary[lang][key] ?? key;
+      });
+
+      // Update placeholder attribute for all input/textarea elements
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n-placeholder');
+        el.placeholder = Translation_Dictionary[lang][key] ?? key;
+      });
+
+      // Update select option text for service dropdown
+      document.querySelectorAll('[data-i18n-option]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n-option');
+        el.textContent = Translation_Dictionary[lang][key] ?? key;
+      });
+    }
+
+    // ── setLanguage(lang) ────────────────────────────────────────
+    // Public entry-point called by the Language_Switcher buttons.
+    // Updates the in-memory Active_Language variable, persists the
+    // choice to localStorage so it survives page reloads, then
+    // triggers a full DOM translation pass and syncs the switcher UI.
+    // Satisfies Req 8.6 (persist for session) and Req 8.7 (persist across reload).
+    function setLanguage(lang) {
+      // 1. Update the in-memory language variable
+      Active_Language = lang;
+
+      // 2. Persist the selection so it survives a page reload
+      localStorage.setItem('lang', lang);
+
+      // 3. Re-render all translatable text in the new language
+      applyTranslations(lang);
+
+      // 4. Sync the visual state of the Language_Switcher buttons
+      updateLanguageSwitcherUI(lang);
+    }
+
+    // ── updateLanguageSwitcherUI(lang) ───────────────────────────
+    // Syncs the active style across both desktop and mobile
+    // Language_Switcher button pairs (Requirements 8.1, 8.2, 8.3).
+    function updateLanguageSwitcherUI(lang) {
+      // All language button IDs
+      var buttons = {
+        en: [document.getElementById('lang-en-desktop'), document.getElementById('lang-en-mobile')],
+        uk: [document.getElementById('lang-uk-desktop'), document.getElementById('lang-uk-mobile')]
+      };
+
+      // Reset all buttons to inactive style
+      ['en', 'uk'].forEach(function(l) {
+        buttons[l].forEach(function(btn) {
+          if (!btn) return;
+          btn.classList.remove('font-bold', 'underline', 'text-white');
+          btn.classList.add('text-gray-300');
+        });
+      });
+
+      // Apply active style to the selected language buttons
+      if (buttons[lang]) {
+        buttons[lang].forEach(function(btn) {
+          if (!btn) return;
+          btn.classList.remove('text-gray-300');
+          btn.classList.add('font-bold', 'underline', 'text-white');
+        });
       }
     }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Oleh Mordach — TPM & Senior Delivery Lead",
-      "url": "https://mordach.com",
-      "description": "Professional portfolio of Oleh Mordach — Technical Program Manager, Senior Delivery Lead, and Agile practitioner specializing in enterprise SaaS delivery and CI/CD automation.",
-      "inLanguage": "en"
-    }
-    </script>
-  </head>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    // ── DOMContentLoaded bootstrap ───────────────────────────────
+    // Once the DOM is fully parsed, apply the persisted (or default)
+    // language and sync the switcher UI so the page renders correctly
+    // on first load without any user interaction.
+    document.addEventListener('DOMContentLoaded', function() {
+      applyTranslations(Active_Language);
+      updateLanguageSwitcherUI(Active_Language);
+
+      // ── Mobile Menu Toggle ───────────────────────────────────────
+      // Toggles the mobile menu open/closed when the hamburger is clicked.
+      // Closes the menu automatically when any link inside it is clicked.
+      // Requirements: 1.4, 1.5, 1.6
+      var hamburger = document.getElementById('hamburger');
+      var mobileMenu = document.getElementById('mobile-menu');
+
+      // Toggle menu visibility on hamburger click
+      hamburger.addEventListener('click', function() {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      // Close menu when any link inside it is clicked
+      mobileMenu.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          mobileMenu.classList.add('hidden');
+        });
+      });
+
+      // ── Contact Form Validation ──────────────────────────────────
+      // Validates required fields and email format on submit.
+      // Shows inline error messages using Translation_Dictionary.
+      // On success: hides form, shows confirmation message.
+      // Requirements: 5.2, 5.3
+      var contactForm = document.getElementById('contact-form');
+      if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var valid = true;
+
+          // Helper: show or hide an error span
+          function setError(fieldId, message) {
+            var span = document.getElementById(fieldId + '-error');
+            if (!span) return;
+            if (message) {
+              span.textContent = message;
+              span.classList.remove('hidden');
+            } else {
+              span.textContent = '';
+              span.classList.add('hidden');
+            }
+          }
+
+          // Validate Name
+          var nameVal = document.getElementById('contact-name').value.trim();
+          if (!nameVal) {
+            setError('contact-name', Translation_Dictionary[Active_Language]['validation_required']);
+            valid = false;
+          } else {
+            setError('contact-name', null);
+          }
+
+          // Validate Email (required + format)
+          var emailVal = document.getElementById('contact-email').value.trim();
+          var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailVal) {
+            setError('contact-email', Translation_Dictionary[Active_Language]['validation_required']);
+            valid = false;
+          } else if (!emailRegex.test(emailVal)) {
+            setError('contact-email', Translation_Dictionary[Active_Language]['validation_email']);
+            valid = false;
+          } else {
+            setError('contact-email', null);
+          }
+
+          // Validate Service of Interest
+          var serviceVal = document.getElementById('contact-service').value;
+          if (!serviceVal) {
+            setError('contact-service', Translation_Dictionary[Active_Language]['validation_required']);
+            valid = false;
+          } else {
+            setError('contact-service', null);
+          }
+
+          // Validate Message
+          var messageVal = document.getElementById('contact-message').value.trim();
+          if (!messageVal) {
+            setError('contact-message', Translation_Dictionary[Active_Language]['validation_required']);
+            valid = false;
+          } else {
+            setError('contact-message', null);
+          }
+
+          // If all valid: hide form, show confirmation
+          if (valid) {
+            contactForm.classList.add('hidden');
+            document.getElementById('contact-confirmation').classList.remove('hidden');
+          }
+        });
+      }
+    });
+  </script>
+
+</body>
+
 </html>
