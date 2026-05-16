@@ -11,7 +11,23 @@ export default function Contact() {
 
   const handleSubmit = useCallback(async (e: FormEvent) => {
     e.preventDefault()
+
+    // Security enhancement: Input validation
+    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
+      setState('error')
+      return
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+      setState('error')
+      return
+    }
+
     setState('sending')
+
+    // Security enhancement: Add timeout to external API call
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 8000);
+
     try {
       // Use environment variable for Formspree ID to prevent exposing sensitive IDs in source code
       const formId = import.meta.env.VITE_FORMSPREE_ID || 'YOUR_FORM_ID';
@@ -19,14 +35,17 @@ export default function Contact() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(form),
+        signal: controller.signal,
       })
+      clearTimeout(timeoutId);
       if (res.ok) {
         setState('success')
         setForm({ name: '', email: '', service: '', message: '' })
       } else {
         setState('error')
       }
-    } catch {
+    } catch { // Ignore unused error var
+      clearTimeout(timeoutId);
       setState('error')
     }
   }, [form])
@@ -92,6 +111,7 @@ export default function Contact() {
                       aria-required="true"
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
+                      maxLength={100}
                       placeholder={t.contact.namePlaceholder}
                       className="w-full border border-slate-200 rounded-lg px-3.5 py-2.5 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
                     />
@@ -107,6 +127,7 @@ export default function Contact() {
                       aria-required="true"
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
+                      maxLength={100}
                       placeholder={t.contact.emailPlaceholder}
                       className="w-full border border-slate-200 rounded-lg px-3.5 py-2.5 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
                     />
@@ -143,6 +164,7 @@ export default function Contact() {
                     rows={5}
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
+                    maxLength={1000}
                     placeholder={t.contact.messagePlaceholder}
                     className="w-full border border-slate-200 rounded-lg px-3.5 py-2.5 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition resize-none"
                   />
