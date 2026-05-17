@@ -89,6 +89,7 @@ export default function Contact() {
                       required
                       id="contact-name"
                       type="text"
+                      maxLength={100}
                       aria-required="true"
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
@@ -104,6 +105,7 @@ export default function Contact() {
                       required
                       id="contact-email"
                       type="email"
+                      maxLength={100}
                       aria-required="true"
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
@@ -139,6 +141,7 @@ export default function Contact() {
                   <textarea
                     required
                     id="contact-message"
+                    maxLength={2000}
                     aria-required="true"
                     rows={5}
                     value={form.message}
