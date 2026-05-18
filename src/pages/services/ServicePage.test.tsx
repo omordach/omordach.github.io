@@ -2,6 +2,7 @@ import { describe, it, expect, vi } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/react'
 import { MemoryRouter, Route, Routes, useNavigate } from 'react-router-dom'
 import { LanguageProvider } from '../../context/LanguageContext'
+import { HelmetProvider } from 'react-helmet-async'
 import ServicePage from './ServicePage'
 import { useScrollTo } from '../../hooks/useScrollTo'
 
@@ -30,11 +31,13 @@ describe('ServicePage', () => {
 
     render(
       <MemoryRouter initialEntries={['/services/non-existent-service']}>
-        <LanguageProvider>
+        <HelmetProvider>
+<LanguageProvider>
           <Routes>
             <Route path="/services/:slug" element={<ServicePage />} />
           </Routes>
         </LanguageProvider>
+</HelmetProvider>
       </MemoryRouter>
     )
 
@@ -58,11 +61,13 @@ describe('ServicePage', () => {
 
     render(
       <MemoryRouter initialEntries={['/services/mentorship']}>
-        <LanguageProvider>
+        <HelmetProvider>
+<LanguageProvider>
           <Routes>
             <Route path="/services/:slug" element={<ServicePage />} />
           </Routes>
         </LanguageProvider>
+</HelmetProvider>
       </MemoryRouter>
     )
 

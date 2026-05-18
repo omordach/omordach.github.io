@@ -5,6 +5,7 @@ import {
 } from 'lucide-react'
 import { ICON_MAP } from '../../constants/icons'
 import { useLang } from '../../context/LanguageContext'
+import SEO from '../../components/SEO'
 
 type DetailKey =
   | 'mentorship' | 'scrumMaster' | 'productOwner' | 'projectManagement'
@@ -45,8 +46,48 @@ export default function ServicePage() {
   const detail = t.serviceDetail.details[detailKey]
   const Icon = ICON_MAP[serviceItem.icon] ?? MessageSquare
 
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://mordach.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": serviceItem.title,
+            "item": `https://mordach.com/#/services/${slug}`
+          }
+        ]
+      },
+      {
+        "@type": "Service",
+        "name": serviceItem.title,
+        "description": detail.description,
+        "provider": {
+          "@id": "https://mordach.com/#organization"
+        },
+        "url": `https://mordach.com/#/services/${slug}`
+      }
+    ]
+  };
+
   return (
     <div className="bg-white min-h-screen">
+      <SEO
+        title={`${serviceItem.title} | Oleh Mordach, PMP`}
+        description={detail.description.substring(0, 155) + '...'}
+        canonical={`https://mordach.com/#/services/${slug}`}
+        schema={schema}
+      />
+
       {/* Hero band */}
       <div className="bg-slate-900 text-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">

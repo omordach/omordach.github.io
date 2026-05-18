@@ -1,0 +1,55 @@
+# Oleh Mordach, PMP - Senior Technical Program Manager
+
+> Building predictable systems in complex environments. Mentorship, courses, and consultation for IT professionals.
+
+## Overview
+
+Oleh Mordach is a Senior Technical Program Manager, specializing in building predictable systems in complex environments. He has over 10 years of experience delivering B2B SaaS solutions at scale. This site provides details about his services, achievements, and professional experience, targeting IT professionals and organizations such as US/Canada labor unions that need structural process improvements.
+
+## Key Achievements
+
+- Reduced delivery cycles by establishing agile frameworks and removing bottlenecks.
+- Increased team velocity through cross-functional alignment and process optimization.
+- Spearheaded major platform migrations with zero downtime.
+- Successfully led global engineering teams in achieving critical project milestones.
+
+## Professional Experience
+
+With over a decade of experience, Oleh has held pivotal roles across various technology organizations. He brings a deep understanding of software development lifecycles, risk management, and stakeholder communication.
+
+### Certifications
+
+- Project Management Professional (PMP)
+- Certified ScrumMaster (CSM)
+- Certified Scrum Product Owner (CSPO)
+
+## Detailed Services
+
+Oleh offers a range of services designed to help individuals and organizations excel:
+
+### Mentorship
+Navigate your career path, identify growth opportunities, and develop the skills needed to transition into senior or leadership roles within the tech industry.
+
+### Scrum Master
+Implement and refine Agile methodologies. Services include facilitating ceremonies, removing impediments, and fostering a culture of continuous improvement within engineering teams.
+
+### Product Owner
+Align technical execution with business strategy. Manage backlogs, define clear user stories, and ensure the team delivers maximum value to stakeholders.
+
+### Project Management
+End-to-end management of complex technical projects. From planning and resource allocation to risk mitigation and final delivery, ensuring projects are completed on time and within budget.
+
+### Technical Skills
+Hands-on guidance to level up engineering practices, including CI/CD pipelines, code quality standards, and system architecture reviews.
+
+### Consultation
+Strategic advice for startups and enterprises on scaling operations, process architecture, and optimizing software delivery workflows.
+
+### Interview Prep
+Targeted preparation for Technical Program Manager (TPM), Product Manager (PM), and Engineering Manager interviews, including mock interviews and resume reviews.
+
+## Contact Information
+
+Connect with Oleh for consultation or inquiries:
+- **LinkedIn**: [Oleh Mordach](https://www.linkedin.com/in/oleh-mordach/)
+- **Website**: [mordach.com](https://mordach.com)
