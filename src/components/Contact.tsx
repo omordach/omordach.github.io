@@ -12,6 +12,10 @@ export default function Contact() {
   const handleSubmit = useCallback(async (e: FormEvent) => {
     e.preventDefault()
     setState('sending')
+
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), 10000) // 10s timeout
+
     try {
       // Use environment variable for Formspree ID to prevent exposing sensitive IDs in source code
       const formId = import.meta.env.VITE_FORMSPREE_ID || 'YOUR_FORM_ID';
@@ -19,7 +23,9 @@ export default function Contact() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(form),
+        signal: controller.signal,
       })
+      clearTimeout(timeoutId)
       if (res.ok) {
         setState('success')
         setForm({ name: '', email: '', service: '', message: '' })
@@ -27,6 +33,7 @@ export default function Contact() {
         setState('error')
       }
     } catch {
+      clearTimeout(timeoutId)
       setState('error')
     }
   }, [form])
@@ -89,6 +96,7 @@ export default function Contact() {
                       required
                       id="contact-name"
                       type="text"
+                      maxLength={100}
                       aria-required="true"
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
@@ -104,6 +112,7 @@ export default function Contact() {
                       required
                       id="contact-email"
                       type="email"
+                      maxLength={320}
                       aria-required="true"
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
@@ -139,6 +148,7 @@ export default function Contact() {
                   <textarea
                     required
                     id="contact-message"
+                    maxLength={2000}
                     aria-required="true"
                     rows={5}
                     value={form.message}
