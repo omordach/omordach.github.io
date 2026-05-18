@@ -1,0 +1,23 @@
+# Oleh Mordach, PMP - Senior Technical Program Manager
+
+> Building predictable systems in complex environments. Mentorship, courses, and consultation for IT professionals.
+
+This website outlines the services and professional experience of Oleh Mordach, PMP, a Senior Technical Program Manager with 10+ years delivering B2B SaaS at scale. Target audience includes US/Canada labor unions and IT professionals seeking mentoring and process optimization.
+
+## Services Offered
+
+- Mentorship: Navigate your career path and grow into senior/leadership roles. [Details](https://mordach.com/#/services/mentorship)
+- Scrum Master: Facilitate team collaboration and agile processes. [Details](https://mordach.com/#/services/scrum-master)
+- Product Owner: Bridge business goals with technical execution. [Details](https://mordach.com/#/services/product-owner)
+- Project Management: Lead complex initiatives from inception to delivery. [Details](https://mordach.com/#/services/project-management)
+- Technical Skills: Level up your technical and engineering practices. [Details](https://mordach.com/#/services/technical-skills)
+- Consultation: Expert advice on process architecture and scaling. [Details](https://mordach.com/#/services/consultation)
+- Interview Prep: Prepare for TPM, PM, and Engineering management interviews. [Details](https://mordach.com/#/services/interview-prep)
+
+## Background
+
+Oleh Mordach has a track record of driving cross-functional alignment, managing risks, and improving delivery predictability across global teams. His expertise lies in bringing structure to chaos and enabling engineering teams to perform at their best.
+
+## Contact
+
+You can reach Oleh Mordach for consultation through the contact form on [the homepage](https://mordach.com/#contact) or via LinkedIn.

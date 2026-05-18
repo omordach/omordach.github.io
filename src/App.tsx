@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
 import Header from './components/Header'
 import Footer from './components/Footer'
 const Home = React.lazy(() => import('./pages/Home'))
@@ -7,7 +8,8 @@ const ServicePage = React.lazy(() => import('./pages/services/ServicePage'))
 
 export default function App() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <HelmetProvider>
+      <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex-1">
         <Suspense fallback={<div>Loading...</div>}>
@@ -21,6 +23,7 @@ export default function App() {
         </Suspense>
       </main>
       <Footer />
-    </div>
+      </div>
+    </HelmetProvider>
   )
 }
