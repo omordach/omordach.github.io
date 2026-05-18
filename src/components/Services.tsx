@@ -1,19 +1,7 @@
-import {
-  Users, RefreshCw, LayoutList, FolderKanban, Terminal, MessageSquare, BriefcaseIcon,
-  ArrowRight, type LucideIcon,
-} from 'lucide-react'
+import { ArrowRight, MessageSquare } from 'lucide-react'
+import { ICON_MAP } from '../constants/icons'
 import { useNavigate } from 'react-router-dom'
 import { useLang } from '../context/LanguageContext'
-
-const ICON_MAP: Record<string, LucideIcon> = {
-  Users,
-  RefreshCw,
-  LayoutList,
-  FolderKanban,
-  Terminal,
-  MessageSquare,
-  BriefcaseBusiness: BriefcaseIcon,
-}
 
 export default function Services() {
   const { t } = useLang()
