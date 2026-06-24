@@ -103,7 +103,6 @@ const CERTS = [
   "AI & GenAI",
 ];
 
-
 function Nav() {
   const { theme, toggle } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -126,7 +125,11 @@ function Nav() {
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
           {navLinks.map((l) => (
-            <a key={l.href} href={l.href} className="link-underline hover:text-foreground transition-colors">
+            <a
+              key={l.href}
+              href={l.href}
+              className="link-underline hover:text-foreground transition-colors"
+            >
               {l.label}
             </a>
           ))}
