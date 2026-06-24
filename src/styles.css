@@ -154,8 +154,6 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-}
-@utility link-underline {
   &::after {
     content: "";
     position: absolute;
@@ -185,3 +183,11 @@
 
 .animate-rise { animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
 .animate-fade { animation: fade 1s ease-out both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise,
+  .animate-fade {
+    animation: none;
+  }
+}
+

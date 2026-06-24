@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useTheme } from "../hooks/use-theme";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -102,29 +103,19 @@ const CERTS = [
   "AI & GenAI",
 ];
 
-function useTheme() {
-  const [theme, setTheme] = useState<"light" | "dark">("light");
-  useEffect(() => {
-    const stored = (typeof window !== "undefined" && localStorage.getItem("theme")) as
-      | "light"
-      | "dark"
-      | null;
-    const initial =
-      stored ?? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-    setTheme(initial);
-    document.documentElement.classList.toggle("dark", initial === "dark");
-  }, []);
-  const toggle = () => {
-    const next = theme === "dark" ? "light" : "dark";
-    setTheme(next);
-    document.documentElement.classList.toggle("dark", next === "dark");
-    localStorage.setItem("theme", next);
-  };
-  return { theme, toggle };
-}
 
 function Nav() {
   const { theme, toggle } = useTheme();
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const navLinks = [
+    { href: "#experience", label: "Experience" },
+    { href: "#expertise", label: "Expertise" },
+    { href: "#achievements", label: "Achievements" },
+    { href: "#certifications", label: "Certifications" },
+    { href: "#contact", label: "Contact" },
+  ];
+
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-background/75 hairline-b">
       <div className="container-page flex h-16 items-center justify-between">
@@ -132,21 +123,54 @@ function Nav() {
           <span className="inline-block size-1.5 rounded-full bg-accent" />
           Oleh Mordach
         </a>
+        {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
-          <a href="#experience" className="link-underline hover:text-foreground transition-colors">Experience</a>
-          <a href="#expertise" className="link-underline hover:text-foreground transition-colors">Expertise</a>
-          <a href="#achievements" className="link-underline hover:text-foreground transition-colors">Achievements</a>
-          <a href="#certifications" className="link-underline hover:text-foreground transition-colors">Certifications</a>
-          <a href="#contact" className="link-underline hover:text-foreground transition-colors">Contact</a>
+          {navLinks.map((l) => (
+            <a key={l.href} href={l.href} className="link-underline hover:text-foreground transition-colors">
+              {l.label}
+            </a>
+          ))}
         </nav>
-        <button
-          onClick={toggle}
-          aria-label="Toggle theme"
-          className="size-9 inline-flex items-center justify-center rounded-full border border-border text-muted-foreground hover:text-foreground transition-colors"
-        >
-          {theme === "dark" ? "☼" : "☾"}
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={toggle}
+            aria-label="Toggle theme"
+            className="size-9 inline-flex items-center justify-center rounded-full border border-border text-muted-foreground hover:text-foreground transition-colors"
+          >
+            {theme === "dark" ? "☼" : "☾"}
+          </button>
+          {/* Hamburger — mobile only */}
+          <button
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            className="md:hidden size-9 inline-flex items-center justify-center rounded-full border border-border text-muted-foreground hover:text-foreground transition-colors"
+          >
+            {menuOpen ? "✕" : "☰"}
+          </button>
+        </div>
       </div>
+      {/* Mobile drawer */}
+      {menuOpen && (
+        <nav
+          aria-label="Mobile navigation"
+          className="md:hidden border-t border-hairline bg-background/95 backdrop-blur-md"
+        >
+          <ul className="container-page py-4 flex flex-col gap-1">
+            {navLinks.map((l) => (
+              <li key={l.href}>
+                <a
+                  href={l.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="block py-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
     </header>
   );
 }
@@ -269,7 +293,6 @@ function Timeline() {
               {t.org && <span className="text-muted-foreground"> · {t.org}</span>}
             </h3>
             <p className="mt-3 text-muted-foreground leading-relaxed max-w-2xl">{t.body}</p>
-            <span className="sr-only">{i}</span>
           </li>
         ))}
       </ol>
@@ -285,13 +308,13 @@ function Expertise() {
       title="The operating system behind reliable delivery."
     >
       <ul className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-hairline border border-hairline">
-        {EXPERTISE.map((e) => (
+        {EXPERTISE.map((e, i) => (
           <li
             key={e}
             className="bg-background px-5 py-4 text-sm md:text-[15px] flex items-center gap-3"
           >
             <span className="font-mono text-xs text-muted-foreground">
-              {String(EXPERTISE.indexOf(e) + 1).padStart(2, "0")}
+              {String(i + 1).padStart(2, "0")}
             </span>
             {e}
           </li>
@@ -399,9 +422,14 @@ function Contact() {
             <div className="eyebrow">Email</div>
             <div className="mt-3 text-lg link-underline">oleh.mordach@gmail.com →</div>
           </a>
-          <a href="#" className="bg-background px-6 py-8 group">
+          <a
+            href="https://www.linkedin.com/in/olehmordach/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-background px-6 py-8 group"
+          >
             <div className="eyebrow">Resume</div>
-            <div className="mt-3 text-lg link-underline">Download CV (PDF) →</div>
+            <div className="mt-3 text-lg link-underline">View on LinkedIn →</div>
           </a>
         </div>
         <div className="mt-10 text-sm text-muted-foreground">
