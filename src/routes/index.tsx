@@ -415,7 +415,7 @@ function Contact() {
           <a
             href="https://www.linkedin.com/in/olehmordach/"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="bg-background px-6 py-8 group"
           >
             <div className="eyebrow">LinkedIn</div>
