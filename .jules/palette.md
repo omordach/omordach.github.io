@@ -1,0 +1,3 @@
+## 2024-06-24 - Added Global Focus Visible Outline
+**Learning:** Adding a global focus-visible outline (`focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background`) for `a` and `button` elements in a `@layer base` block provides excellent default keyboard accessibility. It ensures all interactive elements are clearly outlined when navigating via keyboard, improving WCAG compliance with minimal effort.
+**Action:** Next time I start a new Tailwind project, I'll add this specific snippet to the base layer to immediately secure baseline keyboard accessibility for all standard interactive elements.
