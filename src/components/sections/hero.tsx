@@ -2,7 +2,6 @@ export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden">
       <div className="container-page pt-20 pb-28 md:pt-32 md:pb-40">
-        <div className="eyebrow animate-fade">Warsaw, Poland · Available 2026</div>
         <h1 className="display-1 mt-6 max-w-5xl animate-rise">
           Building predictable delivery
           <br />
