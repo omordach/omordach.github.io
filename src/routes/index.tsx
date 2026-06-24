@@ -102,18 +102,17 @@ const CERTS = [
   "PMI Citizen Developer",
   "AI & GenAI",
 ];
+const NAV_LINKS = [
+  { href: "#experience", label: "Experience" },
+  { href: "#expertise", label: "Expertise" },
+  { href: "#achievements", label: "Achievements" },
+  { href: "#certifications", label: "Certifications" },
+  { href: "#contact", label: "Contact" },
+];
 
 function Nav() {
   const { theme, toggle } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
-
-  const navLinks = [
-    { href: "#experience", label: "Experience" },
-    { href: "#expertise", label: "Expertise" },
-    { href: "#achievements", label: "Achievements" },
-    { href: "#certifications", label: "Certifications" },
-    { href: "#contact", label: "Contact" },
-  ];
 
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-background/75 hairline-b">
@@ -124,7 +123,7 @@ function Nav() {
         </a>
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
-          {navLinks.map((l) => (
+          {NAV_LINKS.map((l) => (
             <a
               key={l.href}
               href={l.href}
@@ -160,7 +159,7 @@ function Nav() {
           className="md:hidden border-t border-hairline bg-background/95 backdrop-blur-md"
         >
           <ul className="container-page py-4 flex flex-col gap-1">
-            {navLinks.map((l) => (
+            {NAV_LINKS.map((l) => (
               <li key={l.href}>
                 <a
                   href={l.href}
