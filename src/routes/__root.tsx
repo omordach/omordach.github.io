@@ -77,22 +77,43 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Oleh Mordach — Technical Program Manager & Product Delivery Leader" },
+      {
+        name: "description",
+        content:
+          "Oleh Mordach, PMP — Technical Program Manager and Product Delivery Leader in Warsaw. 10+ years delivering enterprise SaaS, AI-augmented programs, and global engineering initiatives.",
+      },
+      { name: "author", content: "Oleh Mordach" },
+      {
+        name: "keywords",
+        content:
+          "Technical Program Manager, Senior Program Manager, Delivery Manager, Product Delivery Lead, PMP, SaaS, ERP, AI Delivery, Program Management, Technical Leadership, Enterprise Software, Oleh Mordach",
+      },
+      { property: "og:title", content: "Oleh Mordach — Technical Program Manager" },
+      {
+        property: "og:description",
+        content:
+          "Building predictable delivery for complex technology products. 10+ years across SaaS, AI, cloud and enterprise integrations.",
+      },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Oleh Mordach — Technical Program Manager" },
+      {
+        name: "twitter:description",
+        content: "Building predictable delivery for complex technology products.",
+      },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: appCss,
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap",
       },
     ],
   }),
+
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
