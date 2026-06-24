@@ -109,7 +109,8 @@
     background-color: color-mix(in oklab, var(--accent) 35%, transparent);
     color: var(--foreground);
   }
-  a, button {
+  a,
+  button {
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
   }
 }

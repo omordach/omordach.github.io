@@ -8,20 +8,20 @@ export function Contact() {
         </h2>
         <div className="mt-12 grid gap-px bg-hairline hairline-t hairline-b sm:grid-cols-3">
           <a
-            href="https://www.linkedin.com/in/olehmordach/"
+            href="https://www.linkedin.com/in/oleh-mordach/"
             target="_blank"
             rel="noreferrer"
             className="bg-background px-6 py-8 group"
           >
             <div className="eyebrow">LinkedIn</div>
-            <div className="mt-3 text-lg link-underline">olehmordach →</div>
+            <div className="mt-3 text-lg link-underline">oleh-mordach →</div>
           </a>
-          <a href="mailto:oleh.mordach@gmail.com" className="bg-background px-6 py-8 group">
+          <a href="mailto:omordach@gmail.com" className="bg-background px-6 py-8 group">
             <div className="eyebrow">Email</div>
-            <div className="mt-3 text-lg link-underline">oleh.mordach@gmail.com →</div>
+            <div className="mt-3 text-lg link-underline">omordach@gmail.com →</div>
           </a>
           <a
-            href="https://www.linkedin.com/in/olehmordach/"
+            href="https://www.linkedin.com/in/oleh-mordach/"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-background px-6 py-8 group"
