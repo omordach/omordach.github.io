@@ -1,3 +1,0 @@
-## 2024-06-24 - Memoizing Functions in React Context Providers
-**Learning:** In `src/hooks/use-theme.tsx`, the `toggle` function is recreated on every render of the `ThemeProvider` component. Since this function is passed in the context value object, the object reference also changes on every render. This forces all components consuming the `ThemeContext` to re-render, even if the theme state hasn't changed.
-**Action:** Wrap context value functions in `useCallback` and the entire context value object in `useMemo` to ensure reference stability and prevent unnecessary re-renders of consuming components.
