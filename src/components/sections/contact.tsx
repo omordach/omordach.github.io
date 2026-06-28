@@ -10,7 +10,7 @@ export function Contact() {
           <a
             href="https://www.linkedin.com/in/oleh-mordach/"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="bg-background px-6 py-8 group"
           >
             <div className="eyebrow">LinkedIn</div>
