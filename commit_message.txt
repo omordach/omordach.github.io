@@ -1,0 +1,6 @@
+🧹 Remove unused hover-card component
+
+🎯 **What:** Deleted the unused `src/components/ui/hover-card.tsx` component and its underlying dependency (`@radix-ui/react-hover-card`).
+💡 **Why:** The component was dead code, never imported or used anywhere in the codebase. Removing it reduces bundle size, cleans up `package.json`, and improves maintainability.
+✅ **Verification:** Verified deletion of the file, removal of the dependency, and ran `pnpm lint` and `pnpm test` to ensure no existing functionality was broken.
+✨ **Result:** A cleaner codebase with fewer unused dependencies and files.
