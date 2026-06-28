@@ -7,7 +7,6 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
 import {
   Sheet,
   SheetContent,
@@ -373,19 +372,18 @@ const SidebarFooter = React.forwardRef<HTMLDivElement, React.ComponentProps<"div
 );
 SidebarFooter.displayName = "SidebarFooter";
 
-const SidebarSeparator = React.forwardRef<
-  React.ElementRef<typeof Separator>,
-  React.ComponentProps<typeof Separator>
->(({ className, ...props }, ref) => {
-  return (
-    <Separator
-      ref={ref}
-      data-sidebar="separator"
-      className={cn("mx-2 w-auto bg-sidebar-border", className)}
-      {...props}
-    />
-  );
-});
+const SidebarSeparator = React.forwardRef<HTMLHRElement, React.ComponentProps<"hr">>(
+  ({ className, ...props }, ref) => {
+    return (
+      <hr
+        ref={ref}
+        data-sidebar="separator"
+        className={cn("mx-2 w-auto shrink-0 border-0 bg-sidebar-border h-[1px]", className)}
+        {...props}
+      />
+    );
+  },
+);
 SidebarSeparator.displayName = "SidebarSeparator";
 
 const SidebarContent = React.forwardRef<HTMLDivElement, React.ComponentProps<"div">>(
