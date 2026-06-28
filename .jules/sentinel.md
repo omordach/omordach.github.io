@@ -1,0 +1,4 @@
+## 2025-03-08 - SSR Error Response Body Redaction
+**Vulnerability:** A generic SSR error payload from h3 (`{"unhandled":true,"message":"HTTPError"}`) or unhandled catastrophic errors was being directly included in the server log via `console.error` in `src/server.ts`, potentially leaking sensitive information present in the raw body of a failed request.
+**Learning:** Raw response bodies, especially from generic SSR or unhandled exception handlers, should never be blindly logged, as they might contain unredacted sensitive payload fragments from internal components that failed to process correctly.
+**Prevention:** Always parse and explicitly extract only the known safe fields (like `message` or predefined error codes) from a raw error body before passing it to logging systems; if parsing fails, fallback to a standard `[redacted]` string.
