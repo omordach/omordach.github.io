@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 
-const BASE_URL = "https://omordach.github.io";
+const BASE_URL = "https://mordach.com";
 
 export const Route = createFileRoute("/sitemap.xml")({
   server: {

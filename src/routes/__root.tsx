@@ -97,14 +97,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Building predictable delivery for complex technology products. 10+ years across SaaS, AI, cloud and enterprise integrations.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://mordach.com/" },
+      { property: "og:image", content: "https://mordach.com/og-image.png" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Oleh Mordach — Technical Program Manager" },
       {
         name: "twitter:description",
         content: "Building predictable delivery for complex technology products.",
       },
+      { name: "twitter:image", content: "https://mordach.com/og-image.png" },
     ],
     links: [
+      { rel: "canonical", href: "https://mordach.com/" },
+      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
@@ -132,6 +140,22 @@ function RootShell({ children }: { children: ReactNode }) {
           }}
         />
         <HeadContent />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Oleh Mordach",
+              url: "https://mordach.com",
+              jobTitle: "Technical Program Manager",
+              description:
+                "Technical Program Manager and Product Delivery Leader with 10+ years across SaaS, AI, and enterprise software.",
+              image: "https://mordach.com/og-image.png",
+              sameAs: ["https://www.linkedin.com/in/oleh-mordach/"],
+            }),
+          }}
+        />
       </head>
       <body>
         {children}

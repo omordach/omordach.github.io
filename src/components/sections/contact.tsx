@@ -10,7 +10,7 @@ export function Contact() {
           <a
             href="https://www.linkedin.com/in/oleh-mordach/"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="bg-background px-6 py-8 group"
           >
             <div className="eyebrow">LinkedIn</div>
@@ -21,13 +21,13 @@ export function Contact() {
             <div className="mt-3 text-lg link-underline">omordach@gmail.com →</div>
           </a>
           <a
-            href="https://www.linkedin.com/in/oleh-mordach/"
+            href="https://drive.google.com/file/d/1Z4qugohv7f-0cPCIsZVISJhk-tSGT8me/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-background px-6 py-8 group"
           >
             <div className="eyebrow">Resume</div>
-            <div className="mt-3 text-lg link-underline">View on LinkedIn →</div>
+            <div className="mt-3 text-lg link-underline">Download PDF →</div>
           </a>
         </div>
         <div className="mt-10 text-sm text-muted-foreground">
