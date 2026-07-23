@@ -1,3 +1,9 @@
+const stats = [
+  { k: "Role", v: "Technical Program Manager" },
+  { k: "Focus", v: "Product Delivery Leadership" },
+  { k: "Credential", v: "PMP · PSM II · PSPO II" },
+];
+
 export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden">
@@ -31,11 +37,7 @@ export function Hero() {
         </div>
 
         <div className="mt-20 grid grid-cols-3 gap-px bg-hairline hairline-t hairline-b">
-          {[
-            { k: "Role", v: "Technical Program Manager" },
-            { k: "Focus", v: "Product Delivery Leadership" },
-            { k: "Credential", v: "PMP · PSM II · PSPO II" },
-          ].map((i) => (
+          {stats.map((i) => (
             <div key={i.k} className="bg-background px-4 py-5">
               <div className="eyebrow">{i.k}</div>
               <div className="mt-2 text-sm md:text-base font-medium">{i.v}</div>
