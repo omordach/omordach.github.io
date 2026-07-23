@@ -47,7 +47,20 @@ async function normalizeCatastrophicSsrResponse(response: Response): Promise<Res
     return response;
   }
 
-  console.error(consumeLastCapturedError() ?? new Error(`h3 swallowed SSR error: ${body}`));
+  let sanitizedBody = "[redacted]";
+  try {
+    const parsed = JSON.parse(body);
+    sanitizedBody = JSON.stringify({
+      unhandled: parsed.unhandled,
+      message: parsed.message,
+    });
+  } catch (e) {
+    // Fallback to [redacted]
+  }
+
+  console.error(
+    consumeLastCapturedError() ?? new Error(`h3 swallowed SSR error: ${sanitizedBody}`),
+  );
   return new Response(renderErrorPage(), {
     status: 500,
     headers: { "content-type": "text/html; charset=utf-8" },
