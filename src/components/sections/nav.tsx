@@ -1,5 +1,14 @@
 import { useEffect, useState } from "react";
 import { useTheme } from "../../hooks/use-theme";
+
+const navLinks = [
+  { href: "#experience", label: "Experience" },
+  { href: "#expertise", label: "Expertise" },
+  { href: "#achievements", label: "Achievements" },
+  { href: "#certifications", label: "Certifications" },
+  { href: "#contact", label: "Contact" },
+];
+
 export function Nav() {
   const { theme, toggle } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -12,14 +21,6 @@ export function Nav() {
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
   }, [menuOpen]);
-
-  const navLinks = [
-    { href: "#experience", label: "Experience" },
-    { href: "#expertise", label: "Expertise" },
-    { href: "#achievements", label: "Achievements" },
-    { href: "#certifications", label: "Certifications" },
-    { href: "#contact", label: "Contact" },
-  ];
 
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-background/75 hairline-b">
