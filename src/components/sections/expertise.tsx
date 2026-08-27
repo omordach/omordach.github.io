@@ -16,6 +16,8 @@ const EXPERTISE = [
   "Cross-Functional Leadership",
   "Operational Excellence",
 ];
+const EXPERTISE_INDICES = EXPERTISE.map((_, i) => String(i + 1).padStart(2, "0"));
+
 export function Expertise() {
   return (
     <Section
@@ -29,9 +31,7 @@ export function Expertise() {
             key={e}
             className="bg-background px-5 py-4 text-sm md:text-[15px] flex items-center gap-3"
           >
-            <span className="font-mono text-xs text-muted-foreground">
-              {String(i + 1).padStart(2, "0")}
-            </span>
+            <span className="font-mono text-xs text-muted-foreground">{EXPERTISE_INDICES[i]}</span>
             {e}
           </li>
         ))}
