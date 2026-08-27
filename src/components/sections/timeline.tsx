@@ -28,7 +28,7 @@ const TIMELINE = [
   {
     period: "2026 →",
     role: "Delivery Manager",
-    org: "Confidential — Under NDA",
+    org: "Shooters.Global",
     body: "End-to-end delivery across hardware, firmware, mobile, web, and simulation platforms. Established operational excellence through measurable KPIs, predictable releases, and continuous improvement across embedded, software, QA, DevOps, and hardware engineering.",
   },
 ];
