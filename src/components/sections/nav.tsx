@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useTheme } from "../../hooks/use-theme";
 
 const navLinks = [
@@ -13,14 +13,22 @@ export function Nav() {
   const { theme, toggle } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const closeMenu = React.useCallback(() => {
+    setMenuOpen(false);
+  }, []);
+
+  const toggleMenu = React.useCallback(() => {
+    setMenuOpen((v) => !v);
+  }, []);
+
   useEffect(() => {
     if (!menuOpen) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setMenuOpen(false);
+      if (e.key === "Escape") closeMenu();
     };
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
-  }, [menuOpen]);
+  }, [menuOpen, closeMenu]);
 
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-background/75 hairline-b">
@@ -51,7 +59,7 @@ export function Nav() {
           </button>
           {/* Hamburger — mobile only */}
           <button
-            onClick={() => setMenuOpen((v) => !v)}
+            onClick={toggleMenu}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
             className="md:hidden size-9 inline-flex items-center justify-center rounded-full border border-border text-muted-foreground hover:text-foreground transition-colors"
@@ -71,7 +79,7 @@ export function Nav() {
               <li key={l.href}>
                 <a
                   href={l.href}
-                  onClick={() => setMenuOpen(false)}
+                  onClick={closeMenu}
                   className="block py-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {l.label}

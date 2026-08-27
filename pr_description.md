@@ -6,6 +6,7 @@ When defined inline within the component, the array literal is re-allocated in m
 
 📊 **Measured Improvement:**
 A benchmark test rendering the `Hero` component 5,000 times showed an improvement:
+
 - **Baseline:** ~7365.37ms
 - **Optimized:** ~7137.26ms
 - **Change:** Render time decreased by ~228ms (-3.1%) across 5,000 iterations.
