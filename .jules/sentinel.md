@@ -1,5 +1,4 @@
-## 2025-03-08 - SSR Error Response Body Redaction
-
-**Vulnerability:** A generic SSR error payload from h3 (`{"unhandled":true,"message":"HTTPError"}`) or unhandled catastrophic errors was being directly included in the server log via `console.error` in `src/server.ts`, potentially leaking sensitive information present in the raw body of a failed request.
-**Learning:** Raw response bodies, especially from generic SSR or unhandled exception handlers, should never be blindly logged, as they might contain unredacted sensitive payload fragments from internal components that failed to process correctly.
-**Prevention:** Always parse and explicitly extract only the known safe fields (like `message` or predefined error codes) from a raw error body before passing it to logging systems; if parsing fails, fallback to a standard `[redacted]` string.
+## 2025-02-27 - Unescaped JSON Stringify in dangerouslySetInnerHTML
+**Vulnerability:** Usage of `JSON.stringify` directly in `dangerouslySetInnerHTML` for a `<script type="application/ld+json">` tag.
+**Learning:** Even if the JSON object is currently static, failing to escape `<` to `\\u003c` in stringified JSON inserted into HTML creates an XSS vulnerability pattern. If dynamic, user-controlled data is ever introduced into the JSON structure, it could be used to prematurely close the `<script>` tag (e.g., via `</script>`) and inject malicious HTML/JavaScript.
+**Prevention:** Always escape `<` characters when embedding JSON into HTML `<script>` tags by appending `.replace(/</g, '\\u003c')` to `JSON.stringify`.
