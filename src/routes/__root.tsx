@@ -153,7 +153,7 @@ function RootShell({ children }: { children: ReactNode }) {
                 "Technical Program Manager and Product Delivery Leader with 10+ years across SaaS, AI, and enterprise software.",
               image: "https://mordach.com/og-image.png",
               sameAs: ["https://www.linkedin.com/in/oleh-mordach/"],
-            }),
+            }).replace(/</g, "\\u003c"),
           }}
         />
       </head>
