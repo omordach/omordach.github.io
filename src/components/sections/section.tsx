@@ -1,4 +1,4 @@
-import React from "react";
+import { type ReactNode } from "react";
 export function Section({
   id,
   eyebrow,
@@ -10,7 +10,7 @@ export function Section({
   eyebrow: string;
   title: string;
   intro?: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   return (
     <section id={id} className="hairline-t">
