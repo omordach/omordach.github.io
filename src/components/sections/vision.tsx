@@ -1,6 +1,6 @@
 export function Vision() {
   return (
-    <section className="hairline-t bg-surface">
+    <section id="vision" className="hairline-t bg-surface">
       <div className="container-page py-24 md:py-32 grid gap-10 md:grid-cols-[1fr_2fr] md:gap-20">
         <div>
           <div className="eyebrow">Vision</div>

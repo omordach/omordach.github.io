@@ -41,7 +41,7 @@ export function Timeline() {
       intro="From engineering quality at the code level to governing complex, multi-disciplinary programs at an organizational scale."
     >
       <ol className="relative">
-        {TIMELINE.map((t, i) => (
+        {TIMELINE.map((t) => (
           <li key={t.period} className="relative pl-8 pb-12 last:pb-0">
             <span className="absolute left-0 top-2 size-2 rounded-full bg-accent" />
             <span className="absolute left-[3px] top-5 bottom-0 w-px bg-hairline last:hidden" />

@@ -1,5 +1,5 @@
 const stats = [
-  { k: "Role", v: "Technical Program Manager" },
+  { k: "Role", v: "Delivery Manager" },
   { k: "Focus", v: "Global Product & Infrastructure Delivery" },
   { k: "Credential", v: "PMP · PSM II · PSPO II" },
 ];

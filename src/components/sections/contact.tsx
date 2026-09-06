@@ -3,7 +3,7 @@ export function Contact() {
     <section id="contact" className="hairline-t">
       <div className="container-page py-24 md:py-36">
         <div className="eyebrow">Contact</div>
-        <h2 className="display-1 mt-4 max-w-4xl">
+        <h2 className="display-2 mt-4 max-w-4xl">
           Let&apos;s build something <em className="italic text-muted-foreground">predictable.</em>
         </h2>
         <div className="mt-12 grid gap-px bg-hairline hairline-t hairline-b sm:grid-cols-3">

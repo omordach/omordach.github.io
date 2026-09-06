@@ -74,11 +74,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Oleh Mordach — Technical Program Manager & Product Delivery Leader" },
+      { title: "Oleh Mordach — Delivery Manager & TPM Track" },
       {
         name: "description",
         content:
-          "Oleh Mordach, PMP — Technical Program Manager and Product Delivery Leader in Warsaw. 10+ years delivering enterprise SaaS, AI-augmented programs, and global engineering initiatives.",
+          "Oleh Mordach — Delivery Manager advancing into large-scale Technical Program Management. 10+ years across enterprise SaaS, AI, and global delivery.",
       },
       { name: "author", content: "Oleh Mordach" },
       {
@@ -86,7 +86,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "Technical Program Manager, Senior Program Manager, Delivery Manager, Product Delivery Lead, PMP, SaaS, ERP, AI Delivery, Program Management, Technical Leadership, Enterprise Software, Oleh Mordach",
       },
-      { property: "og:title", content: "Oleh Mordach — Technical Program Manager" },
+      { property: "og:title", content: "Oleh Mordach — Delivery Manager" },
       {
         property: "og:description",
         content:
@@ -98,7 +98,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Oleh Mordach — Technical Program Manager" },
+      { name: "twitter:title", content: "Oleh Mordach — Delivery Manager" },
       {
         name: "twitter:description",
         content: "Building predictable delivery for complex technology products.",
@@ -144,9 +144,9 @@ function RootShell({ children }: { children: ReactNode }) {
               "@type": "Person",
               name: "Oleh Mordach",
               url: "https://mordach.com",
-              jobTitle: "Technical Program Manager",
+              jobTitle: "Delivery Manager",
               description:
-                "Technical Program Manager and Product Delivery Leader with 10+ years across SaaS, AI, and enterprise software.",
+                "Delivery Manager advancing into large-scale Technical Program Management, with 10+ years across SaaS, AI, and enterprise software.",
               image: "https://mordach.com/og-image.png",
               sameAs: ["https://www.linkedin.com/in/oleh-mordach/"],
             }).replace(/</g, "\\u003c"),

@@ -15,6 +15,7 @@ export function Achievements() {
       id="achievements"
       eyebrow="Selected Achievements"
       title="Measurable impact across SaaS, AI, and enterprise programs."
+      intro="A decade of quantified outcomes across delivery, AI, and infrastructure programs."
     >
       <ul className="divide-y divide-hairline border-y border-hairline">
         {ACHIEVEMENTS.map((a, i) => (
