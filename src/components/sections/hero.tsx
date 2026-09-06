@@ -1,6 +1,6 @@
 const stats = [
   { k: "Role", v: "Technical Program Manager" },
-  { k: "Focus", v: "Product Delivery Leadership" },
+  { k: "Focus", v: "Global Product & Infrastructure Delivery" },
   { k: "Credential", v: "PMP · PSM II · PSPO II" },
 ];
 
@@ -9,16 +9,16 @@ export function Hero() {
     <section id="top" className="relative overflow-hidden">
       <div className="container-page pt-20 pb-28 md:pt-32 md:pb-40">
         <h1 className="display-1 mt-6 max-w-5xl animate-rise">
-          Building predictable delivery
+          Scaling complex technical programs
           <br />
-          for complex <em className="italic text-muted-foreground">technology products.</em>
+          from <em className="italic text-muted-foreground">chaos to predictability.</em>
         </h1>
         <div className="mt-10 grid gap-10 md:grid-cols-[1.4fr_1fr] md:items-end">
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-            10+ years in technology. From QA Engineer to Technical Program Manager. Led enterprise
-            SaaS platforms, AI-enabled delivery transformations, large-scale integrations, and
-            cross-functional engineering programs across software, infrastructure, and product
-            organizations.
+            10+ years driving operational excellence for high-growth tech organizations. I lead
+            cross-functional engineering, product, and infrastructure teams to deliver
+            enterprise-scale SaaS and AI platforms by designing scalable delivery mechanisms,
+            navigating ambiguity, and enforcing rigorous execution standards.
           </p>
           <div className="flex flex-wrap items-center gap-3 md:justify-end">
             <a

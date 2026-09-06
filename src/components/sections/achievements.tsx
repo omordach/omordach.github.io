@@ -1,20 +1,20 @@
 import { Section } from "./section";
 
 const ACHIEVEMENTS = [
-  "Scaled enterprise SaaS delivery supporting 100+ B2B customers.",
-  "Increased deployment frequency to 10+ releases daily.",
-  "Reduced release regressions by 30%.",
-  "Improved project delivery efficiency by 50%.",
-  "Reduced unexpected delays by 35%.",
-  "Built delivery frameworks combining Agile, Product Thinking, Systems Thinking, and AI-assisted execution.",
-  "Successfully led distributed teams across multiple countries and disciplines.",
+  "Scaled enterprise SaaS delivery for 100+ B2B customers by re-architecting release pipelines and aligning cross-functional product roadmaps.",
+  "Increased deployment frequency to 10+ daily releases by implementing robust CI/CD practices and shifting quality verification left.",
+  "Reduced release regressions by 30% through the introduction of standardized testing frameworks and automated deployment gates.",
+  "Improved project delivery efficiency by 50% by establishing clear KPIs, capacity planning models, and removing critical path blockers.",
+  "Reduced unexpected project delays by 35% through proactive risk modeling, dependency mapping, and continuous stakeholder alignment.",
+  "Architected hybrid delivery frameworks that integrated Agile principles, Systems Thinking, and AI-assisted execution strategies.",
+  "Consistently delivered complex, multi-disciplinary programs across distributed global engineering, product, and infrastructure teams.",
 ];
 export function Achievements() {
   return (
     <Section
       id="achievements"
       eyebrow="Selected Achievements"
-      title="Measurable outcomes across SaaS, AI, and enterprise integration."
+      title="Measurable impact across SaaS, AI, and enterprise programs."
     >
       <ul className="divide-y divide-hairline border-y border-hairline">
         {ACHIEVEMENTS.map((a, i) => (

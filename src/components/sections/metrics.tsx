@@ -1,10 +1,10 @@
 const METRICS = [
-  { value: "10+", label: "Years in technology" },
-  { value: "100+", label: "Enterprise customers supported" },
-  { value: "10+", label: "Production releases per day" },
-  { value: "30%", label: "Fewer release regressions" },
-  { value: "50%", label: "Improvement in delivery efficiency" },
-  { value: "35%", label: "Reduction in project delays" },
+  { value: "10+", label: "Years managing technical delivery" },
+  { value: "100+", label: "Enterprise implementations led" },
+  { value: "10+", label: "Deployments per day achieved" },
+  { value: "30%", label: "Decrease in post-release defects" },
+  { value: "50%", label: "Increase in delivery velocity" },
+  { value: "35%", label: "Reduction in schedule variance" },
 ];
 export function Metrics() {
   return (
