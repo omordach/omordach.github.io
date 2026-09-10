@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useTheme } from "../../hooks/use-theme";
 
 const navLinks = [
@@ -9,18 +9,15 @@ const navLinks = [
   { href: "#contact", label: "Contact" },
 ];
 
-const ICON_BUTTON_CLASS =
-  "size-9 inline-flex items-center justify-center rounded-full border border-border text-muted-foreground hover:text-foreground transition-colors";
-
 export function Nav() {
   const { theme, toggle } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const closeMenu = useCallback(() => {
+  const closeMenu = React.useCallback(() => {
     setMenuOpen(false);
   }, []);
 
-  const toggleMenu = useCallback(() => {
+  const toggleMenu = React.useCallback(() => {
     setMenuOpen((v) => !v);
   }, []);
 
@@ -53,7 +50,11 @@ export function Nav() {
           ))}
         </nav>
         <div className="flex items-center gap-2">
-          <button onClick={toggle} aria-label="Toggle theme" className={ICON_BUTTON_CLASS}>
+          <button
+            onClick={toggle}
+            aria-label="Toggle theme"
+            className="size-9 inline-flex items-center justify-center rounded-full border border-border text-muted-foreground hover:text-foreground transition-colors"
+          >
             {theme === "dark" ? "☼" : "☾"}
           </button>
           {/* Hamburger — mobile only */}
@@ -61,7 +62,7 @@ export function Nav() {
             onClick={toggleMenu}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
-            className={`md:hidden ${ICON_BUTTON_CLASS}`}
+            className="md:hidden size-9 inline-flex items-center justify-center rounded-full border border-border text-muted-foreground hover:text-foreground transition-colors"
           >
             {menuOpen ? "✕" : "☰"}
           </button>
