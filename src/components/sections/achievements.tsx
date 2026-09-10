@@ -9,6 +9,9 @@ const ACHIEVEMENTS = [
   "Architected hybrid delivery frameworks that integrated Agile principles, Systems Thinking, and AI-assisted execution strategies.",
   "Consistently delivered complex, multi-disciplinary programs across distributed global engineering, product, and infrastructure teams.",
 ];
+
+const ACHIEVEMENTS_INDICES = ACHIEVEMENTS.map((_, i) => String(i + 1).padStart(2, "0"));
+
 export function Achievements() {
   return (
     <Section
@@ -21,7 +24,7 @@ export function Achievements() {
         {ACHIEVEMENTS.map((a, i) => (
           <li key={a} className="grid grid-cols-[3rem_1fr] gap-6 py-5">
             <span className="font-mono text-xs text-muted-foreground pt-1">
-              {String(i + 1).padStart(2, "0")}
+              {ACHIEVEMENTS_INDICES[i]}
             </span>
             <p className="text-base md:text-lg leading-relaxed">{a}</p>
           </li>

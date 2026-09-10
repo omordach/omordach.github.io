@@ -10,3 +10,6 @@
 ## 2025-02-12 - Hoist Static JSON-LD Objects out of React Components
 **Learning:** Static, hardcoded JSON objects initialized and passed to `JSON.stringify` directly in the JSX of a React component are re-created and stringified on every render cycle. Even for relatively small JSON blobs, this introduces continuous, unnecessary CPU overhead during application lifecycle events.
 **Action:** Always hoist static object creation and heavy stringification operations out of the component function body into the outer module scope, assigning the result to a constant, so the operations are performed exactly once at startup.
+## 2023-10-27 - Precalculate string formatting outside render loop
+**Learning:** Performing string manipulations like `padStart` inside a React component's render loop (especially within an array `map`) adds unnecessary CPU overhead on every re-render.
+**Action:** Always extract static derived data calculations (like zero-padding fixed indices) to constants outside the component scope to perform the work once during module evaluation.

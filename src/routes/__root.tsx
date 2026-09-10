@@ -143,12 +143,22 @@ function RootShell({ children }: { children: ReactNode }) {
       <head>
         {/* Blocking script: apply saved/system theme before first paint to prevent FOUC */}
         <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){var s=localStorage.getItem('theme');var d=s??(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.classList.toggle('dark',d==='dark');})();`,
-          }}
-        />
+          suppressHydrationWarning
+        >{`(function(){var s=localStorage.getItem('theme');var d=s??(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.classList.toggle('dark',d==='dark');})();`}</script>
         <HeadContent />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON_LD }} />
+        <script type="application/ld+json" suppressHydrationWarning>
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: "Oleh Mordach",
+            url: "https://mordach.com",
+            jobTitle: "Delivery Manager",
+            description:
+              "Delivery Manager advancing into large-scale Technical Program Management, with 10+ years across SaaS, AI, and enterprise software.",
+            image: "https://mordach.com/og-image.png",
+            sameAs: ["https://www.linkedin.com/in/oleh-mordach/"],
+          }).replace(/</g, "\\u003c")}
+        </script>
       </head>
       <body>
         {children}
