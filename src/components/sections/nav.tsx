@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useTheme } from "../../hooks/use-theme";
 
 const navLinks = [
@@ -13,11 +13,11 @@ export function Nav() {
   const { theme, toggle } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const closeMenu = React.useCallback(() => {
+  const closeMenu = useCallback(() => {
     setMenuOpen(false);
   }, []);
 
-  const toggleMenu = React.useCallback(() => {
+  const toggleMenu = useCallback(() => {
     setMenuOpen((v) => !v);
   }, []);
 
