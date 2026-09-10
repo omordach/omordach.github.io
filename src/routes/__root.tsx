@@ -125,6 +125,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   errorComponent: ErrorComponent,
 });
 
+const JSON_LD = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Oleh Mordach",
+  url: "https://mordach.com",
+  jobTitle: "Delivery Manager",
+  description:
+    "Delivery Manager advancing into large-scale Technical Program Management, with 10+ years across SaaS, AI, and enterprise software.",
+  image: "https://mordach.com/og-image.png",
+  sameAs: ["https://www.linkedin.com/in/oleh-mordach/"],
+}).replace(/</g, "\\u003c");
+
 function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
@@ -136,22 +148,7 @@ function RootShell({ children }: { children: ReactNode }) {
           }}
         />
         <HeadContent />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Oleh Mordach",
-              url: "https://mordach.com",
-              jobTitle: "Delivery Manager",
-              description:
-                "Delivery Manager advancing into large-scale Technical Program Management, with 10+ years across SaaS, AI, and enterprise software.",
-              image: "https://mordach.com/og-image.png",
-              sameAs: ["https://www.linkedin.com/in/oleh-mordach/"],
-            }).replace(/</g, "\\u003c"),
-          }}
-        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON_LD }} />
       </head>
       <body>
         {children}
