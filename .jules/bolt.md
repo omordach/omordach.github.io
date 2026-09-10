@@ -7,3 +7,6 @@
 
 **Learning:** Performing string manipulation or formatting (like `padStart`) on static array elements within a React render loop causes unnecessary CPU overhead per render.
 **Action:** When mapping over static arrays, precompute and hoist the formatted data or related arrays outside of the component to perform the formatting only once at module load time.
+## 2023-10-27 - Precalculate string formatting outside render loop
+**Learning:** Performing string manipulations like `padStart` inside a React component's render loop (especially within an array `map`) adds unnecessary CPU overhead on every re-render.
+**Action:** Always extract static derived data calculations (like zero-padding fixed indices) to constants outside the component scope to perform the work once during module evaluation.
