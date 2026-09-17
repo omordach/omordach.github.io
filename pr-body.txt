@@ -1,0 +1,13 @@
+🎯 **What:**
+Added a new GitHub Actions workflow (`.github/workflows/weekly-update.yml`) that runs every Monday at 9:00 AM UTC to automatically update minor and patch dependencies.
+
+💡 **Why:**
+To ensure the project stays up to date with non-breaking dependency updates without requiring manual intervention to initiate the process.
+
+✅ **Verification:**
+1. Manually verified the workflow YAML syntax is valid.
+2. Verified that the workflow installs dependencies with Bun, runs the test suite, and checks the live site via `curl` to ensure it returns a `200 OK` status before creating the PR.
+3. Successfully ran `bun run test` locally to ensure the test suite continues to pass.
+
+✨ **Result:**
+The repository now has an automated process to keep dependencies up to date, providing a summary report in an auto-generated Pull Request each week for easy review, only proceeding when the codebase remains stable.
