@@ -140,6 +140,8 @@ function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
+        {/* Secure Privacy consent banner — must load first, before any trackers */}
+        <script src="https://app.secureprivacy.ai/script/6ac6218e6d1ba126ab9d177c.js" />
         {/* Google tag (gtag.js) */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JD6T30RE9" />
         <script
