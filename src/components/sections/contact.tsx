@@ -21,7 +21,7 @@ export function Contact() {
             <div className="mt-3 text-lg link-underline">omordach@gmail.com →</div>
           </a>
           <a
-            href="https://drive.google.com/file/d/1Z4qugohv7f-0cPCIsZVISJhk-tSGT8me/view?usp=sharing"
+            href="https://drive.google.com/file/d/1bWF8xsDUUGNmz0kfoRVo3tLq11MzGZ4-/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-background px-6 py-8 group"
