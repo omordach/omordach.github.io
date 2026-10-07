@@ -154,6 +154,12 @@ function RootShell({ children }: { children: ReactNode }) {
             __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6JD6T30RE9');`,
           }}
         />
+        {/* Microsoft Clarity */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","yu216txw5x");`,
+          }}
+        />
         {/* Blocking script: apply saved/system theme before first paint to prevent FOUC */}
         <script
           dangerouslySetInnerHTML={{

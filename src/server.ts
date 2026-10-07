@@ -13,12 +13,12 @@ import { renderErrorPage } from "./lib/error-page";
 // output, which it doesn't expose today. Revisit if/when that lands.
 const CSP = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' https://*.googletagmanager.com https://*.secureprivacy.ai",
+  "script-src 'self' 'unsafe-inline' https://*.googletagmanager.com https://*.secureprivacy.ai https://*.clarity.ms https://c.bing.com",
   // 'unsafe-inline' for styles: the Secure Privacy consent banner injects inline <style>/style attrs.
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.secureprivacy.ai",
   "font-src 'self' https://fonts.gstatic.com https://*.secureprivacy.ai",
-  "img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com https://*.secureprivacy.ai",
-  "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.secureprivacy.ai https://*.ingest.de.sentry.io",
+  "img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com https://*.secureprivacy.ai https://*.clarity.ms https://c.bing.com",
+  "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.secureprivacy.ai https://*.clarity.ms https://c.bing.com https://*.ingest.de.sentry.io",
   "frame-src 'self' https://*.secureprivacy.ai",
   "frame-ancestors 'self'",
   "base-uri 'self'",
