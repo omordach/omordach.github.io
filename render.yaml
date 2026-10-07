@@ -3,7 +3,7 @@ services:
     name: mordach-com
     runtime: node
     buildCommand: bun install && bun run build
-    startCommand: node .output/server/index.mjs
+    startCommand: node --import ./.output/server/instrument.server.mjs .output/server/index.mjs
     envVars:
       - key: NITRO_PRESET
         value: node-server
@@ -11,3 +11,10 @@ services:
         value: "22"
       - key: NODE_ENV
         value: production
+      # Source map upload during build — set values in the Render dashboard.
+      - key: SENTRY_AUTH_TOKEN
+        sync: false
+      - key: SENTRY_ORG
+        sync: false
+      - key: SENTRY_PROJECT
+        sync: false

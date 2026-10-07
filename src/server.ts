@@ -1,5 +1,7 @@
 import "./lib/error-capture";
 
+import * as Sentry from "@sentry/tanstackstart-react";
+
 import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
 
@@ -16,7 +18,7 @@ const CSP = [
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.secureprivacy.ai",
   "font-src 'self' https://fonts.gstatic.com https://*.secureprivacy.ai",
   "img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com https://*.secureprivacy.ai",
-  "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.secureprivacy.ai",
+  "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.secureprivacy.ai https://*.ingest.de.sentry.io",
   "frame-src 'self' https://*.secureprivacy.ai",
   "frame-ancestors 'self'",
   "base-uri 'self'",
@@ -86,23 +88,28 @@ async function normalizeCatastrophicSsrResponse(response: Response): Promise<Res
     // Fallback to [redacted]
   }
 
-  console.error(
-    consumeLastCapturedError() ?? new Error(`h3 swallowed SSR error: ${sanitizedBody}`),
-  );
+  const captured = consumeLastCapturedError();
+  const error = captured ?? new Error(`h3 swallowed SSR error: ${sanitizedBody}`);
+  console.error(error);
+  Sentry.captureException(error, { tags: { source: "ssr-catastrophic" } });
   return new Response(renderErrorPage(), {
     status: 500,
     headers: { "content-type": "text/html; charset=utf-8" },
   });
 }
 
-export default {
-  async fetch(request: Request, env: unknown, ctx: unknown) {
+type FetchOpts = { env: unknown; ctx: unknown };
+
+// wrapFetchWithSentry only forwards (request, opts), so env/ctx are threaded through opts.
+const sentryHandler = Sentry.wrapFetchWithSentry({
+  async fetch(request: Request, opts?: FetchOpts) {
     try {
       const handler = await getServerEntry();
-      const response = await handler.fetch(request, env, ctx);
+      const response = await handler.fetch(request, opts?.env, opts?.ctx);
       return withSecurityHeaders(await normalizeCatastrophicSsrResponse(response));
     } catch (error) {
       console.error(error);
+      Sentry.captureException(error, { tags: { source: "server-entry" } });
       return withSecurityHeaders(
         new Response(renderErrorPage(), {
           status: 500,
@@ -110,5 +117,11 @@ export default {
         }),
       );
     }
+  },
+});
+
+export default {
+  fetch(request: Request, env: unknown, ctx: unknown) {
+    return sentryHandler.fetch(request, { env, ctx } satisfies FetchOpts);
   },
 };

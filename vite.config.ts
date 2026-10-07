@@ -3,6 +3,7 @@ import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import { nitro } from "nitro/vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
+import { sentryTanstackStart } from "@sentry/tanstackstart-react/vite";
 
 export default defineConfig({
   resolve: {
@@ -24,5 +25,13 @@ export default defineConfig({
     nitro(),
     react(),
     tailwindcss(),
+    // Must be last. Uploads source maps only when SENTRY_AUTH_TOKEN is set (e.g. on Render);
+    // without it, builds still succeed and the upload step is skipped.
+    sentryTanstackStart({
+      org: process.env.SENTRY_ORG,
+      project: process.env.SENTRY_PROJECT,
+      authToken: process.env.SENTRY_AUTH_TOKEN,
+      telemetry: false,
+    }),
   ],
 });
