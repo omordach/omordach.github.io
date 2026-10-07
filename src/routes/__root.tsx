@@ -140,6 +140,13 @@ function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JD6T30RE9" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6JD6T30RE9');`,
+          }}
+        />
         {/* Blocking script: apply saved/system theme before first paint to prevent FOUC */}
         <script
           dangerouslySetInnerHTML={{
