@@ -33,6 +33,12 @@ function withSecurityHeaders(response: Response): Response {
   if (process.env.NODE_ENV === "production") {
     headers.set("Strict-Transport-Security", "max-age=31536000; includeSubDomains; preload");
   }
+
+  // Add X-Robots-Tag for 404 responses
+  if (response.status === 404) {
+    headers.set("X-Robots-Tag", "noindex, nofollow");
+  }
+
   return new Response(response.body, {
     status: response.status,
     statusText: response.statusText,

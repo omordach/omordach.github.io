@@ -12,6 +12,7 @@ import { Footer } from "../components/sections/footer";
 
 export const Route = createFileRoute("/")({
   head: () => ({
+    links: [{ rel: "canonical", href: "https://mordach.com/" }],
     meta: [
       { title: "Oleh Mordach, PMP — Delivery Manager | Warsaw" },
       {
