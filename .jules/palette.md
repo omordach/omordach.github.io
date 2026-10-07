@@ -1,4 +1,3 @@
-## 2024-06-24 - Added Global Focus Visible Outline
-
-**Learning:** Adding a global focus-visible outline (`focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background`) for `a` and `button` elements in a `@layer base` block provides excellent default keyboard accessibility. It ensures all interactive elements are clearly outlined when navigating via keyboard, improving WCAG compliance with minimal effort.
-**Action:** Next time I start a new Tailwind project, I'll add this specific snippet to the base layer to immediately secure baseline keyboard accessibility for all standard interactive elements.
+## 2026-10-07 - Scoped Canonical Meta Tags and Soft 404 indexing
+**Learning:** Defining a `rel="canonical"` tag in a global layout (e.g., `__root.tsx`) applies it to all routes, including 404 and error pages. This causes Google to flag "Duplicate, Google chose different canonical than user" errors because every page claims the homepage as canonical. Additionally, 404 pages should explicitly use `noindex` headers (like `X-Robots-Tag: noindex, nofollow`) to prevent them from being indexed or flagged as soft 404s.
+**Action:** Always scope canonical meta tags to specific route components (e.g., `index.tsx`) rather than global layouts. For server-rendered applications, add `X-Robots-Tag: noindex, nofollow` HTTP headers specifically for 404 response statuses.

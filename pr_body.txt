@@ -1,0 +1,14 @@
+🎯 What
+Moved the `rel="canonical"` tag from the global `__root.tsx` layout to the specific `index.tsx` route. Added the `X-Robots-Tag: noindex, nofollow` header to 404 responses in the SSR entry (`server.ts`).
+
+💡 Why
+Google Search Console reported duplicate canonical URLs and indexing of blocked pages. The global canonical tag was erroneously telling Google that every page (including 404s) was the homepage. Returning an explicit `X-Robots-Tag` header for 404 errors ensures that broken or missing routes are not indexed by search engines.
+
+✅ Verification
+- Ensured `src/routes/__root.tsx` no longer outputs the canonical tag globally.
+- Verified `src/routes/index.tsx` correctly defines the homepage canonical tag.
+- Tested the built node server locally using `curl` and verified that requesting a non-existent route returns `HTTP/1.1 404` with the header `x-robots-tag: noindex, nofollow`.
+- Ran unit tests and Playwright visual verification.
+
+✨ Result
+Search engines will now correctly identify the homepage's canonical URL and will explicitly skip indexing 404 error pages, resolving the Google Search Console indexing warnings.
