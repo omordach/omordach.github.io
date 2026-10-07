@@ -11,4 +11,3 @@ Sentry.init({
   // https://docs.sentry.io/platforms/javascript/configuration/options/#traces-sample-rate
   tracesSampleRate: isProd ? 0.2 : 1.0,
 });
-

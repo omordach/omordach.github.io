@@ -10,4 +10,3 @@ Sentry.init({
   // stated explicitly so third-party calls like GA never receive sentry-trace headers).
   tracePropagationTargets: [/^\//],
 });
-
