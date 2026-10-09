@@ -1,31 +1,22 @@
-# Dependency Update Summary Report
+# Dependency Update Report
 
-## Packages Updated
+## Updated Dependencies
 
-The following packages were safely updated to their latest minor/patch versions:
+### dependencies:
+- `@sentry/tanstackstart-react`: `^11.4.0` -> `^11.6.0`
+- `@tanstack/react-query`: `^5.103.1` -> `^5.104.1`
+- `@tanstack/react-router`: `^1.170.38` -> `^1.170.41`
+- `@tanstack/react-start`: `^1.168.56` -> `^1.168.60`
+- `@tanstack/router-plugin`: `^1.168.40` -> `^1.168.42`
 
-**devDependencies:**
-- `@testing-library/dom`: 10.4.1 -> 10.4.2
-- `@types/node`: 22.20.1 -> 22.20.3
-- `@types/react`: 19.2.18 -> 19.3.0
-- `@types/react-dom`: 19.2.7 -> 19.3.0
-- `jsdom`: 30.0.1 -> 30.1.0
-- `prettier`: 3.9.6 -> 3.9.8
-- `typescript-eslint`: 8.69.0 -> 8.70.0
-- `vite`: 8.2.2 -> 8.3.0
+### devDependencies:
+- `@types/node`: `^22.20.3` -> `^22.20.5`
+- `jsdom`: `^30.1.0` -> `^30.1.2`
+- `prettier`: `^3.9.8` -> `^3.9.9`
+- `tsx`: `^4.23.13` -> `^4.23.15`
+- `typescript-eslint`: `^8.70.0` -> `^8.71.1`
+- `vite`: `^8.3.0` -> `^8.3.4`
 
-**dependencies:**
-- `@tanstack/react-query`: 5.102.8 -> 5.103.1
-- `@tanstack/react-router`: 1.170.32 -> 1.170.38
-- `@tanstack/react-start`: 1.168.49 -> 1.168.56
-- `@tanstack/router-plugin`: 1.168.35 -> 1.168.40
-- `react`: 19.2.8 -> 19.3.0
-- `react-dom`: 19.2.8 -> 19.3.0
+## Issues Requiring Manual Review
 
-## Testing and Validation
-- **Tests**: `bun run test` passed successfully (14 tests passed).
-- **Linter**: `bun run lint` passed with no errors.
-- **Live Site Status**: Checked `https://mordach.com/` using `curl` and confirmed it is responsive (HTTP 200).
-
-## Manual Review Required
-- **No manual review required at this time.** All safe updates were applied and the build remains perfectly stable.
+None. All minor and patch updates were successfully resolved without evident issues. Some major version updates were skipped (e.g. `eslint` v10, `typescript` v7) and may require manual major upgrade steps in the future.
