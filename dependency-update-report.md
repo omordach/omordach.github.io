@@ -1,31 +1,27 @@
-# Dependency Update Summary Report
+# Weekly Dependency Update Report
 
-## Packages Updated
+## Updated Dependencies
+- `@testing-library/user-event`: `14.6.7 -> 14.6.8`
+- `@types/node`: `22.20.3 -> 22.20.5`
+- `@vitest/ui`: `4.1.11 -> 4.1.12`
+- `eslint-plugin-prettier`: `5.5.6 -> 5.5.7`
+- `jsdom`: `30.1.0 -> 30.1.3`
+- `prettier`: `3.9.8 -> 3.9.10`
+- `typescript-eslint`: `8.70.0 -> 8.71.2`
+- `vite`: `8.3.0 -> 8.3.4`
+- `vitest`: `4.1.11 -> 4.1.12`
+- `@sentry/tanstackstart-react`: `11.4.0 -> 11.8.0`
+- `@tanstack/react-query`: `5.103.1 -> 5.104.3`
+- `@tanstack/react-router`: `1.170.38 -> 1.170.44`
+- `@tanstack/react-start`: `1.168.56 -> 1.169.2`
+- `@tanstack/router-plugin`: `1.168.40 -> 1.168.46`
+- `react`: `19.3.0 -> 19.3.1`
+- `react-dom`: `19.3.0 -> 19.3.1`
 
-The following packages were safely updated to their latest minor/patch versions:
+## Tests & Build Stability
+- Automated test suite `bun run test` executed successfully (14 tests passed, 0 failed).
+- Linter `bun run lint` executed successfully with no errors.
+- Checked mordach.com successfully (responsive with 0% packet loss).
 
-**devDependencies:**
-- `@testing-library/dom`: 10.4.1 -> 10.4.2
-- `@types/node`: 22.20.1 -> 22.20.3
-- `@types/react`: 19.2.18 -> 19.3.0
-- `@types/react-dom`: 19.2.7 -> 19.3.0
-- `jsdom`: 30.0.1 -> 30.1.0
-- `prettier`: 3.9.6 -> 3.9.8
-- `typescript-eslint`: 8.69.0 -> 8.70.0
-- `vite`: 8.2.2 -> 8.3.0
-
-**dependencies:**
-- `@tanstack/react-query`: 5.102.8 -> 5.103.1
-- `@tanstack/react-router`: 1.170.32 -> 1.170.38
-- `@tanstack/react-start`: 1.168.49 -> 1.168.56
-- `@tanstack/router-plugin`: 1.168.35 -> 1.168.40
-- `react`: 19.2.8 -> 19.3.0
-- `react-dom`: 19.2.8 -> 19.3.0
-
-## Testing and Validation
-- **Tests**: `bun run test` passed successfully (14 tests passed).
-- **Linter**: `bun run lint` passed with no errors.
-- **Live Site Status**: Checked `https://mordach.com/` using `curl` and confirmed it is responsive (HTTP 200).
-
-## Manual Review Required
-- **No manual review required at this time.** All safe updates were applied and the build remains perfectly stable.
+## Issues Requiring Manual Review
+- Several major version updates are available in development dependencies but were safely deferred per safe update policy (e.g. `@eslint/js`, `@types/node`, `@vitejs/plugin-react`, `@vitest/ui`, `eslint`, `eslint-plugin-react-hooks`, `eslint-plugin-react-refresh`, `globals`, `typescript`). These require a manual review to consider upgrading to major versions in a dedicated effort.
