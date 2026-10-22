@@ -1,31 +1,23 @@
-# Dependency Update Summary Report
+### Updated Dependencies
 
-## Packages Updated
+- `@testing-library/user-event` updated from `14.6.7` to `14.6.8`
+- `@types/node` updated from `22.20.3` to `22.20.5`
+- `@vitest/ui` updated from `4.1.11` to `4.1.12`
+- `eslint-plugin-prettier` updated from `5.5.6` to `5.5.7`
+- `jsdom` updated from `30.1.0` to `30.1.3`
+- `prettier` updated from `3.9.8` to `3.9.10`
+- `typescript-eslint` updated from `8.70.0` to `8.72.0`
+- `tsx` updated from `4.23.13` to `4.23.15`
+- `vite` updated from `8.3.0` to `8.3.5`
+- `vitest` updated from `4.1.11` to `4.1.12`
+- `@sentry/tanstackstart-react` updated from `11.4.0` to `11.8.0`
+- `@tanstack/react-query` updated from `5.103.1` to `5.104.5`
+- `@tanstack/react-router` updated from `1.170.38` to `1.170.45`
+- `@tanstack/react-start` updated from `1.168.56` to `1.169.3`
+- `@tanstack/router-plugin` updated from `1.168.40` to `1.168.47`
+- `react` updated from `19.3.0` to `19.3.1`
+- `react-dom` updated from `19.3.0` to `19.3.1`
 
-The following packages were safely updated to their latest minor/patch versions:
+### Issues Requiring Manual Review
 
-**devDependencies:**
-- `@testing-library/dom`: 10.4.1 -> 10.4.2
-- `@types/node`: 22.20.1 -> 22.20.3
-- `@types/react`: 19.2.18 -> 19.3.0
-- `@types/react-dom`: 19.2.7 -> 19.3.0
-- `jsdom`: 30.0.1 -> 30.1.0
-- `prettier`: 3.9.6 -> 3.9.8
-- `typescript-eslint`: 8.69.0 -> 8.70.0
-- `vite`: 8.2.2 -> 8.3.0
-
-**dependencies:**
-- `@tanstack/react-query`: 5.102.8 -> 5.103.1
-- `@tanstack/react-router`: 1.170.32 -> 1.170.38
-- `@tanstack/react-start`: 1.168.49 -> 1.168.56
-- `@tanstack/router-plugin`: 1.168.35 -> 1.168.40
-- `react`: 19.2.8 -> 19.3.0
-- `react-dom`: 19.2.8 -> 19.3.0
-
-## Testing and Validation
-- **Tests**: `bun run test` passed successfully (14 tests passed).
-- **Linter**: `bun run lint` passed with no errors.
-- **Live Site Status**: Checked `https://mordach.com/` using `curl` and confirmed it is responsive (HTTP 200).
-
-## Manual Review Required
-- **No manual review required at this time.** All safe updates were applied and the build remains perfectly stable.
+None. All tests and verifications have passed successfully. The live site (mordach.com) is online and responsive.
