@@ -1,14 +1,23 @@
-⚡ Hoist static JSON-LD serialization out of RootShell
+### Updated Dependencies
 
-💡 **What:**
-Extracted the static `JSON.stringify` logic used for JSON-LD structured data inside the `RootShell` component into a module-level constant (`JSON_LD`).
+- `@testing-library/user-event` updated from `14.6.7` to `14.6.8`
+- `@types/node` updated from `22.20.3` to `22.20.5`
+- `@vitest/ui` updated from `4.1.11` to `4.1.12`
+- `eslint-plugin-prettier` updated from `5.5.6` to `5.5.7`
+- `jsdom` updated from `30.1.0` to `30.1.3`
+- `prettier` updated from `3.9.8` to `3.9.10`
+- `typescript-eslint` updated from `8.70.0` to `8.72.0`
+- `tsx` updated from `4.23.13` to `4.23.15`
+- `vite` updated from `8.3.0` to `8.3.5`
+- `vitest` updated from `4.1.11` to `4.1.12`
+- `@sentry/tanstackstart-react` updated from `11.4.0` to `11.8.0`
+- `@tanstack/react-query` updated from `5.103.1` to `5.104.5`
+- `@tanstack/react-router` updated from `1.170.38` to `1.170.45`
+- `@tanstack/react-start` updated from `1.168.56` to `1.169.3`
+- `@tanstack/router-plugin` updated from `1.168.40` to `1.168.47`
+- `react` updated from `19.3.0` to `19.3.1`
+- `react-dom` updated from `19.3.0` to `19.3.1`
 
-🎯 **Why:**
-The JSON object representing the user profile was static, but by keeping it inside the JSX `dangerouslySetInnerHTML` prop, it caused the object to be newly allocated and stringified on every single render cycle of the `RootShell` component, introducing continuous and unnecessary CPU overhead.
+### Issues Requiring Manual Review
 
-📊 **Measured Improvement:**
-Based on a Node.js benchmark simulation of the stringification loop over 10 million iterations:
-
-- **Baseline:** ~12,065ms
-- **After Optimization:** ~14ms
-- **Improvement:** ~860x faster for this specific operation execution. While the absolute time saved per render is extremely small, moving this off the hot path entirely eliminates the recurring CPU cost.
+None. All tests and verifications have passed successfully. The live site (mordach.com) is online and responsive.
