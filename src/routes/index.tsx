@@ -9,6 +9,7 @@ import { Certifications } from "../components/sections/certifications";
 import { Vision } from "../components/sections/vision";
 import { Contact } from "../components/sections/contact";
 import { Footer } from "../components/sections/footer";
+import { CommandPalette } from "../components/sections/command-palette";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -53,6 +54,7 @@ function Index() {
       <Vision />
       <Contact />
       <Footer />
+      <CommandPalette />
     </main>
   );
 }
