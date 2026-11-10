@@ -151,7 +151,7 @@ function RootShell({ children }: { children: ReactNode }) {
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JD6T30RE9" />
         <script
           dangerouslySetInnerHTML={{
-            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6JD6T30RE9');`,
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6JD6T30RE9');(function(){function syncConsent(mode){var state=mode==='reject'?'denied':'granted';gtag('consent','update',{analytics_storage:state,functionality_storage:state,security_storage:'granted'});}function checkEmptySp(){try{var dyn=JSON.parse(localStorage.getItem('sp_dynamic:6ac6218e6d1ba126ab9d177c')||'null');if(dyn&&dyn.saved&&Array.isArray(dyn.data&&dyn.data.subConsents)&&dyn.data.subConsents.length===0){syncConsent('accept');return true;}}catch(e){}return false;}if(!checkEmptySp()){setTimeout(checkEmptySp,1500);setTimeout(checkEmptySp,3500);}window.addEventListener('sp_cookie_banner_save',function(e){syncConsent(e&&e.detail);});window.addEventListener('sp_privacy_banner_save',function(e){syncConsent(e&&e.detail);});})();`,
           }}
         />
         {/* Microsoft Clarity */}
