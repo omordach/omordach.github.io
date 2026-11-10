@@ -1,5 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useContext, useState, type ReactNode } from "react";
+import { createContext, useContext, useSyncExternalStore, type ReactNode } from "react";
 
 type Theme = "light" | "dark";
 
@@ -10,25 +10,42 @@ interface ThemeContextValue {
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
+const listeners = new Set<() => void>();
+
+function subscribeTheme(callback: () => void) {
+  listeners.add(callback);
+  return () => {
+    listeners.delete(callback);
+  };
+}
+
 /**
  * Reads the current theme class that was already applied by the
  * blocking inline script in <head> (to avoid FOUC on SSR).
  */
-function getInitialTheme(): Theme {
+function getClientThemeSnapshot(): Theme {
   if (typeof document !== "undefined") {
     return document.documentElement.classList.contains("dark") ? "dark" : "light";
   }
   return "light";
 }
 
+function getServerThemeSnapshot(): Theme {
+  return "light";
+}
+
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(getInitialTheme);
+  const theme = useSyncExternalStore(
+    subscribeTheme,
+    getClientThemeSnapshot,
+    getServerThemeSnapshot,
+  );
 
   const toggle = () => {
     const next: Theme = theme === "dark" ? "light" : "dark";
-    setTheme(next);
     document.documentElement.classList.toggle("dark", next === "dark");
     localStorage.setItem("theme", next);
+    listeners.forEach((l) => l());
   };
 
   return <ThemeContext.Provider value={{ theme, toggle }}>{children}</ThemeContext.Provider>;

@@ -143,7 +143,7 @@ const _JSON_LD = JSON.stringify({
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         {/* Secure Privacy consent banner — must load first, before any trackers */}
         <script src="https://app.secureprivacy.ai/script/6ac6218e6d1ba126ab9d177c.js" />
