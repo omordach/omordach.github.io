@@ -61,6 +61,7 @@ export function Nav() {
           <button
             onClick={toggle}
             aria-label="Toggle theme"
+            suppressHydrationWarning
             className="size-9 inline-flex items-center justify-center rounded-full border border-border text-muted-foreground hover:text-foreground transition-colors"
           >
             {theme === "dark" ? "☼" : "☾"}
