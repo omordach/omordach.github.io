@@ -6,11 +6,12 @@
  * for smoke tests) and asserts key structural content is present.
  */
 import { describe, it, expect, beforeEach } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { ThemeProvider } from "@/hooks/use-theme";
 import { Hero } from "@/components/sections/hero";
 import { Nav } from "@/components/sections/nav";
 import { Footer } from "@/components/sections/footer";
+import { CommandPalette } from "@/components/sections/command-palette";
 
 describe("Index page — Hero section", () => {
   it("renders the headline", () => {
@@ -59,5 +60,28 @@ describe("Index page — Footer", () => {
   it("renders the Warsaw coordinates", () => {
     render(<Footer />);
     expect(screen.getByText(/52\.2297/)).toBeInTheDocument();
+  });
+});
+
+describe("Index page — CommandPalette", () => {
+  it("opens on Cmd+K, filters commands, and closes on Escape", () => {
+    render(
+      <ThemeProvider>
+        <Nav />
+        <CommandPalette />
+      </ThemeProvider>,
+    );
+
+    expect(screen.queryByRole("dialog", { name: "Command palette" })).not.toBeInTheDocument();
+
+    fireEvent.keyDown(window, { key: "k", metaKey: true });
+    expect(screen.getByRole("dialog", { name: "Command palette" })).toBeInTheDocument();
+
+    const searchInput = screen.getByRole("textbox", { name: "Search commands" });
+    fireEvent.change(searchInput, { target: { value: "Resume" } });
+    expect(screen.getByText("Open Resume (PDF)")).toBeInTheDocument();
+
+    fireEvent.keyDown(window, { key: "Escape" });
+    expect(screen.queryByRole("dialog", { name: "Command palette" })).not.toBeInTheDocument();
   });
 });
